@@ -12,12 +12,12 @@ export default function Header() {
             {"\n \n \n \n "}
           </div>
           {"\n "}
-          <a className="logo" href="https://www.atlantanet.com.br/" title="Atlanta Materiais para Construção">
+          <a className="logo" href="https://www.atlantanet.com.br/" title="BateForte Materiais para Construção & Madeireira">
             {"\n "}
-            <img src="/assets/img-fb172cf24605.webp" alt="Atlanta Materiais para Construção" width="222" height="36" />
+            <img src="/assets/img-fb172cf24605.webp" alt="BateForte Materiais para Construção & Madeireira" width="222" height="36" />
             {"\n \n "}
             <h1 className="title-store sf-hidden">
-              {"Atlanta Materiais para Construção"}
+              {"BateForte Materiais para Construção & Madeireira"}
             </h1>
             {"\n "}
           </a>

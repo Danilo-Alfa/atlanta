@@ -8,9 +8,9 @@ export default function Footer() {
           {"\n "}
           <div className="box box-logo">
             {"\n "}
-            <a className="logo" href="https://www.atlantanet.com.br/" title="Atlanta Materiais para Construção">
+            <a className="logo" href="https://www.atlantanet.com.br/" title="BateForte Materiais para Construção & Madeireira">
               {"\n "}
-              <img src="/assets/img-dc6278851a6d.webp" alt="Atlanta Materiais para Construção" width="auto" height="auto" />
+              <img src="/assets/img-dc6278851a6d.webp" alt="BateForte Materiais para Construção & Madeireira" width="auto" height="auto" />
               {"\n "}
             </a>
             {" \n "}
@@ -519,7 +519,7 @@ export default function Footer() {
         <div className="container flex align-center flex-column">
           {"\n \n \n "}
           <div className="text">
-            {"Atlanta Materiais para Construção - © Todos os direitos reservados.\nCNPJ: 03.073.501/0001-96"}
+            {"BateForte Materiais para Construção & Madeireira - © Todos os direitos reservados.\nCNPJ: 00.000.000/0001-00"}
           </div>
           {"\n \n "}
           <div className="tray">
