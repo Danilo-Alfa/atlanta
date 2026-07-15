@@ -183,6 +183,12 @@ body.bf-pdp-open .bf-pdp { display: block; }
   .bf-pdp__related-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* página de categoria (#/categoria/<slug>) */
+.bf-cat__count { font-size: .8125rem; color: #777; margin: -6px 0 16px; }
+.bf-cat__empty { text-align: center; padding: 30px 15px 10px; }
+.bf-cat__empty p { max-width: 480px; margin: 0 auto 20px; font-size: .9375rem; line-height: 1.6; color: #555; }
+.bf-cat__empty .bf-pdp__whats { margin: 0 auto; }
+
 /* ---- botão adicionar ao carrinho (injetado em cada produto) ---- */
 .product .actions { display: flex; }
 .bf-add-cart {
