@@ -84,13 +84,13 @@ export default function Header() {
                   {"\n \n \n \n "}
                   <div className="header-wrapper__item header-wrapper__item--email">
                     {"\n "}
-                    <a href="mailto:atlantanet@atlantanet.com.br" title="Email: atlantanet@atlantanet.com.br">
+                    <a href="mailto:contato@bateforte.com.br" title="Email: contato@bateforte.com.br">
                       {"\n "}
                       <span>
                         <i className="icon icon-email v-align-middle" />
                         {"E-mail:"}
                       </span>
-                      {"\n atlantanet@atlantanet.com.br\n "}
+                      {"\n contato@bateforte.com.br\n "}
                     </a>
                     {"\n "}
                   </div>
@@ -125,7 +125,7 @@ export default function Header() {
             {"\n \n "}
             <div className="account flex align-center">
               {"\n "}
-              <a href="https://www.atlantanet.com.br/my-account/login" title="Minha Conta">
+              <a href="#/conta" title="Minha Conta">
                 {"\n "}
                 <i className="account-icon icon">
                   {"\n "}
@@ -146,7 +146,7 @@ export default function Header() {
                 {"\n "}
                 <div className="login-links">
                   {"\n "}
-                  <a href="https://www.atlantanet.com.br/loja/central_cliente-1018104" title="Entrar">
+                  <a href="#/conta" title="Entrar">
                     {"Acessar"}
                   </a>
                   {"\n "}
@@ -166,7 +166,7 @@ export default function Header() {
                     {"\n "}
                     <div className="login-links flex flex-column">
                       {"\n "}
-                      <a href="https://www.atlantanet.com.br/my-account/login" title="Entrar" className="login-links__featured">
+                      <a href="#/conta" title="Entrar" className="login-links__featured">
                         <i className="icon icon-login-new v-align-middle" />
                         {" Entrar"}
                       </a>

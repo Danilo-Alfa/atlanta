@@ -18,6 +18,7 @@ export function initInteractive() {
   initGlobalClose()
   initFooterAccordion()
   initProductPage()
+  initTracking()
 }
 
 /* ------------------------------------------------------------------ */
@@ -178,6 +179,32 @@ function initCookieBanner() {
     localStorage.setItem('bf_cookie_consent', 'dismiss')
     banner.classList.add('bf-hiding')
     setTimeout(() => banner.classList.add('bf-hidden'), 1000)
+  })
+}
+
+/* ------------------------------------------------------------------ */
+/* Rastrear pedido (header desktop e menu mobile)                      */
+/* ------------------------------------------------------------------ */
+function initTracking() {
+  const go = (form) => {
+    const input = form.querySelector('input')
+    const code = input?.value.trim()
+    if (!code) {
+      input?.focus()
+      return
+    }
+    const base = form.getAttribute('url-shipping') || 'https://rastreamentocorreios.info/consulta/'
+    window.open(base + encodeURIComponent(code), '_blank', 'noopener')
+  }
+  document.addEventListener('click', (e) => {
+    const btn = e.target.closest('.header-wrapper__form .header-wrapper__button')
+    if (btn) go(btn.closest('.header-wrapper__form'))
+  })
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && e.target.matches('.header-wrapper__form input')) {
+      e.preventDefault()
+      go(e.target.closest('.header-wrapper__form'))
+    }
   })
 }
 

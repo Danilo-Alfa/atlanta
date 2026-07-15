@@ -63,7 +63,7 @@ export function initCart() {
       openCart()
       return
     }
-    if (e.target.closest('.cart-toggle')) {
+    if (e.target.closest('.cart-toggle') || e.target.closest('[data-bf-open-cart]')) {
       e.preventDefault()
       openCart()
       return

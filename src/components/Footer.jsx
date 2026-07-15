@@ -307,10 +307,10 @@ export default function Footer() {
                 {"\n \n \n "}
                 <li>
                   {"\n "}
-                  <a href="mailto:atlantanet@atlantanet.com.br" title="Email: atlantanet@atlantanet.com.br">
+                  <a href="mailto:contato@bateforte.com.br" title="Email: contato@bateforte.com.br">
                     {"\n "}
                     <i className="icon icon-email v-align-middle" />
-                    {"\n atlantanet@atlantanet.com.br\n "}
+                    {"\n contato@bateforte.com.br\n "}
                   </a>
                   {"\n "}
                 </li>

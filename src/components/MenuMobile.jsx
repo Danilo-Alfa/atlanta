@@ -138,7 +138,7 @@ export default function MenuMobile() {
             {"\n "}
             <div className="login-links">
               {"\n "}
-              <a href="https://www.atlantanet.com.br/my-account/login" title="Entrar">
+              <a href="#/conta" title="Entrar">
                 {"Entrar"}
               </a>
               {"\n "}
@@ -146,7 +146,7 @@ export default function MenuMobile() {
                 {"/"}
               </span>
               {"\n "}
-              <a href="https://www.atlantanet.com.br/cadastro" title="Cadastrar">
+              <a href="#/conta" title="Cadastrar">
                 {"Cadastrar"}
               </a>
               {"\n "}
@@ -172,12 +172,12 @@ export default function MenuMobile() {
           {"\n \n "}
           <li className="email-menu-mobile">
             {"\n "}
-            <a href="mailto:atlantanet@atlantanet.com.br" title="Email: atlantanet@atlantanet.com.br">
+            <a href="mailto:contato@bateforte.com.br" title="Email: contato@bateforte.com.br">
               {"\n "}
               <i className="icon icon-email v-align-middle" />
               {"\n E-mail:\n "}
               <span>
-                {"atlantanet@atlantanet.com.br"}
+                {"contato@bateforte.com.br"}
               </span>
               {"\n "}
             </a>
@@ -198,7 +198,7 @@ export default function MenuMobile() {
               {"\n "}
               <div className="header-wrapper__form" url-shipping="https://rastreamentocorreios.info/consulta/">
                 {"\n "}
-                <input type="text" placeholder="Cï¿½digo de rastreio" defaultValue="" />
+                <input type="text" placeholder="Código de rastreio" defaultValue="" />
                 {"\n "}
                 <div className="header-wrapper__button">
                   <i className="icon icon-search" />
