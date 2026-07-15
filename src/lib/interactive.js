@@ -15,25 +15,31 @@ export function initInteractive() {
   initCookieBanner()
   initCart()
   initGlobalClose()
+  initFooterAccordion()
 }
 
 /* ------------------------------------------------------------------ */
 /* Carrosséis                                                          */
 /* ------------------------------------------------------------------ */
+function enableArrows(el) {
+  const prev = el.querySelector('.prev')
+  const next = el.querySelector('.next')
+  for (const [btn, icon] of [[prev, 'icon-arrow-left'], [next, 'icon-arrow-right']]) {
+    if (btn && !btn.querySelector('.icon')) {
+      btn.classList.remove('sf-hidden')
+      btn.removeAttribute('aria-disabled')
+      btn.insertAdjacentHTML('beforeend', `<i class="icon ${icon}"></i>`)
+    }
+  }
+  return { prev, next }
+}
+
 function initCarousels() {
   // Vitrines de produtos: setas + arrastar (2 por tela no mobile, 4 no desktop,
   // conforme o slider_parameters original data-quantity-desktop/mobile)
   document.querySelectorAll('.section-showcase .list-product.swiper-container').forEach((el) => {
     el.classList.add('bf-carousel')
-    const prev = el.querySelector('.prev')
-    const next = el.querySelector('.next')
-    for (const [btn, icon] of [[prev, 'icon-arrow-left'], [next, 'icon-arrow-right']]) {
-      if (btn && !btn.querySelector('.icon')) {
-        btn.classList.remove('sf-hidden')
-        btn.removeAttribute('aria-disabled')
-        btn.insertAdjacentHTML('beforeend', `<i class="icon ${icon}"></i>`)
-      }
-    }
+    const { prev, next } = enableArrows(el)
     new Swiper(el, {
       modules: [Navigation],
       slidesPerView: 2,
@@ -43,6 +49,26 @@ function initCarousels() {
       watchOverflow: true,
     })
   })
+
+  // Categorias (buy-sizes): os slides estavam congelados em 190px fixos,
+  // estourando no mobile e sangrando nas bordas em telas médias.
+  const buySizes = document.querySelector('.buy-sizes .swiper-container')
+  if (buySizes) {
+    buySizes.classList.add('bf-carousel')
+    const nav = enableArrows(buySizes)
+    new Swiper(buySizes, {
+      modules: [Navigation],
+      slidesPerView: 2,
+      spaceBetween: 12,
+      breakpoints: {
+        480: { slidesPerView: 3, spaceBetween: 16 },
+        768: { slidesPerView: 4, spaceBetween: 20 },
+        1024: { slidesPerView: 6, spaceBetween: 24 },
+      },
+      navigation: { prevEl: nav.prev, nextEl: nav.next },
+      watchOverflow: true,
+    })
+  }
 
   // Marcas: esteira contínua em loop (pausa ao passar o mouse)
   const brands = document.querySelector('.brands-custom .swiper-container')
@@ -147,6 +173,22 @@ function initCookieBanner() {
     localStorage.setItem('bf_cookie_consent', 'dismiss')
     banner.classList.add('bf-hiding')
     setTimeout(() => banner.classList.add('bf-hidden'), 1000)
+  })
+}
+
+/* ------------------------------------------------------------------ */
+/* Footer: acordeão no mobile                                          */
+/* ------------------------------------------------------------------ */
+function initFooterAccordion() {
+  document.querySelectorAll('.footer .box').forEach((box) => {
+    const title = box.querySelector(':scope > .title')
+    const overflow = box.querySelector(':scope > .overflow')
+    if (!title || !overflow) return
+    title.querySelector('.icon-arrow-down')?.classList.remove('sf-hidden')
+    title.addEventListener('click', () => {
+      if (window.innerWidth > 768) return
+      box.classList.toggle('bf-expanded')
+    })
   })
 }
 

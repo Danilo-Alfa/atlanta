@@ -26,6 +26,27 @@ continha — definidos em `src/styles/interactive.css`:
   loja são "sob consulta", sem preço no markup)
 - Overlay e `ESC` fecham menu/carrinho
 
+## Camada responsiva
+
+O CSS capturado foi congelado no viewport da captura; `src/styles/responsive.css`
+corrige onde o layout quebrava em outras larguras (auditado com Playwright em
+320/390/600/768/1024/1280px — 0px de overflow horizontal em todas):
+
+- Removido o `body{min-width:360px}` original (cortava conteúdo em telas ≤360px)
+- `overflow-x:hidden` global: os dropdowns ocultos do mega-menu (800px fixos)
+  estendiam a rolagem em larguras intermediárias; o mega-menu também é limitado
+  à viewport
+- **Banner principal**: arte mobile dedicada 1:1 (`<picture>` + proporção
+  ajustada) — a arte desktop 1920×620 ficava ilegível no celular
+- **Categorias (buy-sizes)**: slides congelados em 190px viram carrossel Swiper
+  responsivo (2/3/4/6 por tela)
+- **Header em telas médias** (769–1199px): mini-ícones do menu ocultos, logo
+  compacto e atendimento/conta só com ícones — a linha não cabia e o carrinho
+  saía da tela
+- **Footer no mobile**: as listas eram um acordeão sem estado aberto na
+  captura; toggle ligado em `interactive.js`
+- Vídeo institucional fluido (era 560×315 fixo)
+
 Verificação: comparação pixel a pixel entre o HTML original e o app React resultou
 em **0,0% de diferença** tanto em desktop (1440px) quanto em mobile (390px).
 

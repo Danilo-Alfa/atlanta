@@ -8,8 +8,8 @@ export default function Instagram() {
         {"\n "}
         <h2 className="title-section">
           {"\n "}
-          <a href="https://www.instagram.com/atlanta_materiais/" target="_blank" rel="noopener noreferrer">
-            {"\n Siga-nos no Instagram @atlanta_materiais\n "}
+          <a href="https://www.instagram.com/bateforte/" target="_blank" rel="noopener noreferrer">
+            {"\n Siga-nos no Instagram @bateforte\n "}
           </a>
           {"\n "}
         </h2>
