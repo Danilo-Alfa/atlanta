@@ -30,6 +30,13 @@ continha — definidos em `src/styles/interactive.css`:
   breadcrumb, foto, referência, quantidade, adicionar ao carrinho, comprar pelo
   WhatsApp e produtos relacionados (mesma vitrine). Montada em runtime com os
   dados do próprio card; botão voltar do navegador funciona (rota por hash)
+- **Navbar com os departamentos reais da loja** (fachada: Cimento, Areia,
+  Ferro, Elétrica, Hidráulica + Madeiras, Telhas, Tintas), com ícones próprios
+  em SVG no azul da marca — no desktop e no menu mobile. Cada departamento abre
+  uma **página de categoria interna** (`#/categoria/<slug>`) listando os
+  produtos capturados que casam com o padrão do departamento (deduplicados,
+  com a foto real extraída do background congelado do SingleFile); categorias
+  sem produto no catálogo capturado mostram CTA de consulta pelo WhatsApp
 
 ## Camada responsiva
 

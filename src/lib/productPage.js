@@ -9,10 +9,36 @@ import { addItem, closeCart, openCart } from './cart.js'
 const products = new Map()
 let originalTitle = ''
 
+// Departamentos reais da loja (fachada: Cimento, Areia, Ferro, Elétrica,
+// Hidráulica — mais Madeiras/Telhas/Tintas das vitrines). Cada página de
+// categoria lista os produtos capturados cujo nome casa com o padrão.
+const CATEGORIES = {
+  cimento: { name: 'Cimento', test: /cimento|argamassa|concreto|bloco|\bcal\b/i },
+  areia: { name: 'Areia', test: /areia|pedra|brita/i },
+  ferro: { name: 'Ferro', test: /\bferro\b|vergalh|treli|arame|prego/i },
+  eletrica: { name: 'Elétrica', test: /cabo|\bfio\b|fios|el[eé]tr|disjuntor|tomada|interruptor/i },
+  hidraulica: { name: 'Hidráulica', test: /hidr|tubo|cano|conex|torneira|caixa d/i },
+  madeiras: { name: 'Madeiras', test: /madeir|caibro|sarrafo|batente|pinus|eucalipto|ripa|t[áa]bua|\beuc\b/i },
+  telhas: { name: 'Telhas', test: /telha/i },
+  tintas: { name: 'Tintas', test: /tinta|esmalte|self base|verniz|selador/i },
+}
+const WHATSAPP_STORE = 'https://wa.me/5511933777529'
+
 function esc(s) {
   const d = document.createElement('div')
   d.textContent = s || ''
   return d.innerHTML
+}
+
+function resolveImg(imgEl) {
+  if (!imgEl) return ''
+  const src = imgEl.getAttribute('src') || ''
+  // Nos cards do mega-menu a foto real está num background-image congelado
+  // (var --sf-img-N do SingleFile) e o src é só um placeholder .svg
+  const bg = getComputedStyle(imgEl).backgroundImage
+  const m = bg && bg.match(/url\("(data:[^"]+)"\)/)
+  if (m && src.endsWith('.svg')) return m[1]
+  return src
 }
 
 function collectProducts() {
@@ -24,7 +50,7 @@ function collectProducts() {
       id,
       ref: (p.getAttribute('product-ref') || '').replace('ref-empty', ''),
       name: p.querySelector('.product-name')?.textContent.trim() || 'Produto',
-      img: p.querySelector('.image img')?.getAttribute('src') || '',
+      img: resolveImg(p.querySelector('.image img')),
       tag: p.querySelector('.product-tags .tag-text')?.textContent.trim() || '',
       whats: p.querySelector('.buy-whatsapp a')?.getAttribute('href') || '',
       section: section?.querySelector('.title-section')?.textContent.trim() || 'Produtos',
@@ -99,20 +125,75 @@ function render(prod) {
   window.scrollTo(0, 0)
 }
 
+function renderCategory(slug) {
+  const cat = CATEGORIES[slug]
+  let host = document.querySelector('.bf-pdp')
+  if (!host) {
+    host = document.createElement('div')
+    host.className = 'bf-pdp'
+    document.querySelector('main.site-main')?.appendChild(host)
+  }
+  const seen = new Set()
+  const list = [...products.values()].filter((p) => {
+    if (!cat.test.test(p.name)) return false
+    const key = p.name.toLowerCase().replace(/\s+/g, ' ')
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+  const msg = encodeURIComponent(`Olá! Estou procurando produtos de ${cat.name}. Pode me ajudar?`)
+  host.innerHTML = `
+    <div class="container">
+      <nav class="bf-pdp__breadcrumb">
+        <a href="#" data-bf-close-pdp>Início</a>
+        <span> / </span>
+        <strong>${esc(cat.name)}</strong>
+      </nav>
+      <div class="section-header"><h2 class="title-section">${esc(cat.name)}</h2></div>
+      ${list.length ? `
+      <p class="bf-cat__count">${list.length} ${list.length === 1 ? 'produto' : 'produtos'}</p>
+      <div class="bf-pdp__related-grid">
+        ${list
+          .map(
+            (p) => `
+        <a class="bf-pdp__related-card" href="#/produto/${esc(p.id)}">
+          <img src="${esc(p.img)}" alt="${esc(p.name)}">
+          <span class="bf-pdp__related-name">${esc(p.name)}</span>
+          <span class="bf-pdp__related-price">Preço sob consulta</span>
+        </a>`
+          )
+          .join('')}
+      </div>` : `
+      <div class="bf-cat__empty">
+        <p>Trabalhamos com toda a linha de <strong>${esc(cat.name)}</strong> na loja — o catálogo online mostra só uma parte do estoque.</p>
+        <a class="bf-pdp__whats" href="${WHATSAPP_STORE}?text=${msg}" target="_blank" rel="noopener noreferrer"><i class="icon icon-whatsapp v-align-middle"></i> Consultar pelo WhatsApp</a>
+      </div>`}
+    </div>`
+  document.body.classList.add('bf-pdp-open')
+  document.title = `${cat.name} - BateForte Materiais para Construção & Madeireira`
+  window.scrollTo(0, 0)
+}
+
 function close() {
   document.body.classList.remove('bf-pdp-open')
   document.title = originalTitle
 }
 
 function onHashChange() {
-  const m = location.hash.match(/^#\/produto\/(.+)$/)
-  if (m) {
-    const prod = products.get(decodeURIComponent(m[1]))
+  const mp = location.hash.match(/^#\/produto\/(.+)$/)
+  if (mp) {
+    const prod = products.get(decodeURIComponent(mp[1]))
     if (prod) {
       closeCart()
       render(prod)
       return
     }
+  }
+  const mc = location.hash.match(/^#\/categoria\/([a-z-]+)$/)
+  if (mc && CATEGORIES[mc[1]]) {
+    closeCart()
+    renderCategory(mc[1])
+    return
   }
   close()
 }

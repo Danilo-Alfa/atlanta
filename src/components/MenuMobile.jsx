@@ -1,5 +1,3 @@
-import { rawStyle } from '../lib/rawStyle'
-
 export default function MenuMobile() {
   return (
     <div id="menu-mobile" className="menu-mobile">
@@ -24,354 +22,102 @@ export default function MenuMobile() {
           {" \n "}
           <ul className="list first-level">
             {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/materiais-de-construcao" className="not-clickable">
+            <li>
+              {"\n "}
+              <a href="#/categoria/cimento">
                 {"\n "}
                 <div className="category-image">
-                  {"\n "}
-                  <img src="/assets/img-6e4e47f90b1c.svg" alt="Material de Construção" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-17)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                  {" \n "}
+                  <img src="/assets/bf-icon-cimento.svg" alt="Cimento" width="20" height="20" />
                 </div>
-                {"\n Material de Construção\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
+                {"\n Cimento\n "}
               </a>
               {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/tintas-eacessorios" className="not-clickable">
-                {"\n "}
-                <div className="category-image">
-                  {"\n "}
-                  <img src="/assets/img-6e4e47f90b1c.svg" alt="Tintas e Acessórios" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-18)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                  {" \n "}
-                </div>
-                {"\n Tintas e Acessórios\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
-              </a>
-              {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/impermeabilizante" className="not-clickable">
-                {"\n "}
-                <div className="category-image">
-                  {"\n "}
-                  <img src="/assets/img-6e4e47f90b1c.svg" alt="Impermeabilizante" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-19)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                  {" \n "}
-                </div>
-                {"\n Impermeabilizante\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
-              </a>
-              {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/madeiras" className="not-clickable">
-                {"\n "}
-                <div className="category-image">
-                  {"\n "}
-                  <img src="/assets/img-6e4e47f90b1c.svg" alt="Madeiras" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-20)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                  {" \n "}
-                </div>
-                {"\n Madeiras\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
-              </a>
-              {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/telha" className="not-clickable">
-                {"\n "}
-                <div className="category-image">
-                  {"\n "}
-                  <img src="/assets/img-6e4e47f90b1c.svg" alt="Telha" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-21)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                  {" \n "}
-                </div>
-                {"\n Telha\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
-              </a>
-              {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/ferramentas" className="not-clickable">
-                {"\n "}
-                <div className="category-image">
-                  {"\n "}
-                  <img src="/assets/img-6e4e47f90b1c.svg" alt="Ferramentas" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-22)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                  {" \n "}
-                </div>
-                {"\n Ferramentas\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
-              </a>
-              {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/hidraulica" className="not-clickable">
-                {"\n "}
-                <div className="category-image">
-                  {"\n "}
-                  <img src="/assets/img-6e4e47f90b1c.svg" alt="Hidráulica" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-23)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                  {" \n "}
-                </div>
-                {"\n Hidráulica\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
-              </a>
-              {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/eletrica" className="not-clickable">
-                {"\n "}
-                <div className="category-image">
-                  {"\n "}
-                  <img src="/assets/img-6e4e47f90b1c.svg" alt="Elétrica" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-24)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                  {" \n "}
-                </div>
-                {"\n Elétrica\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
-              </a>
-              {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/banheiro" className="not-clickable">
-                {"\n "}
-                <div className="category-image">
-                  {"\n "}
-                  <img src="/assets/img-6e4e47f90b1c.svg" alt="Banheiro" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-25)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                  {" \n "}
-                </div>
-                {"\n Banheiro\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
-              </a>
-              {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/ferragens" className="not-clickable">
-                {"\n "}
-                <div className="category-image">
-                  {"\n "}
-                  <img src="/assets/img-6e4e47f90b1c.svg" alt="Ferragens" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-26)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                  {" \n "}
-                </div>
-                {"\n Ferragens\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
-              </a>
-              {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/portas" className="not-clickable">
-                {"\n "}
-                <div className="category-image">
-                  {"\n "}
-                  <img src="/assets/img-6e4e47f90b1c.svg" alt="Porta" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-27)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                  {" \n "}
-                </div>
-                {"\n Porta\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
-              </a>
-              {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/cozinha" className="not-clickable">
-                {"\n "}
-                <div className="category-image">
-                  {"\n "}
-                  <img src="/assets/img-6e4e47f90b1c.svg" alt="Cozinha" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-28)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                  {" \n "}
-                </div>
-                {"\n Cozinha\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
-              </a>
-              {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/area-de-servico" className="not-clickable">
-                {"\n "}
-                <div className="category-image">
-                  {"\n "}
-                  <img src="/assets/img-6e4e47f90b1c.svg" alt="Área de Serviço" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-29)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                  {" \n "}
-                </div>
-                {"\n Área de Serviço\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
-              </a>
-              {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n \n \n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/calhas" className="not-clickable">
-                {"\n "}
-                <div className="category-image">
-                  {"\n "}
-                  <img src="/assets/img-6e4e47f90b1c.svg" alt="Calhas" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-30)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                  {" \n "}
-                </div>
-                {"\n Calhas\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
-              </a>
-              {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/piso-e-revestimos" className="not-clickable">
-                {"\n Pisos e Revestimentos\n \n "}
-                <i className="icon icon-arrow-down" />
-                {"\n "}
-              </a>
-              {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
             </li>
             {"\n \n "}
             <li>
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/fitas-isolantes" className="not-clickable">
-                {"\n Fitas Isolantes\n "}
-              </a>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li>
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/produtos-de-limpeza" className="not-clickable">
-                {"\n Produtos De Limpeza\n "}
-              </a>
-              {"\n \n "}
-            </li>
-            {"\n \n "}
-            <li className="sub">
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/casa-e-jardim" className="not-clickable">
-                {"\n Casa e Jardim\n \n "}
-                <i className="icon icon-arrow-down" />
+              {"\n "}
+              <a href="#/categoria/areia">
                 {"\n "}
+                <div className="category-image">
+                  <img src="/assets/bf-icon-areia.svg" alt="Areia" width="20" height="20" />
+                </div>
+                {"\n Areia\n "}
               </a>
               {"\n "}
-              <ul className="second-level sf-hidden">
-                {"\n \n \n \n \n \n \n \n \n \n \n "}
-              </ul>
-              {"\n \n "}
             </li>
             {"\n \n "}
             <li>
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/organizacao-e-limpeza" className="not-clickable">
-                {"\n Organização e Limpeza\n "}
+              {"\n "}
+              <a href="#/categoria/ferro">
+                {"\n "}
+                <div className="category-image">
+                  <img src="/assets/bf-icon-ferro.svg" alt="Ferro" width="20" height="20" />
+                </div>
+                {"\n Ferro\n "}
               </a>
-              {"\n \n "}
+              {"\n "}
             </li>
             {"\n \n "}
             <li>
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/argamassa-vitrine" className="not-clickable">
-                {"\n promoção vitrine\n "}
+              {"\n "}
+              <a href="#/categoria/eletrica">
+                {"\n "}
+                <div className="category-image">
+                  <img src="/assets/bf-icon-eletrica.svg" alt="Elétrica" width="20" height="20" />
+                </div>
+                {"\n Elétrica\n "}
               </a>
-              {"\n \n "}
+              {"\n "}
             </li>
             {"\n \n "}
             <li>
-              {"\n \n "}
-              <a href="https://www.atlantanet.com.br/promocao-porcelanato" className="not-clickable">
-                {"\n Promoção Porcelanato\n "}
+              {"\n "}
+              <a href="#/categoria/hidraulica">
+                {"\n "}
+                <div className="category-image">
+                  <img src="/assets/bf-icon-hidraulica.svg" alt="Hidráulica" width="20" height="20" />
+                </div>
+                {"\n Hidráulica\n "}
               </a>
-              {"\n \n "}
+              {"\n "}
             </li>
-            {"\n \n \n "}
+            {"\n \n "}
+            <li>
+              {"\n "}
+              <a href="#/categoria/madeiras">
+                {"\n "}
+                <div className="category-image">
+                  <img src="/assets/bf-icon-madeiras.svg" alt="Madeiras" width="20" height="20" />
+                </div>
+                {"\n Madeiras\n "}
+              </a>
+              {"\n "}
+            </li>
+            {"\n \n "}
+            <li>
+              {"\n "}
+              <a href="#/categoria/telhas">
+                {"\n "}
+                <div className="category-image">
+                  <img src="/assets/bf-icon-telhas.svg" alt="Telhas" width="20" height="20" />
+                </div>
+                {"\n Telhas\n "}
+              </a>
+              {"\n "}
+            </li>
+            {"\n \n "}
+            <li>
+              {"\n "}
+              <a href="#/categoria/tintas">
+                {"\n "}
+                <div className="category-image">
+                  <img src="/assets/bf-icon-tintas.svg" alt="Tintas" width="20" height="20" />
+                </div>
+                {"\n Tintas\n "}
+              </a>
+              {"\n "}
+            </li>
+            {"\n \n "}
           </ul>
           {" \n "}
         </nav>

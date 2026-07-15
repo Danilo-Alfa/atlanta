@@ -143,6 +143,9 @@ function initMenuMobile() {
       openMenu()
     } else if (e.target.closest('.menu-mobile .close-box')) {
       closeMenu()
+    } else if (e.target.closest('.menu-mobile a[href^="#/"]')) {
+      // navegação interna (categoria/produto): fecha o drawer
+      closeMenu()
     }
   })
 }
