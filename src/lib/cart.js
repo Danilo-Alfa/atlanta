@@ -26,10 +26,10 @@ function esc(s) {
   return d.innerHTML
 }
 
-export function addItem({ id, ref, name, img, href }) {
+export function addItem({ id, ref, name, img, href }, qty = 1) {
   const found = items.find((i) => i.id === id)
-  if (found) found.qty += 1
-  else items.push({ id, ref, name, img, href, qty: 1 })
+  if (found) found.qty += qty
+  else items.push({ id, ref, name, img, href, qty })
   save()
   render()
 }

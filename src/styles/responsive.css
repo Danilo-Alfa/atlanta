@@ -1,0 +1,79 @@
+/* ============================================================
+   Camada responsiva BateForte
+   O CSS capturado foi congelado no viewport da captura; este arquivo
+   corrige os pontos onde o layout quebra em outras larguras.
+   ============================================================ */
+
+/* O CSS original trava a página em 360px (body{min-width:360px}),
+   cortando conteúdo em telas menores (ex.: 320px). */
+body { min-width: 0; }
+
+/* Os dropdowns do mega-menu (800px, ocultos por visibility:hidden) e os
+   slides duplicados dos carrosséis estendem a área de rolagem e criam
+   barra horizontal em larguras intermediárias. */
+html, body { overflow-x: hidden; }
+
+/* Mega-menu nunca maior que a viewport (era fixo em 800px) */
+.nav .list .second-level.products-show { max-width: calc(100vw - 30px); }
+
+/* Vídeo institucional fluido (era 560x315 fixo) */
+#video-home iframe { width: 100%; max-width: 560px; aspect-ratio: 16 / 9; height: auto; }
+#video-home .video-item { padding: 0 15px; }
+
+/* ---- banner principal ----
+   No mobile a arte 1920x620 ficava ilegível; uma arte dedicada 1:1 entra
+   via <picture> e a proporção do contêiner acompanha. */
+@media (max-width: 768px) {
+  .banner-home .item-image:after { padding-bottom: 100% !important; }
+}
+
+/* ---- header desktop em telas médias (769–1279px) ----
+   Menos padding e fonte menor para caber sem esmagar a busca nem cortar
+   o botão "Ofertas Especiais". */
+@media (min-width: 769px) and (max-width: 1279px) {
+  .header .line { padding: 12px 10px; }
+  .header-search-wrapper, .input-search { min-width: 0; }
+  .nav .container { padding: 0 8px; }
+  .nav .list > li > a .name,
+  .nav .list > li > span .name,
+  li.first-level.categoria-offer > a .name { font-size: 13px; }
+}
+@media (min-width: 769px) and (max-width: 1199px) {
+  /* os mini-ícones dos itens do menu não cabem nesta faixa */
+  .nav .list > li > a .category-image,
+  .nav .list > li > span .category-image { display: none; }
+}
+@media (min-width: 769px) and (max-width: 1023px) {
+  /* a linha do header não cabia (logo + busca + atendimento + conta +
+     carrinho) e o carrinho saía da tela; ficam os ícones sem os textos */
+  .header .logo img { max-width: 190px; height: auto; }
+  .header .contact .contact-text,
+  .header .account .account-text { display: none; }
+  .header .search-move { padding-left: 8px; }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+  .nav .list > li > a .name,
+  .nav .list > li > span .name,
+  li.first-level.categoria-offer > a .name { font-size: 12px; }
+  .nav .list.justify-between > li:not(.categoria-offer) > a,
+  .nav .list.justify-between > li:not(.categoria-offer) > span { padding-left: 4px; padding-right: 4px; }
+}
+
+/* ---- footer: acordeão no mobile ----
+   O CSS capturado esconde as listas (.overflow{display:none}) mas o
+   estado aberto não existia; o toggle é ligado em interactive.js. */
+@media (max-width: 768px) {
+  .footer .box .title {
+    cursor: pointer;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer .box .title .icon-arrow-down { font-size: 13px; transition: transform .2s; }
+  .footer .box.bf-expanded .title .icon-arrow-down { transform: rotate(180deg); }
+  .footer .box.bf-expanded .overflow { display: block !important; }
+}
+
+/* ---- respiros gerais no mobile ---- */
+@media (max-width: 480px) {
+  .section-header .title-section { font-size: 1.25rem; }
+  .cart section#cart { max-width: 100%; width: 100%; }
+}
