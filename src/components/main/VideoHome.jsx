@@ -9,7 +9,7 @@ export default function VideoHome() {
         <div className="section-header">
           {"\n "}
           <h2 className="title-section">
-            {"Conheça a Atlanta"}
+            {"Conheça a BateForte"}
           </h2>
           {"\n "}
         </div>

@@ -135,7 +135,7 @@ export default function Reviews() {
               </small>
               {"\n "}
               <p>
-                {"\n Toda vez que penso em reforma, já ligo para a Atlanta.\n "}
+                {"\n Toda vez que penso em reforma, já ligo para a BateForte.\n "}
               </p>
               {"\n "}
             </div>
@@ -177,7 +177,7 @@ export default function Reviews() {
               </small>
               {"\n "}
               <p>
-                {"\n Não posso comprar os itens da reforma se não for na Atlanta.\n "}
+                {"\n Não posso comprar os itens da reforma se não for na BateForte.\n "}
               </p>
               {"\n "}
             </div>

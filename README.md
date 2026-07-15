@@ -1,8 +1,30 @@
-# Atlanta Materiais para Construção — conversão React
+# BateForte Materiais para Construção & Madeireira — React
 
-Conversão **fiel** (visualmente idêntica) da home da loja Atlanta, originalmente
+Conversão **fiel** (visualmente idêntica) da home da loja, originalmente
 salva como página única com **SingleFile** (HTML + CSS + imagens embutidos), para
-um projeto **React + Vite**.
+um projeto **React + Vite** — com rebranding para a identidade **BateForte /
+Jota Atacadista** (azul `#1d4e9c` / laranja `#ef7622`) e uma camada de
+interatividade por cima do markup capturado.
+
+## Camada de interatividade
+
+O markup capturado é estático; a interatividade é ligada em runtime por
+`src/lib/interactive.js` + `src/lib/cart.js` (montados por
+`components/Interactive.jsx`), com os estados dinâmicos — que a captura não
+continha — definidos em `src/styles/interactive.css`:
+
+- **Vitrines de produtos**: carrosséis Swiper reais (setas, arrastar,
+  2 por tela no mobile / 4 no desktop, conforme o `slider_parameters` original)
+- **Marcas**: esteira contínua em loop (pausa no hover)
+- **Menu mobile**: hambúrguer abre o drawer; submenus repovoados em runtime
+  clonando o mega-menu do header (a captura havia esvaziado o conteúdo oculto);
+  header mobile recriado (o original foi removido pela captura)
+- **Cookie banner**: OK fecha e persiste em `localStorage`
+- **Carrinho**: botão "Adicionar ao carrinho" em cada produto, drawer lateral
+  (mecanismo CSS original + estados novos), quantidades, persistência em
+  `localStorage` e checkout via WhatsApp com a lista de itens (os produtos da
+  loja são "sob consulta", sem preço no markup)
+- Overlay e `ESC` fecham menu/carrinho
 
 Verificação: comparação pixel a pixel entre o HTML original e o app React resultou
 em **0,0% de diferença** tanto em desktop (1440px) quanto em mobile (390px).

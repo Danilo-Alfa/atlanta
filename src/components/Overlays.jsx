@@ -30,7 +30,7 @@ export default function Overlays() {
       <iframe id="modal-form-iframe" height="0" width="0" frameBorder="0" marginWidth="0" marginHeight="0" ref={rawStyle("display:none")} />
       <template id="fast-shopping-template" dangerouslySetInnerHTML={{ __html: fastShoppingTemplateHtml }} />
       <a href="tel:+551136483388">
-        <img title="Televendas Atlanta" src="/assets/img-321fce640c7b.webp" className="ligacao" ref={rawStyle("width:50px")} />
+        <img title="Televendas BateForte" src="/assets/img-321fce640c7b.webp" className="ligacao" ref={rawStyle("width:50px")} />
       </a>
     </>
   )
