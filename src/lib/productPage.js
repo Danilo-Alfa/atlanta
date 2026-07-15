@@ -4,7 +4,6 @@
 // runtime com os dados que o próprio card carrega (nome, ref, imagem, tag,
 // link de WhatsApp). Navegação por hash (#/produto/<id>) para o botão
 // voltar do navegador funcionar como numa página real.
-import { initAccount, renderAccountPage } from './account.js'
 import { addItem, closeCart, openCart } from './cart.js'
 
 const products = new Map()
@@ -196,24 +195,7 @@ function onHashChange() {
     renderCategory(mc[1])
     return
   }
-  if (location.hash === '#/conta') {
-    closeCart()
-    renderAccountPage(getHost())
-    document.body.classList.add('bf-pdp-open')
-    window.scrollTo(0, 0)
-    return
-  }
   close()
-}
-
-function getHost() {
-  let host = document.querySelector('.bf-pdp')
-  if (!host) {
-    host = document.createElement('div')
-    host.className = 'bf-pdp'
-    document.querySelector('main.site-main')?.appendChild(host)
-  }
-  return host
 }
 
 export function initProductPage() {
@@ -252,10 +234,6 @@ export function initProductPage() {
         openCart()
       }
     }
-  })
-
-  initAccount(() => {
-    if (location.hash === '#/conta') renderAccountPage(getHost())
   })
 
   window.addEventListener('hashchange', onHashChange)

@@ -47,8 +47,7 @@ html, body { overflow-x: hidden; }
   /* a linha do header não cabia (logo + busca + atendimento + conta +
      carrinho) e o carrinho saía da tela; ficam os ícones sem os textos */
   .header .logo img { max-width: 190px; height: auto; }
-  .header .contact .contact-text,
-  .header .account .account-text { display: none; }
+  .header .contact .contact-text { display: none; }
   .header .search-move { padding-left: 8px; }
 }
 @media (min-width: 769px) and (max-width: 991px) {

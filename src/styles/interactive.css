@@ -187,37 +187,6 @@ body.bf-pdp-open .bf-pdp { display: block; }
   .bf-pdp__related-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* página de conta (#/conta) */
-.bf-account__grid { display: flex; gap: 24px; align-items: stretch; }
-.bf-account__card {
-  flex: 1; background: #fff; border: 1px solid var(--color_gray_medium);
-  border-radius: var(--border_radius_images); padding: 24px;
-}
-.bf-account__card--single { max-width: 480px; margin: 0 auto; text-align: center; }
-.bf-account__card h3 { font-size: 1.0625rem; font-weight: 700; margin-bottom: 16px; color: var(--color_font_dark); }
-.bf-account__card label { display: block; font-size: .8125rem; font-weight: 600; color: #555; margin-bottom: 12px; }
-.bf-account__card input {
-  display: block; width: 100%; margin-top: 4px; padding: 10px 12px;
-  border: 1px solid var(--color_gray_dark); border-radius: 6px; font-size: .875rem;
-}
-.bf-account__card input:focus { outline: 2px solid var(--color_header_highlight); outline-offset: -1px; }
-.bf-account__btn {
-  display: block; width: 100%; padding: 11px 16px; margin-top: 6px;
-  background: var(--color_button_buy_bg); color: var(--color_button_buy_text) !important;
-  border: 0; border-radius: 25px; font-size: .875rem; font-weight: 700; cursor: pointer;
-  text-align: center; transition: filter .2s;
-}
-.bf-account__btn:hover { filter: brightness(.92); }
-.bf-account__btn--whats { background: #13b918; }
-.bf-account__btn--ghost { background: none; color: #888 !important; border: 1px solid var(--color_gray_dark); }
-.bf-account__actions { display: flex; flex-direction: column; gap: 10px; margin-top: 16px; }
-.bf-account__email { color: #777; font-size: .875rem; }
-.bf-account__error { color: #c0392b; font-size: .8125rem; margin: 4px 0 8px; }
-.bf-account__note { text-align: center; font-size: .75rem; color: #999; margin-top: 16px; }
-@media (max-width: 768px) {
-  .bf-account__grid { flex-direction: column; }
-}
-
 /* página de categoria (#/categoria/<slug>) */
 .bf-cat__count { font-size: .8125rem; color: #777; margin: -6px 0 16px; }
 .bf-cat__empty { text-align: center; padding: 30px 15px 10px; }

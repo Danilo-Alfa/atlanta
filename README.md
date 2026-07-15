@@ -37,19 +37,6 @@ continha — definidos em `src/styles/interactive.css`:
   produtos capturados que casam com o padrão do departamento (deduplicados,
   com a foto real extraída do background congelado do SingleFile); categorias
   sem produto no catálogo capturado mostram CTA de consulta pelo WhatsApp
-- **Minha Conta** (`lib/account.js`): os botões de login do header e do rodapé
-  do menu mobile abrem `#/conta` — cadastro e login locais (demonstração, sem
-  servidor: dados só no navegador via `localStorage`), com saudação "Olá,
-  Nome" no header/menu, painel com atalhos (carrinho, pedidos via WhatsApp) e
-  logout. **Rastrear Pedido** (header e menu) abre a consulta dos Correios com
-  o código digitado; e-mails de contato atualizados para @bateforte
-
-## Camada responsiva
-
-O CSS capturado foi congelado no viewport da captura; `src/styles/responsive.css`
-corrige onde o layout quebrava em outras larguras (auditado com Playwright em
-320/390/600/768/1024/1280px — 0px de overflow horizontal em todas):
-
 - Removido o `body{min-width:360px}` original (cortava conteúdo em telas ≤360px)
 - `overflow-x:hidden` global: os dropdowns ocultos do mega-menu (800px fixos)
   estendiam a rolagem em larguras intermediárias; o mega-menu também é limitado
