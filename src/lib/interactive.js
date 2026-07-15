@@ -6,6 +6,7 @@
 import Swiper from 'swiper'
 import { Autoplay, Navigation } from 'swiper/modules'
 import { closeCart, initCart } from './cart.js'
+import { initProductPage } from './productPage.js'
 
 export function initInteractive() {
   if (window.__bfInteractive) return
@@ -16,6 +17,7 @@ export function initInteractive() {
   initCart()
   initGlobalClose()
   initFooterAccordion()
+  initProductPage()
 }
 
 /* ------------------------------------------------------------------ */

@@ -25,6 +25,11 @@ continha — definidos em `src/styles/interactive.css`:
   `localStorage` e checkout via WhatsApp com a lista de itens (os produtos da
   loja são "sob consulta", sem preço no markup)
 - Overlay e `ESC` fecham menu/carrinho
+- **Página de produto interna** (`lib/productPage.js`): os cards apontavam para
+  o site antigo; agora cada clique abre `#/produto/<id>` dentro do site —
+  breadcrumb, foto, referência, quantidade, adicionar ao carrinho, comprar pelo
+  WhatsApp e produtos relacionados (mesma vitrine). Montada em runtime com os
+  dados do próprio card; botão voltar do navegador funciona (rota por hash)
 
 ## Camada responsiva
 
