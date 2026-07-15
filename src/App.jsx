@@ -1,6 +1,7 @@
 import Application from './components/Application.jsx'
 import Cart from './components/Cart.jsx'
 import CookieBanner from './components/CookieBanner.jsx'
+import Interactive from './components/Interactive.jsx'
 import Overlays from './components/Overlays.jsx'
 
 export default function App() {
@@ -11,6 +12,7 @@ export default function App() {
       <div className="overlay-shadow" />
       <Application />
       <Overlays />
+      <Interactive />
     </>
   )
 }

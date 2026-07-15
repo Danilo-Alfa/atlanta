@@ -1,0 +1,120 @@
+/* ============================================================
+   Camada de interatividade BateForte
+   O CSS original (capturado pelo SingleFile) só contém os estados
+   visíveis no momento da captura. Este arquivo adiciona SOMENTE os
+   estados dinâmicos (menu aberto, carrinho aberto, etc.) e os poucos
+   elementos novos (botão de carrinho, header mobile), usando as
+   variáveis do tema para manter a identidade.
+   ============================================================ */
+
+/* ---- estados globais ---- */
+.overlay-shadow.bf-visible { visibility: visible; opacity: .5; }
+body.bf-no-scroll { overflow: hidden; }
+
+/* ---- menu mobile ---- */
+.menu-mobile.bf-open { transform: translateX(0); }
+.menu-mobile .close-box { cursor: pointer; }
+.menu-mobile .nav-mobile .second-level { display: none; padding-left: 12px; }
+.menu-mobile .nav-mobile li.sub.bf-expanded > .second-level { display: block; }
+.menu-mobile .nav-mobile li.sub.bf-expanded > a .icon-arrow-down { transform: rotate(180deg); }
+.menu-mobile .nav-mobile .icon-arrow-down { transition: transform .2s; }
+.menu-mobile .nav-mobile .second-level li a {
+  display: block; padding: 8px 0; font-size: .875rem;
+  color: var(--color_header_text); border-bottom: 1px solid var(--color_header_details);
+}
+
+/* ---- header mobile (o original foi removido pela captura; recriado) ---- */
+.header .bg.header-mobile { display: none; }
+@media (max-width: 768px) {
+  .header .bg.header-desktop { display: none !important; }
+  .header .bg.header-mobile { display: block !important; background: var(--color_header_bg); }
+}
+.bf-header-mobile {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 10px 15px; gap: 12px;
+}
+.bf-burger {
+  display: flex; flex-direction: column; justify-content: space-between;
+  width: 22px; height: 18px; background: none; border: 0; padding: 0; cursor: pointer;
+}
+.bf-burger span { height: 2px; width: 100%; background: var(--color_header_highlight); border-radius: 2px; }
+.bf-header-mobile .bf-logo-mobile img { display: block; height: 30px; width: auto; }
+.bf-header-mobile .cart-toggle { position: relative; display: flex; color: var(--color_header_text); }
+.bf-header-mobile .cart-toggle svg { width: 22px; height: 24px; }
+.bf-header-mobile .cart-quantity {
+  position: absolute; top: -6px; right: -10px; min-width: 17px; height: 17px;
+  border-radius: 9px; background: var(--color_header_cart_count);
+  color: var(--color_header_cart_count_text); font-size: 11px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center; padding: 0 4px;
+}
+
+/* ---- carrosséis (Swiper) ---- */
+.bf-carousel .swiper-wrapper { justify-content: flex-start !important; }
+.swiper-button-lock { display: none !important; }
+.section-showcase .swiper-container .prev,
+.section-showcase .swiper-container .next {
+  position: absolute; z-index: 5; cursor: pointer; align-items: center; justify-content: center;
+  background: #fff; border-radius: 50%; box-shadow: 0 2px 8px rgba(0, 0, 0, .18);
+  color: var(--color_header_highlight);
+}
+.section-showcase .swiper-container .next { right: 5px; }
+.brands-custom .swiper-wrapper { transition-timing-function: linear !important; }
+.brands-custom .prev, .brands-custom .next { cursor: pointer; }
+
+/* ---- cookie banner ---- */
+/* o botão flutuante do WhatsApp (z-index 99999) cobria o OK do banner
+   (z-index 9999); enquanto visível, o banner fica por cima */
+.cc-window { z-index: 100000; }
+.cc-window.bf-hiding { opacity: 0; pointer-events: none; }
+.cc-window.bf-hidden { display: none !important; }
+.cc-btn.cc-dismiss { cursor: pointer; }
+
+/* ---- carrinho ----
+   O CSS capturado já traz o drawer (section#cart com translateX(105%) e
+   .cart com opacity:0/visibility:hidden); faltavam o posicionamento do
+   container e o estado aberto, que não existiam na captura. */
+.cart {
+  position: fixed; top: 0; right: 0; bottom: 0; left: 0; z-index: 100001;
+  display: flex; justify-content: flex-end; pointer-events: none; transition: .3s;
+}
+.cart.bf-open { opacity: 1; visibility: visible; pointer-events: auto; }
+.cart.bf-open section#cart { transform: translateX(0); }
+.cart-toggle { cursor: pointer; }
+
+.bf-cart-list { list-style: none; margin: 0; padding: 0; }
+.bf-cart-item {
+  display: flex; gap: 10px; align-items: center; padding: 10px 0;
+  border-bottom: 1px solid var(--color_header_details);
+}
+.bf-cart-item img { width: 56px; height: 56px; object-fit: contain; flex-shrink: 0; }
+.bf-cart-item__info { flex-grow: 1; min-width: 0; }
+.bf-cart-item__name { font-size: .8125rem; line-height: 1.25; display: block; color: var(--color_font_dark); }
+.bf-cart-item__price { font-size: .75rem; color: var(--color_font_price); font-weight: 700; }
+.bf-cart-item__qty { display: flex; align-items: center; gap: 6px; margin-top: 6px; }
+.bf-cart-item__qty button {
+  width: 22px; height: 22px; border: 1px solid var(--color_gray_dark); background: #fff;
+  border-radius: 4px; cursor: pointer; font-weight: 700; line-height: 1;
+}
+.bf-cart-item__remove {
+  background: none; border: 0; cursor: pointer; font-size: 16px; color: #999; padding: 4px;
+}
+.bf-cart-summary { font-size: .8125rem; margin-bottom: 10px; text-align: center; }
+.bf-cart-checkout {
+  display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%;
+  background: #13b918; color: #fff; border: 0; border-radius: 25px;
+  padding: 12px; font-size: .9375rem; font-weight: 700; cursor: pointer;
+}
+.bf-cart-clear {
+  width: 100%; background: none; border: 0; color: #999; font-size: .75rem;
+  margin-top: 8px; cursor: pointer; text-decoration: underline;
+}
+
+/* ---- botão adicionar ao carrinho (injetado em cada produto) ---- */
+.product .actions { display: flex; }
+.bf-add-cart {
+  width: 100%; margin: 6px 0 4px; padding: 9px 12px;
+  background: var(--color_button_buy_bg); color: var(--color_button_buy_text);
+  border: 0; border-radius: 25px; font-size: .8125rem; font-weight: 700; cursor: pointer;
+  transition: filter .2s;
+}
+.bf-add-cart:hover { filter: brightness(.92); }
