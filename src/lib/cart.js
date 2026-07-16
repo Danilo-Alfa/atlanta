@@ -3,6 +3,8 @@
 // fechamento do pedido segue o fluxo natural da loja: WhatsApp com a lista
 // de itens. Estado persistido em localStorage; o DOM do carrinho é estático
 // (nunca re-renderizado pelo React), então manipulá-lo direto é seguro.
+import { formatPreco } from './catalog.js'
+
 const STORAGE_KEY = 'bf_cart'
 const WHATSAPP = '5511943259368'
 
@@ -26,10 +28,10 @@ function esc(s) {
   return d.innerHTML
 }
 
-export function addItem({ id, ref, name, img, href }, qty = 1) {
+export function addItem({ id, ref, name, img, href, price = null }, qty = 1) {
   const found = items.find((i) => i.id === id)
   if (found) found.qty += qty
-  else items.push({ id, ref, name, img, href, qty })
+  else items.push({ id, ref, name, img, href, price, qty })
   save()
   render()
 }
@@ -59,6 +61,7 @@ export function initCart() {
         name: p.querySelector('.product-name')?.textContent.trim() || 'Produto',
         img: p.querySelector('.image img')?.getAttribute('src') || '',
         href: p.querySelector('.product-info')?.getAttribute('href') || '',
+        price: p.dataset.bfPrice ? Number(p.dataset.bfPrice) : null,
       })
       openCart()
       return
@@ -97,8 +100,13 @@ export function initCart() {
       return
     }
     if (e.target.closest('.bf-cart-checkout')) {
-      const lines = items.map((i) => `- ${i.qty}x ${i.name}${i.ref ? ` (Ref: ${i.ref})` : ''}`)
-      const msg = `Olá! Quero fazer um pedido:\n${lines.join('\n')}`
+      const lines = items.map(
+        (i) => `- ${i.qty}x ${i.name}${i.ref ? ` (Ref: ${i.ref})` : ''}${i.price != null ? ` — ${formatPreco(i.price * i.qty)}` : ''}`
+      )
+      const total = items.every((i) => i.price != null)
+        ? `\nTotal: ${formatPreco(items.reduce((n, i) => n + i.price * i.qty, 0))}`
+        : ''
+      const msg = `Olá! Quero fazer um pedido:\n${lines.join('\n')}${total}`
       window.open(`https://api.whatsapp.com/send?phone=${WHATSAPP}&text=${encodeURIComponent(msg)}`, '_blank')
     }
   })
@@ -143,7 +151,7 @@ function render() {
       ${i.img ? `<img src="${esc(i.img)}" alt="">` : ''}
       <div class="bf-cart-item__info">
         <a class="bf-cart-item__name" href="${esc(i.href)}">${esc(i.name)}</a>
-        <span class="bf-cart-item__price">Preço sob consulta</span>
+        <span class="bf-cart-item__price">${i.price != null ? formatPreco(i.price) : 'Preço sob consulta'}</span>
         <div class="bf-cart-item__qty">
           <button type="button" data-bf-qty="-1" data-bf-id="${esc(i.id)}" aria-label="Diminuir">−</button>
           <span>${i.qty}</span>
@@ -155,8 +163,14 @@ function render() {
     )
     .join('')}</ul>`
 
+  const allPriced = items.every((i) => i.price != null)
+  const total = items.reduce((n, i) => n + (i.price || 0) * i.qty, 0)
   footer.innerHTML = `
-    <p class="bf-cart-summary">${count} ${count === 1 ? 'item' : 'itens'} no carrinho — preços confirmados no atendimento.</p>
+    <p class="bf-cart-summary">${
+      allPriced
+        ? `${count} ${count === 1 ? 'item' : 'itens'} — total <strong>${formatPreco(total)}</strong>`
+        : `${count} ${count === 1 ? 'item' : 'itens'} no carrinho — preços confirmados no atendimento.`
+    }</p>
     <button type="button" class="bf-cart-checkout">Finalizar pelo WhatsApp</button>
     <button type="button" class="bf-cart-clear">Limpar carrinho</button>`
 }

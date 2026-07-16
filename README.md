@@ -6,6 +6,36 @@ um projeto **React + Vite** — com rebranding para a identidade **BateForte /
 Jota Atacadista** (azul `#1d4e9c` / laranja `#ef7622`) e uma camada de
 interatividade por cima do markup capturado.
 
+## Catálogo pela planilha do Google (adicionar produtos sem código)
+
+O arquivo `catalogo-bateforte.csv` (raiz do projeto) é o modelo do catálogo,
+já preenchido com os produtos atuais. Fluxo de configuração (uma vez só):
+
+1. Em [sheets.google.com](https://sheets.google.com), crie uma planilha em
+   branco e use **Arquivo → Importar → Fazer upload** com o
+   `catalogo-bateforte.csv` (opção "Substituir planilha")
+2. **Arquivo → Compartilhar → Publicar na web** → na 1ª caixa escolha a aba,
+   na 2ª escolha **Valores separados por vírgula (.csv)** → **Publicar**
+3. Copie o link gerado e cole em `src/config.js` (`CATALOG_URL`)
+
+A partir daí, **cada linha da planilha é um produto do site** — vitrines,
+categorias, busca, página de produto e carrinho passam a vir dela (mudanças
+aparecem em alguns minutos, cache do Google). Colunas:
+
+| coluna | uso |
+|---|---|
+| `ativo` | `sim` mostra; `não` esconde o produto |
+| `nome` | nome do produto (obrigatório) |
+| `categoria` | `cimento`, `areia`, `ferro`, `eletrica`, `hidraulica`, `madeiras`, `telhas` ou `tintas` |
+| `vitrine` | seção da home: `Destaques`, `Promoção`, `Telhas`, `Madeiras`, `Cimento`, `Novidades`, `Recomendados para você` |
+| `imagem` | link da foto (aceita link de compartilhamento do Google Drive) |
+| `referencia` | código interno (aparece na página e no pedido) |
+| `tag` | selo opcional: `Destaque`, `Novidade`, `Promoção` |
+| `preco` | opcional (`39,90`); vazio = "Preço sob consulta"; com preço, o carrinho soma o total |
+
+Se a planilha estiver fora do ar (ou `CATALOG_URL` vazio), o site usa o
+catálogo embutido (produtos capturados) — nunca quebra.
+
 ## Camada de interatividade
 
 O markup capturado é estático; a interatividade é ligada em runtime por
