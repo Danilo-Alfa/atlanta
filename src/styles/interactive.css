@@ -78,6 +78,56 @@ body.bf-no-scroll .floating-whatsapp { z-index: 15 !important; pointer-events: n
 .brands-custom .swiper-wrapper { transition-timing-function: linear !important; }
 .brands-custom .prev, .brands-custom .next { cursor: pointer; }
 
+/* ---- mega-menu "Todas Categorias": grade de cartões ---- */
+.nav .all-categories .second-level {
+  padding: 18px !important;
+  border-radius: 0 0 14px 14px;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .14);
+}
+.nav .all-categories .wrapper-categories {
+  columns: unset !important;
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(150px, 1fr));
+  gap: 10px;
+}
+.nav .all-categories .wrapper-categories li.sub {
+  padding: 0 !important;
+  margin: 0 !important;
+  break-inside: avoid;
+}
+.nav .all-categories .wrapper-categories li.sub a {
+  display: flex !important;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 14px !important;
+  border: 1px solid var(--color_gray_medium);
+  border-radius: 10px;
+  background: #fff;
+  font-weight: 600;
+  color: var(--color_font_dark);
+  transition: border-color .18s, box-shadow .18s, transform .18s, color .18s;
+}
+.nav .all-categories .wrapper-categories li.sub a:hover {
+  border-color: var(--color_header_highlight);
+  color: var(--color_header_highlight);
+  box-shadow: 0 6px 16px rgba(29, 78, 156, .18);
+  transform: translateY(-2px);
+}
+.nav .all-categories .wrapper-categories .category-image {
+  width: 40px !important;
+  height: 40px !important;
+  border-radius: 50%;
+  background: #e8effa;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nav .all-categories .wrapper-categories .category-image img {
+  width: 20px !important;
+  height: 20px !important;
+}
+
 /* ---- cookie banner ---- */
 /* o botão flutuante do WhatsApp (z-index 99999) cobria o OK do banner
    (z-index 9999); enquanto visível, o banner fica por cima */

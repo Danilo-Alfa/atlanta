@@ -9,6 +9,26 @@ import { CATALOG_URL } from '../config.js'
 const WHATSAPP = '5511943259368'
 const FETCH_TIMEOUT_MS = 4000
 
+// Categorias vindas da planilha (coluna "categoria"): cada valor único
+// vira um departamento no site (navbar, menu mobile, mega-menu e footer).
+// Vazio enquanto a planilha não carrega — aí valem as categorias fixas.
+export const dynamicCategories = []
+
+const ICONS = new Set(['cimento', 'areia', 'ferro', 'eletrica', 'hidraulica', 'telhas', 'tintas'])
+const PRETTY = { eletrica: 'Elétrica', hidraulica: 'Hidráulica' }
+const slugify = (s) =>
+  s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
+const catIcon = (slug) => `/assets/bf-icon-${ICONS.has(slug) ? slug : 'generic'}.svg`
+
+function prettyName(raw, slug) {
+  if (PRETTY[slug]) return PRETTY[slug]
+  // se veio tudo minúsculo na planilha, capitaliza; senão respeita como digitado
+  if (raw === raw.toLowerCase()) {
+    return raw.replace(/(^|\s)\S/g, (c) => c.toUpperCase())
+  }
+  return raw
+}
+
 // parser de CSV com suporte a aspas, vírgulas e quebras de linha em células
 function parseCsv(text) {
   const rows = []
@@ -63,7 +83,8 @@ function toProducts(rows) {
       id: `product-bf-${n + 1}`,
       ativo: get(r, idx.ativo),
       nome: get(r, idx.nome),
-      categoria: get(r, idx.categoria).toLowerCase(),
+      categoria: slugify(get(r, idx.categoria)),
+      categoriaNome: get(r, idx.categoria).trim(),
       vitrine: get(r, idx.vitrine),
       imagem: driveToDirect(get(r, idx.imagem)),
       referencia: get(r, idx.referencia),
@@ -176,6 +197,60 @@ function rebuildShowcases(products) {
   })
 }
 
+// Regenera navbar, mega-menu, menu mobile e footer com as categorias da
+// planilha (na ordem em que aparecem nas linhas).
+function rebuildCategoryNav(cats) {
+  if (!cats.length) return
+  const item = (c) => `
+    <a href="#/categoria/${c.slug}" title="${esc(c.name)}">
+      <div class="category-image"><img src="${catIcon(c.slug)}" alt="${esc(c.name)}" width="20" height="20"></div>
+      <div class="name"> ${esc(c.name)} </div>
+    </a>`
+
+  // navbar desktop: troca os itens de departamento (ficam Todas Categorias e Ofertas)
+  const navUl = document.querySelector('.nav .list')
+  if (navUl) {
+    navUl.querySelectorAll(':scope > li').forEach((li) => {
+      if (li.querySelector(':scope > a[href^="#/categoria/"]')) li.remove()
+    })
+    const offer = navUl.querySelector('li.categoria-offer')
+    cats.forEach((c) => {
+      const li = document.createElement('li')
+      li.className = 'first-level'
+      li.innerHTML = item(c)
+      navUl.insertBefore(li, offer)
+    })
+  }
+
+  // mega-menu "Todas Categorias"
+  const mega = document.querySelector('.nav .all-categories .wrapper-categories')
+  if (mega) {
+    mega.innerHTML = cats
+      .map((c) => `<li class="sub"><a href="#/categoria/${c.slug}" title="${esc(c.name)}">
+        <div class="category-image"><img src="${catIcon(c.slug)}" alt="${esc(c.name)}" width="20" height="20"></div>
+        ${esc(c.name)} </a></li>`)
+      .join('')
+  }
+
+  // menu mobile
+  const mob = document.querySelector('#menu-mobile .nav-mobile .list')
+  if (mob) {
+    mob.innerHTML = cats
+      .map((c) => `<li><a href="#/categoria/${c.slug}">
+        <div class="category-image"><img src="${catIcon(c.slug)}" alt="${esc(c.name)}" width="20" height="20"></div>
+        ${esc(c.name)} </a></li>`)
+      .join('')
+  }
+
+  // footer (coluna Categorias)
+  const foot = document.querySelector('.footer .box-categories .list')
+  if (foot) {
+    foot.innerHTML = cats
+      .map((c) => `<li><a href="#/categoria/${c.slug}" title="${esc(c.name)}">${esc(c.name)}</a></li>`)
+      .join('')
+  }
+}
+
 export async function initCatalog() {
   const url = window.__bfCatalogUrl ?? CATALOG_URL
   if (!url) return false
@@ -188,6 +263,15 @@ export async function initCatalog() {
     const products = toProducts(parseCsv(await res.text()))
     if (!products.length) throw new Error('planilha sem produtos')
     rebuildShowcases(products)
+    // categorias na ordem em que aparecem na planilha
+    const seen = new Set()
+    products.forEach((p) => {
+      if (p.categoria && !seen.has(p.categoria)) {
+        seen.add(p.categoria)
+        dynamicCategories.push({ slug: p.categoria, name: prettyName(p.categoriaNome, p.categoria) })
+      }
+    })
+    rebuildCategoryNav(dynamicCategories)
     return true
   } catch (e) {
     // plano B: mantém o catálogo embutido (markup capturado)
