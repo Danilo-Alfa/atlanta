@@ -66,7 +66,7 @@ export default function ShowcaseDestaques() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Piso%20Duragres%20Copan%20Cinza%20Acetinado%2071X71%20Cx2,52M%C3%82%C2%B2%20|%20Ref:"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Piso%20Duragres%20Copan%20Cinza%20Acetinado%2071X71%20Cx2,52M%C3%82%C2%B2%20|%20Ref:"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -126,7 +126,7 @@ export default function ShowcaseDestaques() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Piso%20Durag%20Copan%20Nude%20In%2071X71%20|%20Ref:"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Piso%20Durag%20Copan%20Nude%20In%2071X71%20|%20Ref:"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -186,7 +186,7 @@ export default function ShowcaseDestaques() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Piso%20Durag%20Alvorada%20Grafite%20In%2071x71%20|%20Ref:"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Piso%20Durag%20Alvorada%20Grafite%20In%2071x71%20|%20Ref:"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -246,7 +246,7 @@ export default function ShowcaseDestaques() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20copan%20rustico%20acetinado%2071x71%20|%20Ref:"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20copan%20rustico%20acetinado%2071x71%20|%20Ref:"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}

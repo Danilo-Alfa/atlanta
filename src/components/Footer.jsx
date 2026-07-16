@@ -22,7 +22,7 @@ export default function Footer() {
                 {"\n "}
               </a>
               {"\n "}
-              <a href="https://www.instagram.com/bateforte/" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/bateforte_/" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                 {"\n "}
                 <i className="icon icon-instagram v-align-middle" />
                 {"\n "}
@@ -293,7 +293,7 @@ export default function Footer() {
                 {" \n \n "}
                 <li>
                   {"\n "}
-                  <a href="https://api.whatsapp.com/send/?phone=5511933777529" title="Telefone: ">
+                  <a href="https://api.whatsapp.com/send/?phone=5511943259368" title="Telefone: ">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n "}

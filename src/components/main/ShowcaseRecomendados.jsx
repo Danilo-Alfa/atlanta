@@ -58,7 +58,7 @@ export default function ShowcaseRecomendados() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Bloco%20Cer%C3%83%C2%A2mico%2011,5%20X%2014%20X%2024%20Veda%C3%83%C2%A7%C3%83%C2%A3o%20-%20Tec%20Brasil%20|%20Ref:%2031294"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Bloco%20Cer%C3%83%C2%A2mico%2011,5%20X%2014%20X%2024%20Veda%C3%83%C2%A7%C3%83%C2%A3o%20-%20Tec%20Brasil%20|%20Ref:%2031294"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -110,7 +110,7 @@ export default function ShowcaseRecomendados() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cimento%20CPIII%2032RS%2050KG%20-%20CSN%20|%20Ref:%2030137"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cimento%20CPIII%2032RS%2050KG%20-%20CSN%20|%20Ref:%2030137"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -162,7 +162,7 @@ export default function ShowcaseRecomendados() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Areia%20M%C3%83%C2%A9dia%20Lavada%20Saco%2020%20KG%20Ensacada%20-%20Pedrasil%20|%20Ref:%2021380"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Areia%20M%C3%83%C2%A9dia%20Lavada%20Saco%2020%20KG%20Ensacada%20-%20Pedrasil%20|%20Ref:%2021380"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -214,7 +214,7 @@ export default function ShowcaseRecomendados() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Caibro%20Bruto%205%20X%206%20X%203.00%20Ser/Euc%20|%20Ref:%2026040"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Caibro%20Bruto%205%20X%206%20X%203.00%20Ser/Euc%20|%20Ref:%2026040"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
