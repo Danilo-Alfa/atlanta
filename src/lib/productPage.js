@@ -5,7 +5,7 @@
 // link de WhatsApp). Navegação por hash (#/produto/<id>) para o botão
 // voltar do navegador funcionar como numa página real.
 import { addItem, closeCart, openCart } from './cart.js'
-import { formatPreco } from './catalog.js'
+import { dynamicCategories, formatPreco } from './catalog.js'
 
 const products = new Map()
 let originalTitle = ''
@@ -23,6 +23,14 @@ const CATEGORIES = {
   tintas: { name: 'Tintas', test: /tinta|esmalte|self base|verniz|selador/i },
 }
 const WHATSAPP_STORE = 'https://wa.me/5511943259368'
+
+// Categoria válida: da planilha (dinâmica) ou do conjunto fixo embutido
+function catInfo(slug) {
+  const dyn = dynamicCategories.find((c) => c.slug === slug)
+  if (dyn) return dyn
+  if (CATEGORIES[slug]) return { slug, name: CATEGORIES[slug].name }
+  return null
+}
 
 function esc(s) {
   const d = document.createElement('div')
@@ -199,7 +207,8 @@ function renderSearch(query) {
 }
 
 function renderCategory(slug) {
-  const cat = CATEGORIES[slug]
+  const cat = catInfo(slug)
+  const staticCat = CATEGORIES[slug]
   let host = document.querySelector('.bf-pdp')
   if (!host) {
     host = document.createElement('div')
@@ -209,7 +218,7 @@ function renderCategory(slug) {
   const seen = new Set()
   const list = [...products.values()].filter((p) => {
     // produtos da planilha usam a coluna "categoria"; os capturados, o padrão do nome
-    if (p.cat ? p.cat !== slug : !cat.test.test(p.name)) return false
+    if (p.cat ? p.cat !== slug : !(staticCat && staticCat.test.test(p.name))) return false
     const key = p.name.toLowerCase().replace(/\s+/g, ' ')
     if (seen.has(key)) return false
     seen.add(key)
@@ -263,8 +272,8 @@ function onHashChange() {
       return
     }
   }
-  const mc = location.hash.match(/^#\/categoria\/([a-z-]+)$/)
-  if (mc && CATEGORIES[mc[1]]) {
+  const mc = location.hash.match(/^#\/categoria\/([a-z0-9-]+)$/)
+  if (mc && catInfo(mc[1])) {
     closeCart()
     renderCategory(mc[1])
     return
