@@ -37,6 +37,11 @@ continha — definidos em `src/styles/interactive.css`:
   produtos capturados que casam com o padrão do departamento (deduplicados,
   com a foto real extraída do background congelado do SingleFile); categorias
   sem produto no catálogo capturado mostram CTA de consulta pelo WhatsApp
+- **Nenhum link para o site antigo**: todos os ~280 hyperlinks que apontavam
+  para atlantanet.com.br são reapontados em runtime (`rewriteOldSiteLinks`)
+  — produto → `#/produto/<id>`, página que casa com um departamento →
+  `#/categoria/<slug>`, o resto → home; logo e selos estáticos apontam para
+  `/`, e as redes sociais para os perfis @bateforte
 - Removido o `body{min-width:360px}` original (cortava conteúdo em telas ≤360px)
 - `overflow-x:hidden` global: os dropdowns ocultos do mega-menu (800px fixos)
   estendiam a rolagem em larguras intermediárias; o mega-menu também é limitado

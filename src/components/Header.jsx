@@ -12,7 +12,7 @@ export default function Header() {
             {"\n \n \n \n "}
           </div>
           {"\n "}
-          <a className="logo" href="https://www.atlantanet.com.br/" title="BateForte Materiais para Construção & Madeireira">
+          <a className="logo" href="/" title="BateForte Materiais para Construção & Madeireira">
             {"\n "}
             <img src="/assets/img-fb172cf24605.webp" alt="BateForte Materiais para Construção & Madeireira" width="222" height="36" />
             {"\n \n "}
@@ -2313,7 +2313,7 @@ export default function Header() {
             <span />
             <span />
           </button>
-          <a className="bf-logo-mobile" href="https://www.atlantanet.com.br/" title="BateForte Materiais para Construção & Madeireira">
+          <a className="bf-logo-mobile" href="/" title="BateForte Materiais para Construção & Madeireira">
             <img src="/assets/img-fb172cf24605.webp" alt="BateForte Materiais para Construção & Madeireira" width="178" height="29" />
           </a>
           <a className="cart-toggle" href="javascript:void(0)" title="Carrinho">

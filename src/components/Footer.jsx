@@ -8,7 +8,7 @@ export default function Footer() {
           {"\n "}
           <div className="box box-logo">
             {"\n "}
-            <a className="logo" href="https://www.atlantanet.com.br/" title="BateForte Materiais para Construção & Madeireira">
+            <a className="logo" href="/" title="BateForte Materiais para Construção & Madeireira">
               {"\n "}
               <img src="/assets/img-dc6278851a6d.webp" alt="BateForte Materiais para Construção & Madeireira" width="auto" height="auto" />
               {"\n "}
@@ -16,19 +16,19 @@ export default function Footer() {
             {" \n "}
             <div className="box-logo-socials">
               {"\n "}
-              <a href="https://www.facebook.com/atlantamateriaisparaconstrucao" title="Facebook" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.facebook.com/bateforte" title="Facebook" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
                 {"\n "}
                 <i className="icon icon-facebook v-align-middle" />
                 {"\n "}
               </a>
               {"\n "}
-              <a href="https://www.instagram.com/atlanta_materiais/" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.instagram.com/bateforte/" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                 {"\n "}
                 <i className="icon icon-instagram v-align-middle" />
                 {"\n "}
               </a>
               {"\n "}
-              <a href="https://www.tiktok.com/@atlantanet" title="Tiktok" aria-label="Tiktok" target="_blank" rel="noopener noreferrer">
+              <a href="https://www.tiktok.com/@bateforte" title="TikTok" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
                 {"\n "}
                 <i className="icon icon-tiktok v-align-middle" />
                 {"\n "}
@@ -480,7 +480,7 @@ export default function Footer() {
                 {" \n \n "}
                 <li className="google-seal">
                   {"\n "}
-                  <a href="https://transparencyreport.google.com/safe-browsing/search?url=https://www.atlantanet.com.br" target="_blank" rel="noreferrer noopener" title="Google Safe Browsing">
+                  <a href="#" target="_blank" rel="noreferrer noopener" title="Google Safe Browsing">
                     {"\n "}
                     <span className="icon icon-shield vertical-align" />
                     {"\n "}
@@ -494,7 +494,7 @@ export default function Footer() {
                   {"\n "}
                   <center>
                     {"\n "}
-                    <a href="https://www.lojaprotegida.com.br/1018104" target="_blank" rel="noopener">
+                    <a href="#" target="_blank" rel="noopener">
                       {"\n "}
                       <img src="/assets/img-2077ee59210f.gif" alt="Loja Protegida" title="Loja Protegida" border="0" />
                       {"\n "}
