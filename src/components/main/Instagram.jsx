@@ -22,7 +22,7 @@ export default function Instagram() {
           {"\n \n \n "}
           <div className="item swiper-slide swiper-slide-active" role="group" aria-label="1 / 4" ref={rawStyle("width:303.75px;margin-right:25px")}>
             {"\n "}
-            <a href="https://www.instagram.com/p/DJ_8vOBIUCC/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/bateforte/" target="_blank" rel="noopener noreferrer">
               {"\n "}
               <div>
                 {"\n "}
@@ -36,7 +36,7 @@ export default function Instagram() {
           {"\n \n \n "}
           <div className="item swiper-slide swiper-slide-next" role="group" aria-label="2 / 4" ref={rawStyle("width:303.75px;margin-right:25px")}>
             {"\n "}
-            <a href="https://www.instagram.com/p/DKw4aHOv5QW/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/bateforte/" target="_blank" rel="noopener noreferrer">
               {"\n "}
               <div>
                 {"\n "}
@@ -50,7 +50,7 @@ export default function Instagram() {
           {"\n \n \n "}
           <div className="item swiper-slide" role="group" aria-label="3 / 4" ref={rawStyle("width:303.75px;margin-right:25px")}>
             {"\n "}
-            <a href="https://www.instagram.com/p/DJkR1J9O_Ck/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/bateforte/" target="_blank" rel="noopener noreferrer">
               {"\n "}
               <div>
                 {"\n "}
@@ -64,7 +64,7 @@ export default function Instagram() {
           {"\n \n \n "}
           <div className="item swiper-slide" role="group" aria-label="4 / 4" ref={rawStyle("width:303.75px;margin-right:25px")}>
             {"\n "}
-            <a href="https://www.instagram.com/p/DKZjjXMIrEb/" target="_blank" rel="noopener noreferrer">
+            <a href="https://www.instagram.com/bateforte/" target="_blank" rel="noopener noreferrer">
               {"\n "}
               <div>
                 {"\n "}

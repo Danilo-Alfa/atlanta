@@ -12,12 +12,14 @@ export function initInteractive() {
   if (window.__bfInteractive) return
   window.__bfInteractive = true
   initCarousels()
+  // antes do menu mobile: os submenus clonam links do header, que já
+  // devem estar reapontados para as rotas internas
+  initProductPage()
   initMenuMobile()
   initCookieBanner()
   initCart()
   initGlobalClose()
   initFooterAccordion()
-  initProductPage()
 }
 
 /* ------------------------------------------------------------------ */

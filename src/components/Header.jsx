@@ -12,7 +12,7 @@ export default function Header() {
             {"\n \n \n \n "}
           </div>
           {"\n "}
-          <a className="logo" href="https://www.atlantanet.com.br/" title="BateForte Materiais para Construção & Madeireira">
+          <a className="logo" href="/" title="BateForte Materiais para Construção & Madeireira">
             {"\n "}
             <img src="/assets/img-fb172cf24605.webp" alt="BateForte Materiais para Construção & Madeireira" width="222" height="36" />
             {"\n \n "}
@@ -84,38 +84,18 @@ export default function Header() {
                   {"\n \n \n \n "}
                   <div className="header-wrapper__item header-wrapper__item--email">
                     {"\n "}
-                    <a href="mailto:atlantanet@atlantanet.com.br" title="Email: atlantanet@atlantanet.com.br">
+                    <a href="mailto:" title="E-mail">
                       {"\n "}
                       <span>
                         <i className="icon icon-email v-align-middle" />
                         {"E-mail:"}
                       </span>
-                      {"\n atlantanet@atlantanet.com.br\n "}
+                      {""}
                     </a>
                     {"\n "}
                   </div>
                   {"\n "}
-                  <div className="header-wrapper__item header-wrapper__item--truck">
-                    {"\n "}
-                    <div className="header-wrapper__text">
-                      {"\n "}
-                      <span>
-                        <i className="icon icon-truck" />
-                      </span>
-                      {"\n Rastreie o seu pedido:\n "}
-                    </div>
-                    {"\n "}
-                    <div className="header-wrapper__form" url-shipping="https://rastreamentocorreios.info/consulta/">
-                      {"\n "}
-                      <input type="text" placeholder="Código de rastreio" defaultValue="" />
-                      {"\n "}
-                      <div className="header-wrapper__button">
-                        <i className="icon icon-arrow-right" />
-                      </div>
-                      {"\n "}
-                    </div>
-                    {"\n "}
-                  </div>
+                  
                   {"\n "}
                 </div>
                 {"\n "}
@@ -123,71 +103,7 @@ export default function Header() {
               {"\n "}
             </div>
             {"\n \n "}
-            <div className="account flex align-center">
-              {"\n "}
-              <a href="https://www.atlantanet.com.br/my-account/login" title="Minha Conta">
-                {"\n "}
-                <i className="account-icon icon">
-                  {"\n "}
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 6 34 21.5" ref={rawStyle("fill:none")}>
-                    <path d="M26.1615 27.4789V24.9386C26.1615 23.5911 25.6263 22.2988 24.6734 21.346C23.7206 20.3932 22.4283 19.8579 21.0809 19.8579H10.9195C9.57201 19.8579 8.27972 20.3932 7.3269 21.346C6.37409 22.2988 5.83881 23.5911 5.83881 24.9386V27.4789" stroke="currentColor" />
-                    <path d="M15.9999 16.6824C18.8059 16.6824 21.0806 14.4077 21.0806 11.6017C21.0806 8.79576 18.8059 6.52106 15.9999 6.52106C13.1939 6.52106 10.9192 8.79576 10.9192 11.6017C10.9192 14.4077 13.1939 16.6824 15.9999 16.6824Z" stroke="currentColor" />
-                  </svg>
-                  {"\n "}
-                </i>
-                {"\n "}
-              </a>
-              {"\n \n "}
-              <div className="account-text flex flex-column">
-                {"\n "}
-                <span>
-                  {"Minha Conta"}
-                </span>
-                {"\n "}
-                <div className="login-links">
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/loja/central_cliente-1018104" title="Entrar">
-                    {"Acessar"}
-                  </a>
-                  {"\n "}
-                </div>
-                {"\n "}
-              </div>
-              {"\n \n \n \n "}
-              <div className="header-wrapper flex align-center">
-                {"\n "}
-                <div className="header-wrapper__content flex flex-column">
-                  {"\n "}
-                  <div className="tray-hide sf-hidden" data-logged-user="true">
-                    {"\n \n \n "}
-                  </div>
-                  {" \n "}
-                  <div data-logged-user="false">
-                    {"\n "}
-                    <div className="login-links flex flex-column">
-                      {"\n "}
-                      <a href="https://www.atlantanet.com.br/my-account/login" title="Entrar" className="login-links__featured">
-                        <i className="icon icon-login-new v-align-middle" />
-                        {" Entrar"}
-                      </a>
-                      {"\n "}
-                      <a href="https://www.atlantanet.com.br/loja/central_anteriores.php?loja=1018104" title="Cadastrar">
-                        {"Meus pedidos"}
-                      </a>
-                      {"\n "}
-                      <a href="https://www.atlantanet.com.br/cadastro" title="Cadastrar">
-                        {"Cadastrar"}
-                      </a>
-                      {"\n "}
-                    </div>
-                    {"\n "}
-                  </div>
-                  {"\n \n "}
-                </div>
-                {"\n "}
-              </div>
-              {"\n "}
-            </div>
+            
             {"\n \n "}
             <a className="cart-toggle" href="javascript:void(0)" title="Carrinho">
               {"\n "}
@@ -2397,7 +2313,7 @@ export default function Header() {
             <span />
             <span />
           </button>
-          <a className="bf-logo-mobile" href="https://www.atlantanet.com.br/" title="BateForte Materiais para Construção & Madeireira">
+          <a className="bf-logo-mobile" href="/" title="BateForte Materiais para Construção & Madeireira">
             <img src="/assets/img-fb172cf24605.webp" alt="BateForte Materiais para Construção & Madeireira" width="178" height="29" />
           </a>
           <a className="cart-toggle" href="javascript:void(0)" title="Carrinho">

@@ -126,39 +126,7 @@ export default function MenuMobile() {
       {"\n "}
       <div className="menu-mobile-actions">
         {"\n "}
-        <div className="account flex align-center">
-          {"\n \n "}
-          <i className="account-icon icon icon-login" />
-          {"\n \n "}
-          <div data-logged-user="false">
-            {"\n "}
-            <span>
-              {"Minha Conta"}
-            </span>
-            {"\n "}
-            <div className="login-links">
-              {"\n "}
-              <a href="https://www.atlantanet.com.br/my-account/login" title="Entrar">
-                {"Entrar"}
-              </a>
-              {"\n "}
-              <span>
-                {"/"}
-              </span>
-              {"\n "}
-              <a href="https://www.atlantanet.com.br/cadastro" title="Cadastrar">
-                {"Cadastrar"}
-              </a>
-              {"\n "}
-            </div>
-            {"\n "}
-          </div>
-          {" \n \n "}
-          <div className="tray-hide sf-hidden" data-logged-user="true">
-            {"\n \n \n "}
-          </div>
-          {"\n \n "}
-        </div>
+        
         {"\n "}
         <ul className="menu-actions-mobile__contact">
           {"\n "}
@@ -172,43 +140,19 @@ export default function MenuMobile() {
           {"\n \n "}
           <li className="email-menu-mobile">
             {"\n "}
-            <a href="mailto:atlantanet@atlantanet.com.br" title="Email: atlantanet@atlantanet.com.br">
+            <a href="mailto:" title="E-mail">
               {"\n "}
               <i className="icon icon-email v-align-middle" />
               {"\n E-mail:\n "}
               <span>
-                {"atlantanet@atlantanet.com.br"}
+                {""}
               </span>
               {"\n "}
             </a>
             {"\n "}
           </li>
           {"\n "}
-          <li>
-            {"\n "}
-            <div className="header-wrapper__item header-wrapper__item--truck">
-              {"\n "}
-              <div className="header-wrapper__text">
-                {"\n "}
-                <span>
-                  <i className="icon icon-truck" />
-                </span>
-                {"\n Rastrear Pedido\n "}
-              </div>
-              {"\n "}
-              <div className="header-wrapper__form" url-shipping="https://rastreamentocorreios.info/consulta/">
-                {"\n "}
-                <input type="text" placeholder="Cï¿½digo de rastreio" defaultValue="" />
-                {"\n "}
-                <div className="header-wrapper__button">
-                  <i className="icon icon-search" />
-                </div>
-                {"\n "}
-              </div>
-              {"\n "}
-            </div>
-            {"\n "}
-          </li>
+          
           {"\n "}
         </ul>
         {"\n "}

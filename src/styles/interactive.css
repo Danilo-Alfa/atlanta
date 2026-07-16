@@ -10,6 +10,10 @@
 /* ---- estados globais ---- */
 .overlay-shadow.bf-visible { visibility: visible; opacity: .5; }
 body.bf-no-scroll { overflow: hidden; }
+/* com menu/carrinho abertos, os botões flutuantes (WhatsApp/telefone,
+   z-index 99999) ficavam POR CIMA do drawer e roubavam os cliques */
+body.bf-no-scroll .floating-whatsapp,
+body.bf-no-scroll .ligacao { z-index: 15 !important; pointer-events: none; }
 
 /* ---- menu mobile ---- */
 .menu-mobile.bf-open { transform: translateX(0); }

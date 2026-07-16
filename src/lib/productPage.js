@@ -59,6 +59,24 @@ function collectProducts() {
   })
 }
 
+// Reaponta todos os links que iam para o site antigo (atlantanet.com.br)
+// para dentro deste site: produto -> #/produto/<id>, categoria/página que
+// casa com um departamento -> #/categoria/<slug>, o resto -> home.
+function rewriteOldSiteLinks() {
+  document.querySelectorAll('a[href*="atlantanet.com.br"]').forEach((a) => {
+    const prodEl = a.closest('.product[id]')
+    if (prodEl && products.has(prodEl.id)) {
+      a.setAttribute('href', `#/produto/${prodEl.id}`)
+      a.removeAttribute('target')
+      return
+    }
+    const hint = `${a.textContent} ${a.getAttribute('href')}`
+    const slug = Object.keys(CATEGORIES).find((k) => CATEGORIES[k].test.test(hint))
+    a.setAttribute('href', slug ? `#/categoria/${slug}` : '/')
+    a.removeAttribute('target')
+  })
+}
+
 function relatedTo(prod, max = 4) {
   const rel = []
   for (const p of products.values()) {
@@ -201,6 +219,7 @@ function onHashChange() {
 export function initProductPage() {
   originalTitle = document.title
   collectProducts()
+  rewriteOldSiteLinks()
 
   document.addEventListener('click', (e) => {
     // clique no card do produto (imagem ou nome) abre a página interna
