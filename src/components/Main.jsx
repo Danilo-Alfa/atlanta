@@ -12,7 +12,6 @@ import Partners from './main/Partners.jsx'
 import Reviews from './main/Reviews.jsx'
 import ShowcaseCimento from './main/ShowcaseCimento.jsx'
 import ShowcaseDestaques from './main/ShowcaseDestaques.jsx'
-import ShowcaseMadeiras from './main/ShowcaseMadeiras.jsx'
 import ShowcaseNovidades from './main/ShowcaseNovidades.jsx'
 import ShowcasePromocao from './main/ShowcasePromocao.jsx'
 import ShowcaseRecomendados from './main/ShowcaseRecomendados.jsx'
@@ -38,8 +37,6 @@ export default function Main() {
       {"\n \n \n "}
       <Brands />
       {"\n \n \n \n \n \n \n \n \n \n \n "}
-      <ShowcaseMadeiras />
-      {"\n \n \n \n \n \n \n \n \n \n \n \n "}
       <ShowcaseCimento />
       {"\n \n \n \n \n \n \n \n \n \n \n "}
       <ShowcaseNovidades />

@@ -174,57 +174,7 @@ export default function ShowcaseRecomendados() {
               {" "}
             </div>
             {"\n "}
-            <div className="item swiper-slide" role="group" aria-label="4 / 4" ref={rawStyle("width:320px")}>
-              {"\n \n \n \n"}
-              <div className="product upon_request has-fast-shopping" id="product-1606703712" product-ref="26040">
-                {"\n \n "}
-                <div className="image">
-                  {"\n \n "}
-                  <a href="https://www.atlantanet.com.br/madeiras/caibro/caibro-bruto-5-x-6-x-3-00-sereuc" className="space-image">
-                    {"\n "}
-                    <img loading="lazy" className="lazyload loaded" src="/assets/img-746fd76c3dba.webp" alt="Caibro Bruto 5 X 6 X 3.00 Ser/Euc" data-ll-status="loaded" />
-                    {"\n \n "}
-                  </a>
-                  {"\n \n \n \n \n \n "}
-                  <div className="product-tags tags-custom" data-tags-count="0">
-                    {"\n \n \n \n \n "}
-                  </div>
-                  {"\n \n "}
-                </div>
-                {"\n "}
-                <a className="product-info" href="https://www.atlantanet.com.br/madeiras/caibro/caibro-bruto-5-x-6-x-3-00-sereuc">
-                  {"\n "}
-                  <div className="wrapper-product-name">
-                    {"\n "}
-                    <h3 className="product-name">
-                      {"\n Caibro Bruto 5 X 6 X 3.00 Ser/Euc\n "}
-                    </h3>
-                    {"\n "}
-                  </div>
-                  {"\n "}
-                  <div className="product-price">
-                    {"\n \n \n "}
-                  </div>
-                  {"\n \n "}
-                </a>
-                {"\n \n \n \n \n "}
-                <div className="actions">
-                  {"\n "}
-                </div>
-                {"\n \n \n "}
-                <div className="buy-whatsapp buy-whatsapp--list-product">
-                  {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Caibro%20Bruto%205%20X%206%20X%203.00%20Ser/Euc%20|%20Ref:%2026040"} target="_blank">
-                    {"\n "}
-                    <i className="icon icon-whatsapp v-align-middle" />
-                    {"\n Comprar pelo Whats\n "}
-                  </a>
-                  {"\n "}
-                </div>
-                {"\n \n"}
-              </div>
-              {" "}
-            </div>
+            
             {"\n "}
           </div>
           {"\n \n "}

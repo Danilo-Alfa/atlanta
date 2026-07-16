@@ -8,19 +8,15 @@ export default function Footer() {
           {"\n "}
           <div className="box box-logo">
             {"\n "}
-            <a className="logo" href="/" title="BateForte Materiais para Construção & Madeireira">
+            <a className="logo" href="/" title="BateForte Materiais para Construção">
               {"\n "}
-              <img src="/assets/img-dc6278851a6d.webp" alt="BateForte Materiais para Construção & Madeireira" width="auto" height="auto" />
+              <img src="/assets/img-dc6278851a6d.webp" alt="BateForte Materiais para Construção" width="auto" height="auto" />
               {"\n "}
             </a>
             {" \n "}
             <div className="box-logo-socials">
               {"\n "}
-              <a href="https://www.facebook.com/bateforte" title="Facebook" aria-label="Facebook" target="_blank" rel="noopener noreferrer">
-                {"\n "}
-                <i className="icon icon-facebook v-align-middle" />
-                {"\n "}
-              </a>
+              
               {"\n "}
               <a href="https://www.instagram.com/bateforte_/" title="Instagram" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
                 {"\n "}
@@ -69,11 +65,7 @@ export default function Footer() {
                     {"Hidráulica"}
                   </a>
                 </li>
-                <li>
-                  <a href="#/categoria/madeiras" title="Madeiras">
-                    {"Madeiras"}
-                  </a>
-                </li>
+                
                 <li>
                   <a href="#/categoria/telhas" title="Telhas">
                     {"Telhas"}
@@ -301,7 +293,7 @@ export default function Footer() {
         <div className="container flex align-center flex-column">
           {"\n \n \n "}
           <div className="text">
-            {"BateForte Materiais para Construção & Madeireira - © Todos os direitos reservados.\nCNPJ: 00.000.000/0001-00"}
+            {"BateForte Materiais para Construção - © Todos os direitos reservados.\nCNPJ: 00.000.000/0001-00"}
           </div>
           {"\n \n "}
           <div className="tray">
@@ -310,7 +302,7 @@ export default function Footer() {
               {"\n "}
               <span>
                 {"Desenvolvimento \n "}
-                <a href="https://www.instagram.com/bateforte_/" rel="noopener noreferrer" target="_blank">
+                <a href="https://www.instagram.com/dunamis_mkt/" rel="noopener noreferrer" target="_blank">
                   {"\n "}
                   <img src="/assets/logo-dunamis.png" width="42" height="42" alt="Dunamis" className="bf-logo-dunamis" />
                   {"\n "}

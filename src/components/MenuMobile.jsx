@@ -89,17 +89,7 @@ export default function MenuMobile() {
               {"\n "}
             </li>
             {"\n \n "}
-            <li>
-              {"\n "}
-              <a href="#/categoria/madeiras">
-                {"\n "}
-                <div className="category-image">
-                  <img src="/assets/bf-icon-madeiras.svg" alt="Madeiras" width="20" height="20" />
-                </div>
-                {"\n Madeiras\n "}
-              </a>
-              {"\n "}
-            </li>
+            
             {"\n \n "}
             <li>
               {"\n "}
