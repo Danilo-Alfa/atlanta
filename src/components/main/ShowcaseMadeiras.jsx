@@ -58,7 +58,7 @@ export default function ShowcaseMadeiras() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Caibro%20Bruto%205%20X%206%20X%204.00%20Ser/Euc%20|%20Ref:%2026042"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Caibro%20Bruto%205%20X%206%20X%204.00%20Ser/Euc%20|%20Ref:%2026042"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -110,7 +110,7 @@ export default function ShowcaseMadeiras() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Sarrafo%20Bruto%20Eucalipto%20-%207.0cm%203,00m%20|%20Ref:%2018729"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Sarrafo%20Bruto%20Eucalipto%20-%207.0cm%203,00m%20|%20Ref:%2018729"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -162,7 +162,7 @@ export default function ShowcaseMadeiras() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Sarrafo%20Bruto%205cm%203,00m%20Pinus%20|%20Ref:%2012831"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Sarrafo%20Bruto%205cm%203,00m%20Pinus%20|%20Ref:%2012831"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -214,7 +214,7 @@ export default function ShowcaseMadeiras() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Batente%2014cm%20Com%203%20Pe%C3%83%C2%A7as%20Eucalipto%20-%20Mad%20Euc%20|%20Ref:%2033389"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Batente%2014cm%20Com%203%20Pe%C3%83%C2%A7as%20Eucalipto%20-%20Mad%20Euc%20|%20Ref:%2033389"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}

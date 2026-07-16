@@ -22,7 +22,7 @@ const CATEGORIES = {
   telhas: { name: 'Telhas', test: /telha/i },
   tintas: { name: 'Tintas', test: /tinta|esmalte|self base|verniz|selador/i },
 }
-const WHATSAPP_STORE = 'https://wa.me/5511933777529'
+const WHATSAPP_STORE = 'https://wa.me/5511943259368'
 
 function esc(s) {
   const d = document.createElement('div')

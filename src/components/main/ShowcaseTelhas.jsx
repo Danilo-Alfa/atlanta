@@ -60,7 +60,7 @@ export default function ShowcaseTelhas() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Telha%20Ondulada%201.53X1.10%206MM%20-%20Brasilit%20|%20Ref:%2023155"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Telha%20Ondulada%201.53X1.10%206MM%20-%20Brasilit%20|%20Ref:%2023155"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -112,7 +112,7 @@ export default function ShowcaseTelhas() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Telha%20Ondulada%20PP%20Perfil%20177%202.13X1.10%20%20-%20Atco%20|%20Ref:%2024392"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Telha%20Ondulada%20PP%20Perfil%20177%202.13X1.10%20%20-%20Atco%20|%20Ref:%2024392"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -164,7 +164,7 @@ export default function ShowcaseTelhas() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Telha%20Eco%20Cl%C3%83%C2%A1ssica%20Vermelha%202,00X0,95M%20-%20Onduline%20|%20Ref:%2032323"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Telha%20Eco%20Cl%C3%83%C2%A1ssica%20Vermelha%202,00X0,95M%20-%20Onduline%20|%20Ref:%2032323"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -216,7 +216,7 @@ export default function ShowcaseTelhas() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Telha%20Ecol%C3%83%C2%B3gica%20Stilo%202,00X0,96M%20Verde%20-%20Onduline%20|%20Ref:%2031624"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Telha%20Ecol%C3%83%C2%B3gica%20Stilo%202,00X0,96M%20Verde%20-%20Onduline%20|%20Ref:%2031624"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}

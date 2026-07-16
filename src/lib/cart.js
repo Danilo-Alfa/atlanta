@@ -4,7 +4,7 @@
 // de itens. Estado persistido em localStorage; o DOM do carrinho é estático
 // (nunca re-renderizado pelo React), então manipulá-lo direto é seguro.
 const STORAGE_KEY = 'bf_cart'
-const WHATSAPP = '5511933777529'
+const WHATSAPP = '5511943259368'
 
 let items = load()
 

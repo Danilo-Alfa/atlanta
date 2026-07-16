@@ -71,7 +71,7 @@ export default function Header() {
                   {"\n "}
                   <div className="header-wrapper__item header-wrapper__item--whatsapp">
                     {"\n "}
-                    <a href="https://api.whatsapp.com/send?phone=5511933777529" title="WhatsApp: (11) 93377-7529" target="_blank">
+                    <a href="https://api.whatsapp.com/send?phone=5511943259368" title="WhatsApp: (11) 93377-7529" target="_blank">
                       {"\n "}
                       <span>
                         <i className="icon icon-whatsapp v-align-middle" />

@@ -58,7 +58,7 @@ export default function ShowcasePromocao() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Tinta%20Rende%20e%20Cobre%20Muito%203.6L%20Branco%20-%20Suvinil%20|%20Ref:%2028116"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Tinta%20Rende%20e%20Cobre%20Muito%203.6L%20Branco%20-%20Suvinil%20|%20Ref:%2028116"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -110,7 +110,7 @@ export default function ShowcasePromocao() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Tinta%20Toque%20De%20Seda%20Acetinado%2018L%20Branco%20-%20Suvinil%20|%20Ref:%2011923"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Tinta%20Toque%20De%20Seda%20Acetinado%2018L%20Branco%20-%20Suvinil%20|%20Ref:%2011923"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -162,7 +162,7 @@ export default function ShowcasePromocao() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Tinta%20Seca%20R%C3%83%C2%A1pido%20Esmalte%20Brilhante%200,9L%20Branco%20-%20Suvinil%20|%20Ref:%2024228"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Tinta%20Seca%20R%C3%83%C2%A1pido%20Esmalte%20Brilhante%200,9L%20Branco%20-%20Suvinil%20|%20Ref:%2024228"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -214,7 +214,7 @@ export default function ShowcasePromocao() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511933777529&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Self%20Base%20Toque%20de%20Seda%20AC%20A2%203,2L%20Suvinil%20|%20Ref:%2022126"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Self%20Base%20Toque%20de%20Seda%20AC%20A2%203,2L%20Suvinil%20|%20Ref:%2022126"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
