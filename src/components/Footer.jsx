@@ -293,7 +293,7 @@ export default function Footer() {
         <div className="container flex align-center flex-column">
           {"\n \n \n "}
           <div className="text">
-            {"BateForte Materiais para Construção - © Todos os direitos reservados.\nCNPJ: 00.000.000/0001-00"}
+            {"BateForte Materiais para Construção - © Todos os direitos reservados.\nCNPJ: 32.603.413/0001-57"}
           </div>
           {"\n \n "}
           <div className="tray">
@@ -312,22 +312,7 @@ export default function Footer() {
               {"\n "}
             </div>
             {"\n \n "}
-            <div data-tray-tst="logo_tray" id="NavLogoTray">
-              {"\n "}
-              <span className="logotray-message">
-                {"Tecnologia "}
-                <a href={"https://www.tray.com.br/?utm_source=rodape&utm_medium=lojas&utm_campaign=1018104&utm_term=Varejo"} target="_blank" rel="noopener nofollow">
-                  {"Tray"}
-                </a>
-              </span>
-              {"\n "}
-              <br className="sf-hidden" />
-              {"\n "}
-              <span data-tray-tst="page_load_info" className="timelogotray sf-hidden">
-                {"\n Load time: 1.067 secs - 15-07-2026 14:10:53 - node: commerce-web1-generic-tmk - store\n "}
-              </span>
-              {"\n"}
-            </div>
+            
             {"\n "}
           </div>
           {"\n "}

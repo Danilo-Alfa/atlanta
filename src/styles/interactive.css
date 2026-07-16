@@ -212,6 +212,23 @@ body.bf-pdp-open .bf-pdp { display: block; }
   width: 42px !important; height: 42px !important; object-fit: cover;
   border-radius: 50%; vertical-align: middle; margin-left: 6px;
 }
+/* sem o bloco da Tray, o crédito centraliza sozinho em todas as telas
+   (o divisor era o border-right do crédito, que separava da Tray) */
+.footer .copy .tray { justify-content: center; }
+.footer .copy .credits-partner {
+  border-right: 0 !important; padding-right: 0 !important; margin-right: 0 !important;
+}
+.footer .copy .credits-partner span {
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+}
+
+/* fotos do Instagram preenchem o slide quadrado (a imagem vinha com
+   altura fixa herdada e deixava um vão abaixo) */
+.template-instagram .swiper-slide img {
+  width: 100% !important; height: 100% !important; object-fit: cover;
+}
+.template-instagram .swiper-slide > a,
+.template-instagram .swiper-slide > a > div { display: block; width: 100%; height: 100%; }
 
 /* ---- preço (produtos vindos da planilha do catálogo) ---- */
 .product-price .bf-price {

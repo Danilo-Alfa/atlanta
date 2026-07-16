@@ -79,6 +79,38 @@ function initCarousels() {
     })
   }
 
+  // Avaliações dos clientes: os cards estavam congelados em 416px;
+  // vira carrossel de verdade (1 no mobile, 3 no desktop) com setas e autoplay
+  const reviews = document.querySelector('.custom-home-reviews .swiper-container, [class*="reviews"] .swiper-container')
+  if (reviews) {
+    reviews.classList.add('bf-carousel')
+    const nav = enableArrows(reviews.closest('[class*="reviews"]') || reviews)
+    new Swiper(reviews, {
+      modules: [Autoplay, Navigation],
+      slidesPerView: 1,
+      spaceBetween: 16,
+      breakpoints: { 768: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 20 } },
+      loop: true,
+      autoplay: { delay: 4500, disableOnInteraction: false, pauseOnMouseEnter: true },
+      navigation: { prevEl: nav.prev, nextEl: nav.next },
+    })
+  }
+
+  // Instagram: slides congelados em 303px cortavam as fotos no meio no mobile
+  const insta = document.querySelector('.template-instagram .swiper-container')
+  if (insta) {
+    insta.classList.add('bf-carousel')
+    new Swiper(insta, {
+      modules: [Autoplay],
+      slidesPerView: 1,
+      spaceBetween: 14,
+      breakpoints: { 480: { slidesPerView: 2, spaceBetween: 18 }, 992: { slidesPerView: 4, spaceBetween: 25 } },
+      loop: true,
+      autoplay: { delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true },
+      watchOverflow: true,
+    })
+  }
+
   // Marcas: esteira contínua em loop (pausa ao passar o mouse)
   const brands = document.querySelector('.brands-custom .swiper-container')
   if (brands) {
