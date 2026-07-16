@@ -30,7 +30,7 @@ function prettyName(raw, slug) {
 }
 
 // parser de CSV com suporte a aspas, vírgulas e quebras de linha em células
-function parseCsv(text) {
+export function parseCsv(text) {
   const rows = []
   let row = []
   let cell = ''
