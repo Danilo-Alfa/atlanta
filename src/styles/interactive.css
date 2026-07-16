@@ -207,6 +207,12 @@ body.bf-pdp-open .bf-pdp { display: block; }
 .bf-cat__empty p { max-width: 480px; margin: 0 auto 20px; font-size: .9375rem; line-height: 1.6; color: #555; }
 .bf-cat__empty .bf-pdp__whats { margin: 0 auto; }
 
+/* ---- preço (produtos vindos da planilha do catálogo) ---- */
+.product-price .bf-price {
+  display: block; text-align: center; font-weight: 700;
+  color: var(--color_font_price); font-size: 1rem; padding: 4px 0;
+}
+
 /* ---- botão adicionar ao carrinho (injetado em cada produto) ---- */
 .product .actions { display: flex; }
 .bf-add-cart {

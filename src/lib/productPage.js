@@ -5,6 +5,7 @@
 // link de WhatsApp). Navegação por hash (#/produto/<id>) para o botão
 // voltar do navegador funcionar como numa página real.
 import { addItem, closeCart, openCart } from './cart.js'
+import { formatPreco } from './catalog.js'
 
 const products = new Map()
 let originalTitle = ''
@@ -55,9 +56,14 @@ function collectProducts() {
       whats: p.querySelector('.buy-whatsapp a')?.getAttribute('href') || '',
       section: section?.querySelector('.title-section')?.textContent.trim() || 'Produtos',
       sectionEl: section,
+      // vindos da planilha do catálogo (cards capturados não os têm)
+      cat: p.dataset.bfCategory || '',
+      price: p.dataset.bfPrice ? Number(p.dataset.bfPrice) : null,
     })
   })
 }
+
+const priceLabel = (p) => (p.price != null ? formatPreco(p.price) : 'Preço sob consulta')
 
 // Reaponta todos os links que iam para o site antigo (atlantanet.com.br)
 // para dentro deste site: produto -> #/produto/<id>, categoria/página que
@@ -109,7 +115,7 @@ function render(prod) {
         <div class="bf-pdp__info">
           <h1 class="bf-pdp__name">${esc(prod.name)}</h1>
           ${prod.ref ? `<p class="bf-pdp__ref">Referência: ${esc(prod.ref)}</p>` : ''}
-          <p class="bf-pdp__price">Preço sob consulta</p>
+          <p class="bf-pdp__price">${priceLabel(prod)}</p>
           <p class="bf-pdp__note">Consulte condições, estoque e formas de pagamento pelo WhatsApp ou televendas <a href="tel:+551136483388">(11) 3648-3388</a>.</p>
           <div class="bf-pdp__qty">
             <span>Quantidade</span>
@@ -131,7 +137,7 @@ function render(prod) {
           <a class="bf-pdp__related-card" href="#/produto/${esc(r.id)}">
             <img src="${esc(r.img)}" alt="${esc(r.name)}">
             <span class="bf-pdp__related-name">${esc(r.name)}</span>
-            <span class="bf-pdp__related-price">Preço sob consulta</span>
+            <span class="bf-pdp__related-price">${priceLabel(r)}</span>
           </a>`
             )
             .join('')}
@@ -178,7 +184,7 @@ function renderSearch(query) {
         <a class="bf-pdp__related-card" href="#/produto/${esc(p.id)}">
           <img src="${esc(p.img)}" alt="${esc(p.name)}">
           <span class="bf-pdp__related-name">${esc(p.name)}</span>
-          <span class="bf-pdp__related-price">Preço sob consulta</span>
+          <span class="bf-pdp__related-price">${priceLabel(p)}</span>
         </a>`
           )
           .join('')}
@@ -203,7 +209,8 @@ function renderCategory(slug) {
   }
   const seen = new Set()
   const list = [...products.values()].filter((p) => {
-    if (!cat.test.test(p.name)) return false
+    // produtos da planilha usam a coluna "categoria"; os capturados, o padrão do nome
+    if (p.cat ? p.cat !== slug : !cat.test.test(p.name)) return false
     const key = p.name.toLowerCase().replace(/\s+/g, ' ')
     if (seen.has(key)) return false
     seen.add(key)
@@ -227,7 +234,7 @@ function renderCategory(slug) {
         <a class="bf-pdp__related-card" href="#/produto/${esc(p.id)}">
           <img src="${esc(p.img)}" alt="${esc(p.name)}">
           <span class="bf-pdp__related-name">${esc(p.name)}</span>
-          <span class="bf-pdp__related-price">Preço sob consulta</span>
+          <span class="bf-pdp__related-price">${priceLabel(p)}</span>
         </a>`
           )
           .join('')}
@@ -305,7 +312,7 @@ export function initProductPage() {
       const prod = products.get(add.dataset.bfPdpAdd)
       const qty = Number(document.querySelector('[data-bf-pdp-qty-value]')?.textContent || 1)
       if (prod) {
-        addItem({ id: prod.id, ref: prod.ref, name: prod.name, img: prod.img, href: `#/produto/${prod.id}` }, qty)
+        addItem({ id: prod.id, ref: prod.ref, name: prod.name, img: prod.img, href: `#/produto/${prod.id}`, price: prod.price }, qty)
         openCart()
       }
     }

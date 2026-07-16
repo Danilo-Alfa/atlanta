@@ -6,11 +6,15 @@
 import Swiper from 'swiper'
 import { Autoplay, Navigation } from 'swiper/modules'
 import { closeCart, initCart } from './cart.js'
+import { initCatalog } from './catalog.js'
 import { initProductPage } from './productPage.js'
 
-export function initInteractive() {
+export async function initInteractive() {
   if (window.__bfInteractive) return
   window.__bfInteractive = true
+  // primeiro o catálogo: se a planilha estiver configurada, as vitrines
+  // são reconstruídas ANTES de tudo que lê os produtos do DOM
+  await initCatalog()
   initCarousels()
   // antes do menu mobile: os submenus clonam links do header, que já
   // devem estar reapontados para as rotas internas
