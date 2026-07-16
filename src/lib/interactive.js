@@ -4,7 +4,7 @@
 // manipulando o DOM estático diretamente (os componentes nunca
 // re-renderizam, então não há conflito com o React).
 import Swiper from 'swiper'
-import { Autoplay, Navigation } from 'swiper/modules'
+import { Autoplay, Navigation, Pagination } from 'swiper/modules'
 import { closeCart, initCart } from './cart.js'
 import { initCatalog } from './catalog.js'
 import { initProductPage } from './productPage.js'
@@ -79,35 +79,46 @@ function initCarousels() {
     })
   }
 
+  // bolinhas de paginação (mostram que o carrossel continua)
+  const addDots = (el) => {
+    const dots = document.createElement('div')
+    dots.className = 'swiper-pagination bf-dots'
+    el.appendChild(dots)
+    return dots
+  }
+
   // Avaliações dos clientes: os cards estavam congelados em 416px;
-  // vira carrossel de verdade (1 no mobile, 3 no desktop) com setas e autoplay
+  // vira carrossel de verdade com setas, autoplay, bolinhas e uma
+  // "espiadinha" do próximo card no mobile
   const reviews = document.querySelector('.custom-home-reviews .swiper-container, [class*="reviews"] .swiper-container')
   if (reviews) {
     reviews.classList.add('bf-carousel')
     const nav = enableArrows(reviews.closest('[class*="reviews"]') || reviews)
     new Swiper(reviews, {
-      modules: [Autoplay, Navigation],
-      slidesPerView: 1,
-      spaceBetween: 16,
+      modules: [Autoplay, Navigation, Pagination],
+      slidesPerView: 1.12,
+      spaceBetween: 12,
       breakpoints: { 768: { slidesPerView: 2, spaceBetween: 20 }, 1024: { slidesPerView: 3, spaceBetween: 20 } },
       loop: true,
       autoplay: { delay: 4500, disableOnInteraction: false, pauseOnMouseEnter: true },
       navigation: { prevEl: nav.prev, nextEl: nav.next },
+      pagination: { el: addDots(reviews), clickable: true },
     })
   }
 
-  // Instagram: slides congelados em 303px cortavam as fotos no meio no mobile
+  // Instagram: espiadinha da próxima foto + bolinhas no mobile
   const insta = document.querySelector('.template-instagram .swiper-container')
   if (insta) {
     insta.classList.add('bf-carousel')
     new Swiper(insta, {
-      modules: [Autoplay],
-      slidesPerView: 1,
-      spaceBetween: 14,
+      modules: [Autoplay, Pagination],
+      slidesPerView: 1.15,
+      spaceBetween: 12,
       breakpoints: { 480: { slidesPerView: 2, spaceBetween: 18 }, 992: { slidesPerView: 4, spaceBetween: 25 } },
       loop: true,
       autoplay: { delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true },
       watchOverflow: true,
+      pagination: { el: addDots(insta), clickable: true },
     })
   }
 
