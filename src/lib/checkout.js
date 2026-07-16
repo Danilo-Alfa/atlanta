@@ -8,7 +8,7 @@
 // Sem FRETE_CSV_URL/PEDIDOS_URL configurados, tudo degrada para
 // "a combinar" e envio só pelo WhatsApp.
 import { getItems } from './cart.js'
-import { formatPreco } from './catalog.js'
+import { formatPreco, parseCsv, parsePreco } from './catalog.js'
 import { FRETE_CSV_URL, FRETE_GRATIS_ACIMA, LOJA_COORDS, PEDIDOS_URL } from '../config.js'
 
 const WHATSAPP = '5511943259368'
@@ -31,14 +31,16 @@ async function loadFaixas() {
   try {
     const res = await fetch(url)
     if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    const rows = (await res.text()).split(/\r?\n/).map((l) => l.split(','))
+    // parser robusto: células como "15,00" vêm com aspas e vírgula no CSV
+    const rows = parseCsv(await res.text())
     const faixas = []
     for (const [a, b] of rows.slice(1)) {
       const km = parseFloat(String(a).replace(',', '.'))
-      const valor = parseFloat(String(b).replace(/[^\d,.]/g, '').replace(/\./g, '').replace(',', '.'))
-      if (Number.isFinite(km) && Number.isFinite(valor)) faixas.push({ km, valor })
+      const valor = parsePreco(String(b))
+      if (Number.isFinite(km) && valor != null) faixas.push({ km, valor })
     }
     faixas.sort((x, y) => x.km - y.km)
+    console.info(`[frete] tabela carregada: ${faixas.length} faixas (até ${faixas.at(-1)?.km ?? 0} km)`)
     faixasCache = faixas
     return faixas
   } catch (e) {
