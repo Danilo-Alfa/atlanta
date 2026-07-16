@@ -20,6 +20,7 @@ export function initInteractive() {
   initCart()
   initGlobalClose()
   initFooterAccordion()
+  initSearch()
 }
 
 /* ------------------------------------------------------------------ */
@@ -180,6 +181,23 @@ function initCookieBanner() {
     localStorage.setItem('bf_cookie_consent', 'dismiss')
     banner.classList.add('bf-hiding')
     setTimeout(() => banner.classList.add('bf-hidden'), 1000)
+  })
+}
+
+/* ------------------------------------------------------------------ */
+/* Busca: o form do header era um endpoint morto da plataforma antiga; */
+/* agora abre a página interna de resultados (#/busca/<termo>)         */
+/* ------------------------------------------------------------------ */
+function initSearch() {
+  document.addEventListener('submit', (e) => {
+    const form = e.target.closest('.header-search-wrapper, .bf-menu-search')
+    if (!form) return
+    e.preventDefault()
+    const q = form.querySelector('input')?.value.trim()
+    if (q) {
+      location.hash = `#/busca/${encodeURIComponent(q)}`
+      closeMenu()
+    }
   })
 }
 

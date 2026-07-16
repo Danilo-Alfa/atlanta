@@ -16,10 +16,6 @@ html, body { overflow-x: hidden; }
 /* Mega-menu nunca maior que a viewport (era fixo em 800px) */
 .nav .list .second-level.products-show { max-width: calc(100vw - 30px); }
 
-/* Vídeo institucional fluido (era 560x315 fixo) */
-#video-home iframe { width: 100%; max-width: 560px; aspect-ratio: 16 / 9; height: auto; }
-#video-home .video-item { padding: 0 15px; }
-
 /* ---- banner principal ----
    No mobile a arte 1920x620 ficava ilegível; uma arte dedicada 1:1 entra
    via <picture> e a proporção do contêiner acompanha. */

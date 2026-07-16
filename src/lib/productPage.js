@@ -143,6 +143,56 @@ function render(prod) {
   window.scrollTo(0, 0)
 }
 
+const norm = (s) =>
+  s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/\s+/g, ' ').trim()
+
+function renderSearch(query) {
+  let host = document.querySelector('.bf-pdp')
+  if (!host) {
+    host = document.createElement('div')
+    host.className = 'bf-pdp'
+    document.querySelector('main.site-main')?.appendChild(host)
+  }
+  const terms = norm(query).split(' ').filter(Boolean)
+  const seen = new Set()
+  const list = [...products.values()].filter((p) => {
+    const name = norm(p.name)
+    if (!terms.every((t) => name.includes(t))) return false
+    if (seen.has(name)) return false
+    seen.add(name)
+    return true
+  })
+  const msg = encodeURIComponent(`Olá! Estou procurando por "${query}". Vocês têm?`)
+  host.innerHTML = `
+    <div class="container">
+      <nav class="bf-pdp__breadcrumb">
+        <a href="#" data-bf-close-pdp>Início</a><span> / </span><strong>Busca</strong>
+      </nav>
+      <div class="section-header"><h2 class="title-section">Resultados para “${esc(query)}”</h2></div>
+      ${list.length ? `
+      <p class="bf-cat__count">${list.length} ${list.length === 1 ? 'produto encontrado' : 'produtos encontrados'}</p>
+      <div class="bf-pdp__related-grid">
+        ${list
+          .map(
+            (p) => `
+        <a class="bf-pdp__related-card" href="#/produto/${esc(p.id)}">
+          <img src="${esc(p.img)}" alt="${esc(p.name)}">
+          <span class="bf-pdp__related-name">${esc(p.name)}</span>
+          <span class="bf-pdp__related-price">Preço sob consulta</span>
+        </a>`
+          )
+          .join('')}
+      </div>` : `
+      <div class="bf-cat__empty">
+        <p>Não encontramos <strong>“${esc(query)}”</strong> no catálogo online — mas a loja tem muito mais em estoque. Fale com a gente!</p>
+        <a class="bf-pdp__whats" href="${WHATSAPP_STORE}?text=${msg}" target="_blank" rel="noopener noreferrer"><i class="icon icon-whatsapp v-align-middle"></i> Perguntar pelo WhatsApp</a>
+      </div>`}
+    </div>`
+  document.body.classList.add('bf-pdp-open')
+  document.title = `Busca: ${query} - BateForte Materiais para Construção & Madeireira`
+  window.scrollTo(0, 0)
+}
+
 function renderCategory(slug) {
   const cat = CATEGORIES[slug]
   let host = document.querySelector('.bf-pdp')
@@ -211,6 +261,12 @@ function onHashChange() {
   if (mc && CATEGORIES[mc[1]]) {
     closeCart()
     renderCategory(mc[1])
+    return
+  }
+  const ms = location.hash.match(/^#\/busca\/(.+)$/)
+  if (ms) {
+    closeCart()
+    renderSearch(decodeURIComponent(ms[1]))
     return
   }
   close()

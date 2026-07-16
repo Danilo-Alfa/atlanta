@@ -37,6 +37,13 @@ continha — definidos em `src/styles/interactive.css`:
   produtos capturados que casam com o padrão do departamento (deduplicados,
   com a foto real extraída do background congelado do SingleFile); categorias
   sem produto no catálogo capturado mostram CTA de consulta pelo WhatsApp
+- **Busca funcional** (`#/busca/<termo>`): o form do header (endpoint morto da
+  plataforma antiga) e um campo novo no menu mobile buscam nos produtos
+  capturados — sem acentos, todos os termos precisam casar; sem resultado,
+  CTA de consulta pelo WhatsApp
+- **Vídeo institucional removido**: era o vídeo da loja antiga (player do
+  YouTube capturado inteiro pelo SingleFile) — fora a marca errada, custava
+  276KB de bundle (JS: 640KB → 408KB, gzip 199KB → 94KB)
 - **Nenhum link para o site antigo**: todos os ~280 hyperlinks que apontavam
   para atlantanet.com.br são reapontados em runtime (`rewriteOldSiteLinks`)
   — produto → `#/produto/<id>`, página que casa com um departamento →
