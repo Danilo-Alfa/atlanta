@@ -19,7 +19,8 @@ export const CATALOG_URL =
 // Link publicado (CSV) da aba "Frete" da planilha, com colunas
 // ate_km,valor — mesma URL do catálogo trocando o gid pela aba Frete.
 // Vazio ('') = frete sempre "a combinar".
-export const FRETE_CSV_URL = ''
+export const FRETE_CSV_URL =
+  'https://docs.google.com/spreadsheets/d/e/2PACX-1vTcM837zqsyDwbQ1j9ILkaTGZCtsyt796NcxKJ_0Ed9FcqTo2HaG0gr_jj2U4xcslxm-jt7KRlxSplw/pub?gid=595172747&single=true&output=csv'
 
 // Coordenadas da loja (Av. Quinze de Novembro, 1764 - Centro,
 // Itapecerica da Serra - SP) para o cálculo de distância do frete.
@@ -32,4 +33,5 @@ export const FRETE_GRATIS_ACIMA = 100
 // na aba "Pedidos" da planilha e RECALCULA os valores no lado do
 // vendedor. Vazio ('') = pedido segue só pelo WhatsApp.
 // O código do script está em tools/pedidos.gs (passo a passo no README).
-export const PEDIDOS_URL = ''
+export const PEDIDOS_URL =
+  'https://script.google.com/macros/s/AKfycbwwuNgFh7gKDJR4a5qlI0tJk-9GzfBQwkDOPFworoR6vCscLRxr5hWYAGIGm0bGA7cE/exec'
