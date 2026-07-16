@@ -129,8 +129,34 @@ function cardHtml(p) {
 
 const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim()
 
+// Fotos do catálogo embutido, por nome normalizado. Usadas quando a
+// célula "imagem" da planilha está vazia ou aponta para o placeholder
+// transparente da captura (alguns produtos originais guardavam a foto
+// real num background-image de CSS, não no src).
+function snapshotImages() {
+  const map = new Map()
+  document.querySelectorAll('.site-main .section-showcase .product[id]').forEach((p) => {
+    const img = p.querySelector('.image img')
+    if (!img) return
+    let src = img.getAttribute('src') || ''
+    if (src.endsWith('.svg')) {
+      const m = getComputedStyle(img).backgroundImage.match(/url\("(data:[^"]+)"\)/)
+      if (m) src = m[1]
+    }
+    const name = p.querySelector('.product-name')?.textContent.trim()
+    if (name && src) map.set(norm(name), src)
+  })
+  return map
+}
+
 // Substitui os produtos das vitrines da home pelos da planilha.
 function rebuildShowcases(products) {
+  const embedded = snapshotImages()
+  products.forEach((p) => {
+    if (!p.imagem || p.imagem.endsWith('.svg')) {
+      p.imagem = embedded.get(norm(p.nome)) || p.imagem
+    }
+  })
   const byVitrine = new Map()
   products.forEach((p) => {
     const k = norm(p.vitrine || '')
