@@ -27,9 +27,6 @@ export default function Overlays() {
         {"\n \n"}
       </div>
       <iframe id="modal-form-iframe" height="0" width="0" frameBorder="0" marginWidth="0" marginHeight="0" ref={rawStyle("display:none")} />
-      <a href="https://wa.me/5511943259368" target="_blank" rel="noopener noreferrer">
-        <img title="Televendas BateForte" src="/assets/img-321fce640c7b.webp" className="ligacao" ref={rawStyle("width:50px")} />
-      </a>
     </>
   )
 }
