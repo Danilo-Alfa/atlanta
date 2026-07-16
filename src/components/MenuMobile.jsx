@@ -135,19 +135,7 @@ export default function MenuMobile() {
             {"\n \n "}
           </li>
           {"\n \n "}
-          <li className="email-menu-mobile">
-            {"\n "}
-            <a href="mailto:" title="E-mail">
-              {"\n "}
-              <i className="icon icon-email v-align-middle" />
-              {"\n E-mail:\n "}
-              <span>
-                {""}
-              </span>
-              {"\n "}
-            </a>
-            {"\n "}
-          </li>
+          
           {"\n "}
           
           {"\n "}
