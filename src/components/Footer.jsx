@@ -198,6 +198,20 @@ export default function Footer() {
                   </div>
                   {"\n "}
                 </li>
+                {"\n "}
+                <li>
+                  {"\n "}
+                  <a href="https://www.google.com/maps/search/?api=1&query=Av.+Quinze+de+Novembro,+1764+-+Centro,+Itapecerica+da+Serra+-+SP,+06850-100" target="_blank" rel="noopener noreferrer" title="Endereço">
+                    {"\n "}
+                    <i className="icon icon-place v-align-middle" />
+                    {"\n "}
+                    <span>
+                      {"Av. Quinze de Novembro, 1764 - Centro, Itapecerica da Serra - SP, 06850-100"}
+                    </span>
+                    {"\n "}
+                  </a>
+                  {"\n "}
+                </li>
               </ul>
               {"\n "}
             </div>
