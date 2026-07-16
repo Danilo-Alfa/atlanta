@@ -82,18 +82,7 @@ export default function Header() {
                     {"\n "}
                   </div>
                   {"\n \n \n \n "}
-                  <div className="header-wrapper__item header-wrapper__item--email">
-                    {"\n "}
-                    <a href="mailto:" title="E-mail">
-                      {"\n "}
-                      <span>
-                        <i className="icon icon-email v-align-middle" />
-                        {"E-mail:"}
-                      </span>
-                      {""}
-                    </a>
-                    {"\n "}
-                  </div>
+                  
                   {"\n "}
                   
                   {"\n "}
