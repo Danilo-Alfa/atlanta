@@ -48,175 +48,46 @@ export default function Footer() {
             <div className="overflow">
               {"\n "}
               <ul className="list">
-                {"\n "}
                 <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/materiais-de-construcao" title="Material de Construção">
-                    {"\n Material de Construção\n "}
+                  <a href="#/categoria/cimento" title="Cimento">
+                    {"Cimento"}
                   </a>
-                  {"\n "}
                 </li>
-                {"\n "}
                 <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/tintas-eacessorios" title="Tintas e Acessórios">
-                    {"\n Tintas e Acessórios\n "}
+                  <a href="#/categoria/areia" title="Areia">
+                    {"Areia"}
                   </a>
-                  {"\n "}
                 </li>
-                {"\n "}
                 <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/impermeabilizante" title="Impermeabilizante">
-                    {"\n Impermeabilizante\n "}
+                  <a href="#/categoria/ferro" title="Ferro">
+                    {"Ferro"}
                   </a>
-                  {"\n "}
                 </li>
-                {"\n "}
                 <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/madeiras" title="Madeiras">
-                    {"\n Madeiras\n "}
+                  <a href="#/categoria/eletrica" title="Elétrica">
+                    {"Elétrica"}
                   </a>
-                  {"\n "}
                 </li>
-                {"\n "}
                 <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/telha" title="Telha">
-                    {"\n Telha\n "}
+                  <a href="#/categoria/hidraulica" title="Hidráulica">
+                    {"Hidráulica"}
                   </a>
-                  {"\n "}
                 </li>
-                {"\n "}
                 <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/ferramentas" title="Ferramentas">
-                    {"\n Ferramentas\n "}
+                  <a href="#/categoria/madeiras" title="Madeiras">
+                    {"Madeiras"}
                   </a>
-                  {"\n "}
                 </li>
-                {"\n "}
                 <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/hidraulica" title="Hidráulica">
-                    {"\n Hidráulica\n "}
+                  <a href="#/categoria/telhas" title="Telhas">
+                    {"Telhas"}
                   </a>
-                  {"\n "}
                 </li>
-                {"\n "}
                 <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/eletrica" title="Elétrica">
-                    {"\n Elétrica\n "}
+                  <a href="#/categoria/tintas" title="Tintas">
+                    {"Tintas"}
                   </a>
-                  {"\n "}
                 </li>
-                {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/banheiro" title="Banheiro">
-                    {"\n Banheiro\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/ferragens" title="Ferragens">
-                    {"\n Ferragens\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/portas" title="Porta">
-                    {"\n Porta\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/cozinha" title="Cozinha">
-                    {"\n Cozinha\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/area-de-servico" title="Área de Serviço">
-                    {"\n Área de Serviço\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/calhas" title="Calhas">
-                    {"\n Calhas\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/piso-e-revestimos" title="Pisos e Revestimentos">
-                    {"\n Pisos e Revestimentos\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/fitas-isolantes" title="Fitas Isolantes">
-                    {"\n Fitas Isolantes\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/produtos-de-limpeza" title="Produtos De Limpeza">
-                    {"\n Produtos De Limpeza\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/casa-e-jardim" title="Casa e Jardim">
-                    {"\n Casa e Jardim\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/organizacao-e-limpeza" title="Organização e Limpeza">
-                    {"\n Organização e Limpeza\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/argamassa-vitrine" title="promoção vitrine">
-                    {"\n promoção vitrine\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="https://www.atlantanet.com.br/promocao-porcelanato" title="Promoção Porcelanato">
-                    {"\n Promoção Porcelanato\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n \n "}
               </ul>
               {"\n "}
             </div>
@@ -290,59 +161,20 @@ export default function Footer() {
             <div className="overflow">
               {"\n "}
               <ul className="list">
-                {" \n \n "}
                 <li>
                   {"\n "}
-                  <a href="https://api.whatsapp.com/send/?phone=5511943259368" title="Telefone: ">
+                  <a href="https://api.whatsapp.com/send/?phone=5511943259368" title="WhatsApp" target="_blank" rel="noopener noreferrer">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n "}
                     <span>
-                      {"(11)93377-7529"}
-                    </span>
-                    {"\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n \n \n "}
-                <li>
-                  {"\n "}
-                  <a href="mailto:" title="E-mail">
-                    {"\n "}
-                    <i className="icon icon-email v-align-middle" />
-                    {" "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="tel:+551136483388" title="Telefone: ">
-                    {"\n "}
-                    <i className="icon icon-phone v-align-middle" />
-                    {"\n "}
-                    <span>
-                      {"Matriz: (11)3648-3388"}
+                      {"(11) 94325-9368"}
                     </span>
                     {"\n "}
                   </a>
                   {"\n "}
                 </li>
                 {"\n "}
-                <li>
-                  {"\n "}
-                  <a href="tel:+551141520202" title="Telefone: ">
-                    {"\n "}
-                    <i className="icon icon-phone v-align-middle" />
-                    {"\n "}
-                    <span>
-                      {"Filial: (11)4152-0202"}
-                    </span>
-                    {"\n "}
-                  </a>
-                  {"\n "}
-                </li>
-                {"\n \n \n "}
                 <li className="hour">
                   {"\n "}
                   <div className="flex">
@@ -366,66 +198,6 @@ export default function Footer() {
                   </div>
                   {"\n "}
                 </li>
-                {"\n "}
-                <br />
-                {"\n "}
-                <div className="flex">
-                  {"\n "}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                    <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-                  </svg>
-                  {"\n "}
-                  <span>
-                    {"Unidades:"}
-                  </span>
-                  {"\n "}
-                </div>
-                {"\n "}
-                <div className="text">
-                  {"\n \n "}
-                  <li>
-                    {"\n "}
-                    <a href="https://www.atlantanet.com.br/loja/" title="Endereço:">
-                      {"\n "}
-                      <i className="icon icon-place v-align-middle" />
-                      {"\n "}
-                      <span>
-                        {"Matriz: Loja 1 - Av. Embaixador Macedo Soares, 6206 - Vila Anastácio , São Paulo - SP"}
-                      </span>
-                      {"\n "}
-                    </a>
-                    {"\n "}
-                  </li>
-                  {"\n "}
-                  <li>
-                    {"\n "}
-                    <a href="https://www.atlantanet.com.br/loja/" title="Endereço:">
-                      {"\n "}
-                      <i className="icon icon-place v-align-middle" />
-                      {"\n "}
-                      <span>
-                        {"Loja 2: Calçada Antares, 240 - Centro de Apoio II - Alphaville - SP"}
-                      </span>
-                      {"\n "}
-                    </a>
-                    {"\n "}
-                  </li>
-                  {"\n "}
-                  <li>
-                    {"\n "}
-                    <a href="https://www.atlantanet.com.br/loja/" title="Endereço:">
-                      {"\n "}
-                      <i className="icon icon-place v-align-middle" />
-                      {"\n "}
-                      <span>
-                        {"CD: Rua Irineu José Bordon, 104 - Parque Anhanguera, São Paulo - SP"}
-                      </span>
-                      {"\n "}
-                    </a>
-                    {"\n "}
-                  </li>
-                  {"\n "}
-                </div>
               </ul>
               {"\n "}
             </div>
