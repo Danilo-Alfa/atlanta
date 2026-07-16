@@ -17,7 +17,6 @@ import ShowcaseNovidades from './main/ShowcaseNovidades.jsx'
 import ShowcasePromocao from './main/ShowcasePromocao.jsx'
 import ShowcaseRecomendados from './main/ShowcaseRecomendados.jsx'
 import ShowcaseTelhas from './main/ShowcaseTelhas.jsx'
-import VideoHome from './main/VideoHome.jsx'
 
 export default function Main() {
   return (
@@ -52,8 +51,6 @@ export default function Main() {
       <FloatingWhatsapp />
       {"\n \n \n \n \n \n \n \n \n "}
       <ShowcaseRecomendados />
-      {"\n \n \n "}
-      <VideoHome />
       {"\n \n \n "}
       <Reviews />
       {"\n \n"}

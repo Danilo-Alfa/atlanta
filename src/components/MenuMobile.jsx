@@ -16,6 +16,13 @@ export default function MenuMobile() {
         {"\n Menu\n "}
       </div>
       {"\n "}
+      {/* busca no menu mobile (o header mobile recriado não tem campo de busca) */}
+      <form className="bf-menu-search" action="#">
+        <input type="search" placeholder="O que deseja procurar?" aria-label="Buscar produtos" />
+        <button type="submit" aria-label="Buscar">
+          <i className="icon icon-search" />
+        </button>
+      </form>
       <div className="nav-mobile-wrapper">
         {"\n "}
         <nav className="nav-mobile">
