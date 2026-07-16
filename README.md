@@ -36,6 +36,29 @@ aparecem em alguns minutos, cache do Google). Colunas:
 Se a planilha estiver fora do ar (ou `CATALOG_URL` vazio), o site usa o
 catálogo embutido (produtos capturados) — nunca quebra.
 
+## Finalização de pedido, frete e registro anti-adulteração
+
+`#/finalizar` (botão "Finalizar pelo WhatsApp" do carrinho): o cliente informa
+nome/WhatsApp/CEP, vê frete e total, e o pedido abre no WhatsApp com um número
+(`BF-...`). Princípio de segurança: **o navegador nunca é a fonte da verdade
+dos valores** — o site envia o pedido BRUTO (itens+quantidades+CEP) para um
+Apps Script na própria planilha, que recalcula subtotal/frete/total com os
+preços oficiais e marca em vermelho qualquer divergência com o que o site
+alegou. O vendedor confia na aba "Pedidos", não na mensagem.
+
+- **Frete**: CEP → coordenadas (BrasilAPI, gratuita) → distância em linha reta
+  até a loja → faixa da aba **"Frete"** da planilha (colunas `ate_km,valor`).
+  Grátis quando o subtotal ≥ R$ 100 (`FRETE_GRATIS_ACIMA`). Sem tabela, CEP
+  não encontrado ou fora das faixas → "a combinar pelo WhatsApp"
+- **Ativação** (2 passos, em `src/config.js`):
+  1. criar a aba `Frete` na planilha, publicá-la em CSV e colar o link em
+     `FRETE_CSV_URL`
+  2. instalar `tools/pedidos.gs` na planilha (Extensões → Apps Script →
+     Implantar como app da web, acesso "Qualquer pessoa") e colar a URL `/exec`
+     em `PEDIDOS_URL`
+- Sem os dois configurados, tudo degrada com elegância: frete "a combinar" e
+  pedido só pelo WhatsApp
+
 ## Camada de interatividade
 
 O markup capturado é estático; a interatividade é ligada em runtime por

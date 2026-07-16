@@ -273,6 +273,36 @@ body.bf-pdp-open .bf-pdp { display: block; }
   .bf-pdp__related-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
+/* ---- finalização de pedido (#/finalizar) ---- */
+.bf-checkout { display: flex; gap: 24px; align-items: flex-start; }
+.bf-checkout__items { flex: 1; }
+.bf-checkout__form { flex: 1; }
+.bf-account__card {
+  background: #fff; border: 1px solid var(--color_gray_medium);
+  border-radius: var(--border_radius_images); padding: 24px;
+}
+.bf-account__card h3 { font-size: 1.0625rem; font-weight: 700; margin-bottom: 16px; color: var(--color_font_dark); }
+.bf-account__card label { display: block; font-size: .8125rem; font-weight: 600; color: #555; margin-bottom: 12px; }
+.bf-account__card input {
+  display: block; width: 100%; margin-top: 4px; padding: 10px 12px;
+  border: 1px solid var(--color_gray_dark); border-radius: 6px; font-size: .875rem;
+}
+.bf-account__card input:focus { outline: 2px solid var(--color_header_highlight); outline-offset: -1px; }
+.bf-account__error { color: #c0392b; font-size: .8125rem; margin: 4px 0 8px; }
+.bf-account__note { text-align: center; font-size: .75rem; color: #999; margin-top: 12px; }
+.bf-checkout__endereco { font-size: .75rem; color: var(--color_header_highlight); margin: -6px 0 12px; }
+.bf-checkout__resumo {
+  border-top: 1px solid var(--color_gray_medium); margin: 14px 0; padding-top: 12px;
+  display: flex; flex-direction: column; gap: 8px; font-size: .875rem;
+}
+.bf-checkout__resumo > div { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; }
+.bf-checkout__total { border-top: 1px dashed var(--color_gray_medium); padding-top: 10px; font-size: 1rem; }
+.bf-checkout__total strong { color: var(--color_font_price); font-size: 1.125rem; }
+@media (max-width: 768px) {
+  .bf-checkout { flex-direction: column; }
+  .bf-checkout__items, .bf-checkout__form { width: 100%; }
+}
+
 /* página de categoria (#/categoria/<slug>) */
 .bf-cat__count { font-size: .8125rem; color: #777; margin: -6px 0 16px; }
 .bf-cat__empty { text-align: center; padding: 30px 15px 10px; }
