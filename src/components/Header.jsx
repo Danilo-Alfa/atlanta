@@ -12,12 +12,12 @@ export default function Header() {
             {"\n \n \n \n "}
           </div>
           {"\n "}
-          <a className="logo" href="/" title="BateForte Materiais para Construção & Madeireira">
+          <a className="logo" href="/" title="BateForte Materiais para Construção">
             {"\n "}
-            <img src="/assets/img-fb172cf24605.webp" alt="BateForte Materiais para Construção & Madeireira" width="222" height="36" />
+            <img src="/assets/img-fb172cf24605.webp" alt="BateForte Materiais para Construção" width="222" height="36" />
             {"\n \n "}
             <h1 className="title-store sf-hidden">
-              {"BateForte Materiais para Construção & Madeireira"}
+              {"BateForte Materiais para Construção"}
             </h1>
             {"\n "}
           </a>
@@ -595,95 +595,7 @@ export default function Header() {
                       {"\n \n "}
                     </li>
                     {"\n \n "}
-                    <li className="sub">
-                      {" \n "}
-                      <a href="https://www.atlantanet.com.br/madeiras" title="Madeiras" className="not-clickable">
-                        {"\n "}
-                        <div className="category-image">
-                          {"\n "}
-                          <img src="/assets/img-6e4e47f90b1c.svg" alt="Madeiras" ref={rawStyle("background-blend-mode:normal!important;background-clip:content-box!important;background-position:50% 50%!important;background-color:rgba(0,0,0,0)!important;background-image:var(--sf-img-20)!important;background-size:100% 100%!important;background-origin:content-box!important;background-repeat:no-repeat!important")} />
-                          {" \n "}
-                        </div>
-                        {"\n Madeiras\n "}
-                      </a>
-                      {"\n "}
-                      <ul className="sub-list second-level">
-                        {"\n \n "}
-                        <li>
-                          {"\n \n "}
-                          <a href="https://www.atlantanet.com.br/caibro" title="Caibro">
-                            {"\n Caibro\n "}
-                          </a>
-                          {"\n \n \n \n "}
-                        </li>
-                        {"\n \n \n "}
-                        <li>
-                          {"\n \n "}
-                          <a href="https://www.atlantanet.com.br/tabua" title="Tábua">
-                            {"\n Tábua\n "}
-                          </a>
-                          {"\n \n \n \n "}
-                        </li>
-                        {"\n \n \n "}
-                        <li>
-                          {"\n \n "}
-                          <a href="https://www.atlantanet.com.br/osb" title="Osb">
-                            {"\n Osb\n "}
-                          </a>
-                          {"\n \n \n \n "}
-                        </li>
-                        {"\n \n \n "}
-                        <li>
-                          {"\n \n "}
-                          <a href="https://www.atlantanet.com.br/ripa" title="Ripa">
-                            {"\n Ripa\n "}
-                          </a>
-                          {"\n \n \n \n "}
-                        </li>
-                        {"\n \n \n "}
-                        <li>
-                          {"\n \n "}
-                          <a href="https://www.atlantanet.com.br/sarrafo" title="Sarrafo">
-                            {"\n Sarrafo\n "}
-                          </a>
-                          {"\n \n \n \n "}
-                        </li>
-                        {"\n \n \n "}
-                        <li>
-                          {"\n \n "}
-                          <a href="https://www.atlantanet.com.br/viga" title="Viga">
-                            {"\n Viga\n "}
-                          </a>
-                          {"\n \n \n \n "}
-                        </li>
-                        {"\n \n \n "}
-                        <li>
-                          {"\n \n "}
-                          <a href="https://www.atlantanet.com.br/formas-para-concreto" title="Formas para Concreto">
-                            {"\n Formas para Concreto\n "}
-                          </a>
-                          {"\n \n \n \n "}
-                        </li>
-                        {"\n \n \n "}
-                        <li>
-                          {"\n \n "}
-                          <a href="https://www.atlantanet.com.br/madeiras/pontalete" title="Pontalete">
-                            {"\n Pontalete\n "}
-                          </a>
-                          {"\n \n \n \n "}
-                        </li>
-                        {"\n \n \n "}
-                        <li>
-                          {"\n \n "}
-                          <a href="https://www.atlantanet.com.br/madeiras/mata-cupim" title="Mata Cupim">
-                            {"\n Mata Cupim\n "}
-                          </a>
-                          {"\n \n \n \n "}
-                        </li>
-                        {"\n \n "}
-                      </ul>
-                      {"\n \n "}
-                    </li>
+                    
                     {"\n \n "}
                     <li className="sub">
                       {" \n "}
@@ -1635,21 +1547,7 @@ export default function Header() {
                 {"\n "}
               </li>
               {"\n \n "}
-              <li className="first-level">
-                {"\n "}
-                <a href="#/categoria/madeiras" title="Madeiras">
-                  {"\n "}
-                  <div className="category-image">
-                    <img alt="Madeiras" src="/assets/bf-icon-madeiras.svg" width="20" height="20" />
-                  </div>
-                  {"\n "}
-                  <div className="name">
-                    {"\n Madeiras\n "}
-                  </div>
-                  {"\n "}
-                </a>
-                {"\n "}
-              </li>
+              
               {"\n \n "}
               <li className="first-level">
                 {"\n "}
@@ -2313,8 +2211,8 @@ export default function Header() {
             <span />
             <span />
           </button>
-          <a className="bf-logo-mobile" href="/" title="BateForte Materiais para Construção & Madeireira">
-            <img src="/assets/img-fb172cf24605.webp" alt="BateForte Materiais para Construção & Madeireira" width="178" height="29" />
+          <a className="bf-logo-mobile" href="/" title="BateForte Materiais para Construção">
+            <img src="/assets/img-fb172cf24605.webp" alt="BateForte Materiais para Construção" width="178" height="29" />
           </a>
           <a className="cart-toggle" href="javascript:void(0)" title="Carrinho">
             <svg xmlns="http://www.w3.org/2000/svg" role="presentation" aria-hidden="true" viewBox="0 0 17 20" fill="currentColor">

@@ -1,4 +1,4 @@
-# BateForte Materiais para Construção & Madeireira — React
+# BateForte Materiais para Construção — React
 
 Conversão **fiel** (visualmente idêntica) da home da loja, originalmente
 salva como página única com **SingleFile** (HTML + CSS + imagens embutidos), para
@@ -26,8 +26,8 @@ aparecem em alguns minutos, cache do Google). Colunas:
 |---|---|
 | `ativo` | `sim` mostra; `não` esconde o produto |
 | `nome` | nome do produto (obrigatório) |
-| `categoria` | `cimento`, `areia`, `ferro`, `eletrica`, `hidraulica`, `madeiras`, `telhas` ou `tintas` |
-| `vitrine` | seção da home: `Destaques`, `Promoção`, `Telhas`, `Madeiras`, `Cimento`, `Novidades`, `Recomendados para você` |
+| `categoria` | `cimento`, `areia`, `ferro`, `eletrica`, `hidraulica`, `telhas` ou `tintas` |
+| `vitrine` | seção da home: `Destaques`, `Promoção`, `Telhas`, `Cimento`, `Novidades`, `Recomendados para você` |
 | `imagem` | link da foto (aceita link de compartilhamento do Google Drive) |
 | `referencia` | código interno (aparece na página e no pedido) |
 | `tag` | selo opcional: `Destaque`, `Novidade`, `Promoção` |
@@ -61,7 +61,7 @@ continha — definidos em `src/styles/interactive.css`:
   WhatsApp e produtos relacionados (mesma vitrine). Montada em runtime com os
   dados do próprio card; botão voltar do navegador funciona (rota por hash)
 - **Navbar com os departamentos reais da loja** (fachada: Cimento, Areia,
-  Ferro, Elétrica, Hidráulica + Madeiras, Telhas, Tintas), com ícones próprios
+  Ferro, Elétrica, Hidráulica + Telhas, Tintas), com ícones próprios
   em SVG no azul da marca — no desktop e no menu mobile. Cada departamento abre
   uma **página de categoria interna** (`#/categoria/<slug>`) listando os
   produtos capturados que casam com o padrão do departamento (deduplicados,

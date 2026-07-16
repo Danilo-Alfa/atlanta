@@ -11,7 +11,7 @@ const products = new Map()
 let originalTitle = ''
 
 // Departamentos reais da loja (fachada: Cimento, Areia, Ferro, Elétrica,
-// Hidráulica — mais Madeiras/Telhas/Tintas das vitrines). Cada página de
+// Hidráulica — mais Telhas/Tintas das vitrines). Cada página de
 // categoria lista os produtos capturados cujo nome casa com o padrão.
 const CATEGORIES = {
   cimento: { name: 'Cimento', test: /cimento|argamassa|concreto|bloco|\bcal\b/i },
@@ -19,7 +19,6 @@ const CATEGORIES = {
   ferro: { name: 'Ferro', test: /\bferro\b|vergalh|treli|arame|prego/i },
   eletrica: { name: 'Elétrica', test: /cabo|\bfio\b|fios|el[eé]tr|disjuntor|tomada|interruptor/i },
   hidraulica: { name: 'Hidráulica', test: /hidr|tubo|cano|conex|torneira|caixa d/i },
-  madeiras: { name: 'Madeiras', test: /madeir|caibro|sarrafo|batente|pinus|eucalipto|ripa|t[áa]bua|\beuc\b/i },
   telhas: { name: 'Telhas', test: /telha/i },
   tintas: { name: 'Tintas', test: /tinta|esmalte|self base|verniz|selador/i },
 }
@@ -145,7 +144,7 @@ function render(prod) {
       </div>` : ''}
     </div>`
   document.body.classList.add('bf-pdp-open')
-  document.title = `${prod.name} - BateForte Materiais para Construção & Madeireira`
+  document.title = `${prod.name} - BateForte Materiais para Construção`
   window.scrollTo(0, 0)
 }
 
@@ -195,7 +194,7 @@ function renderSearch(query) {
       </div>`}
     </div>`
   document.body.classList.add('bf-pdp-open')
-  document.title = `Busca: ${query} - BateForte Materiais para Construção & Madeireira`
+  document.title = `Busca: ${query} - BateForte Materiais para Construção`
   window.scrollTo(0, 0)
 }
 
@@ -245,7 +244,7 @@ function renderCategory(slug) {
       </div>`}
     </div>`
   document.body.classList.add('bf-pdp-open')
-  document.title = `${cat.name} - BateForte Materiais para Construção & Madeireira`
+  document.title = `${cat.name} - BateForte Materiais para Construção`
   window.scrollTo(0, 0)
 }
 
