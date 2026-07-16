@@ -28,6 +28,10 @@ function esc(s) {
   return d.innerHTML
 }
 
+export function getItems() {
+  return items.map((i) => ({ ...i }))
+}
+
 export function addItem({ id, ref, name, img, href, price = null }, qty = 1) {
   const found = items.find((i) => i.id === id)
   if (found) found.qty += qty
@@ -100,14 +104,9 @@ export function initCart() {
       return
     }
     if (e.target.closest('.bf-cart-checkout')) {
-      const lines = items.map(
-        (i) => `- ${i.qty}x ${i.name}${i.ref ? ` (Ref: ${i.ref})` : ''}${i.price != null ? ` — ${formatPreco(i.price * i.qty)}` : ''}`
-      )
-      const total = items.every((i) => i.price != null)
-        ? `\nTotal: ${formatPreco(items.reduce((n, i) => n + i.price * i.qty, 0))}`
-        : ''
-      const msg = `Olá! Quero fazer um pedido:\n${lines.join('\n')}${total}`
-      window.open(`https://api.whatsapp.com/send?phone=${WHATSAPP}&text=${encodeURIComponent(msg)}`, '_blank')
+      // abre a página de finalização (frete + registro do pedido)
+      closeCart()
+      location.hash = '#/finalizar'
     }
   })
 

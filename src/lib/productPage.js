@@ -5,6 +5,7 @@
 // link de WhatsApp). Navegação por hash (#/produto/<id>) para o botão
 // voltar do navegador funcionar como numa página real.
 import { addItem, closeCart, openCart } from './cart.js'
+import { initCheckout, renderCheckout } from './checkout.js'
 import { dynamicCategories, formatPreco } from './catalog.js'
 
 const products = new Map()
@@ -23,6 +24,16 @@ const CATEGORIES = {
   tintas: { name: 'Tintas', test: /tinta|esmalte|self base|verniz|selador/i },
 }
 const WHATSAPP_STORE = 'https://wa.me/5511943259368'
+
+function getHost() {
+  let host = document.querySelector('.bf-pdp')
+  if (!host) {
+    host = document.createElement('div')
+    host.className = 'bf-pdp'
+    document.querySelector('main.site-main')?.appendChild(host)
+  }
+  return host
+}
 
 // Categoria válida: da planilha (dinâmica) ou do conjunto fixo embutido
 function catInfo(slug) {
@@ -278,6 +289,13 @@ function onHashChange() {
     renderCategory(mc[1])
     return
   }
+  if (location.hash === '#/finalizar') {
+    closeCart()
+    renderCheckout(getHost())
+    document.body.classList.add('bf-pdp-open')
+    window.scrollTo(0, 0)
+    return
+  }
   const ms = location.hash.match(/^#\/busca\/(.+)$/)
   if (ms) {
     closeCart()
@@ -325,6 +343,8 @@ export function initProductPage() {
       }
     }
   })
+
+  initCheckout()
 
   window.addEventListener('hashchange', onHashChange)
   onHashChange() // abre direto se a URL já tiver #/produto/...
