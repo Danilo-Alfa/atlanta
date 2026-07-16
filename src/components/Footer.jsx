@@ -28,11 +28,7 @@ export default function Footer() {
                 {"\n "}
               </a>
               {"\n "}
-              <a href="https://www.tiktok.com/@bateforte" title="TikTok" aria-label="TikTok" target="_blank" rel="noopener noreferrer">
-                {"\n "}
-                <i className="icon icon-tiktok v-align-middle" />
-                {"\n "}
-              </a>
+              
               {"\n "}
             </div>
             {"\n "}
@@ -139,7 +135,7 @@ export default function Footer() {
                 {"\n "}
                 <li>
                   {"\n "}
-                  <a href="https://www.atlantanet.com.br/contato" title="Fale Conosco">
+                  <a href="https://wa.me/5511943259368" target="_blank" rel="noopener noreferrer" title="Fale Conosco">
                     {"Fale Conosco"}
                   </a>
                   {"\n "}
@@ -314,9 +310,9 @@ export default function Footer() {
               {"\n "}
               <span>
                 {"Desenvolvimento \n "}
-                <a href="https://trademarketing.digital/" rel="noopener" target="_blank">
+                <a href="https://www.instagram.com/bateforte_/" rel="noopener noreferrer" target="_blank">
                   {"\n "}
-                  <img src="/assets/img-f4fb0f1e4f54.webp" width="100%" height="auto" alt="Trade Marketing.digital" />
+                  <img src="/assets/logo-dunamis.png" width="42" height="42" alt="Dunamis" className="bf-logo-dunamis" />
                   {"\n "}
                 </a>
                 {"\n "}
