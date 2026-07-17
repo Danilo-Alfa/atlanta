@@ -5,8 +5,8 @@
 // o download falhar, nada muda: o markup capturado continua valendo
 // (é o "plano B" embutido).
 import { CATALOG_URL } from '../config.js'
+import { msgProduto, waLink } from './whatsapp.js'
 
-const WHATSAPP = '5511943259368'
 const FETCH_TIMEOUT_MS = 4000
 
 // Categorias vindas da planilha (coluna "categoria"): cada valor único
@@ -123,9 +123,7 @@ function esc(s) {
 const TAG_CLASS = { destaque: 'featured', novidade: 'new', promocao: 'discount', promoção: 'discount' }
 
 function cardHtml(p) {
-  const wa = `https://api.whatsapp.com/send?phone=${WHATSAPP}&text=${encodeURIComponent(
-    `Olá, gostei deste produto: Nome: ${p.nome}${p.referencia ? ` | Ref: ${p.referencia}` : ''}`
-  )}`
+  const wa = waLink(msgProduto({ nome: p.nome, referencia: p.referencia, preco: p.preco }))
   const tagCls = TAG_CLASS[p.tag.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')] || 'featured'
   return `
   <div class="item swiper-slide">
