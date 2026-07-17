@@ -7,6 +7,7 @@
 import { addItem, closeCart, openCart } from './cart.js'
 import { initCheckout, renderCheckout } from './checkout.js'
 import { dynamicCategories, formatPreco } from './catalog.js'
+import { msgBusca, msgCategoria, msgProduto, waLink } from './whatsapp.js'
 
 const products = new Map()
 let originalTitle = ''
@@ -71,7 +72,6 @@ function collectProducts() {
       name: p.querySelector('.product-name')?.textContent.trim() || 'Produto',
       img: resolveImg(p.querySelector('.image img')),
       tag: p.querySelector('.product-tags .tag-text')?.textContent.trim() || '',
-      whats: p.querySelector('.buy-whatsapp a')?.getAttribute('href') || '',
       section: section?.querySelector('.title-section')?.textContent.trim() || 'Produtos',
       sectionEl: section,
       // vindos da planilha do catálogo (cards capturados não os têm)
@@ -142,7 +142,7 @@ function render(prod) {
             <button type="button" data-bf-pdp-qty="1" aria-label="Aumentar">+</button>
           </div>
           <button type="button" class="bf-pdp__add" data-bf-pdp-add="${esc(prod.id)}">Adicionar ao carrinho</button>
-          ${prod.whats ? `<a class="bf-pdp__whats" href="${esc(prod.whats)}" target="_blank" rel="noopener noreferrer"><i class="icon icon-whatsapp v-align-middle"></i> Comprar pelo WhatsApp</a>` : ''}
+          <a class="bf-pdp__whats" data-bf-pdp-whats href="${waLink(msgProduto({ nome: prod.name, referencia: prod.ref, preco: prod.price, qtd: 1 }))}" target="_blank" rel="noopener noreferrer"><i class="icon icon-whatsapp v-align-middle"></i> Comprar pelo WhatsApp</a>
         </div>
       </div>
       ${related.length ? `
@@ -186,7 +186,7 @@ function renderSearch(query) {
     seen.add(name)
     return true
   })
-  const msg = encodeURIComponent(`Olá! Estou procurando por "${query}". Vocês têm?`)
+  const buscaLink = waLink(msgBusca(query))
   host.innerHTML = `
     <div class="container">
       <nav class="bf-pdp__breadcrumb">
@@ -209,7 +209,7 @@ function renderSearch(query) {
       </div>` : `
       <div class="bf-cat__empty">
         <p>Não encontramos <strong>“${esc(query)}”</strong> no catálogo online — mas a loja tem muito mais em estoque. Fale com a gente!</p>
-        <a class="bf-pdp__whats" href="${WHATSAPP_STORE}?text=${msg}" target="_blank" rel="noopener noreferrer"><i class="icon icon-whatsapp v-align-middle"></i> Perguntar pelo WhatsApp</a>
+        <a class="bf-pdp__whats" href="${buscaLink}" target="_blank" rel="noopener noreferrer"><i class="icon icon-whatsapp v-align-middle"></i> Perguntar pelo WhatsApp</a>
       </div>`}
     </div>`
   document.body.classList.add('bf-pdp-open')
@@ -235,7 +235,7 @@ function renderCategory(slug) {
     seen.add(key)
     return true
   })
-  const msg = encodeURIComponent(`Olá! Estou procurando produtos de ${cat.name}. Pode me ajudar?`)
+  const categoriaLink = waLink(msgCategoria(cat.name))
   host.innerHTML = `
     <div class="container">
       <nav class="bf-pdp__breadcrumb">
@@ -260,7 +260,7 @@ function renderCategory(slug) {
       </div>` : `
       <div class="bf-cat__empty">
         <p>Trabalhamos com toda a linha de <strong>${esc(cat.name)}</strong> na loja — o catálogo online mostra só uma parte do estoque.</p>
-        <a class="bf-pdp__whats" href="${WHATSAPP_STORE}?text=${msg}" target="_blank" rel="noopener noreferrer"><i class="icon icon-whatsapp v-align-middle"></i> Consultar pelo WhatsApp</a>
+        <a class="bf-pdp__whats" href="${categoriaLink}" target="_blank" rel="noopener noreferrer"><i class="icon icon-whatsapp v-align-middle"></i> Consultar pelo WhatsApp</a>
       </div>`}
     </div>`
   document.body.classList.add('bf-pdp-open')
@@ -330,7 +330,14 @@ export function initProductPage() {
     const qtyBtn = e.target.closest('[data-bf-pdp-qty]')
     if (qtyBtn) {
       const value = qtyBtn.parentElement.querySelector('[data-bf-pdp-qty-value]')
-      value.textContent = String(Math.max(1, Number(value.textContent) + Number(qtyBtn.dataset.bfPdpQty)))
+      const qty = Math.max(1, Number(value.textContent) + Number(qtyBtn.dataset.bfPdpQty))
+      value.textContent = String(qty)
+      // mantém a mensagem do botão "Comprar pelo WhatsApp" com a quantidade atual
+      const whats = document.querySelector('[data-bf-pdp-whats]')
+      const prod = products.get(document.querySelector('[data-bf-pdp-add]')?.dataset.bfPdpAdd)
+      if (whats && prod) {
+        whats.href = waLink(msgProduto({ nome: prod.name, referencia: prod.ref, preco: prod.price, qtd: qty }))
+      }
       return
     }
     const add = e.target.closest('[data-bf-pdp-add]')

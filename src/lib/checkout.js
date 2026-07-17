@@ -9,9 +9,8 @@
 // "a combinar" e envio só pelo WhatsApp.
 import { getItems } from './cart.js'
 import { formatPreco, parseCsv, parsePreco } from './catalog.js'
+import { msgPedidoIntro, waLink } from './whatsapp.js'
 import { FRETE_CSV_URL, FRETE_GRATIS_ACIMA, LOJA_COORDS, PEDIDOS_URL } from '../config.js'
-
-const WHATSAPP = '5511943259368'
 
 function esc(s) {
   const d = document.createElement('div')
@@ -258,16 +257,21 @@ export function initCheckout() {
       (i) => `- ${i.qty}x ${i.name}${i.ref ? ` (Ref: ${i.ref})` : ''}${i.price != null ? ` — ${formatPreco(i.price * i.qty)}` : ' — sob consulta'}`
     )
     const msg = [
-      `Olá! Pedido *${numero}*`,
-      `Nome: ${data.nome.trim()}`,
-      `CEP: ${data.cep}${ultimoFrete.endereco ? ` (${ultimoFrete.endereco})` : ''}`,
+      msgPedidoIntro(),
       '',
+      `Pedido: *${numero}*`,
+      `Nome: ${data.nome.trim()}`,
+      `Entrega no CEP: ${data.cep}${ultimoFrete.endereco ? ` (${ultimoFrete.endereco})` : ''}`,
+      '',
+      'Itens:',
       ...linhas,
       '',
       `Subtotal: ${formatPreco(subtotal)}`,
       `Frete: ${ultimoFrete.label}`,
-      `Total: ${ultimoFrete.valor != null ? formatPreco(subtotal + ultimoFrete.valor) : 'a confirmar'}`,
+      `Total: ${ultimoFrete.valor != null ? `*${formatPreco(subtotal + ultimoFrete.valor)}*` : 'a confirmar'}`,
+      '',
+      'Podem confirmar a disponibilidade e as formas de pagamento?',
     ].join('\n')
-    window.open(`https://api.whatsapp.com/send?phone=${WHATSAPP}&text=${encodeURIComponent(msg)}`, '_blank')
+    window.open(waLink(msg), '_blank')
   })
 }

@@ -6,7 +6,6 @@
 import { formatPreco } from './catalog.js'
 
 const STORAGE_KEY = 'bf_cart'
-const WHATSAPP = '5511943259368'
 
 let items = load()
 
