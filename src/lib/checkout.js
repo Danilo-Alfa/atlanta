@@ -57,29 +57,51 @@ function haversineKm(a, b) {
   return 6371 * 2 * Math.asin(Math.sqrt(h))
 }
 
-// devolve { valor|null, label, endereco|null, km|null }
-export async function calcularFrete(cep, subtotal) {
-  const clean = cep.replace(/\D/g, '')
-  if (clean.length !== 8) return { valor: null, label: 'CEP inválido', endereco: null, km: null }
+// CEP -> { endereco, coords }. A BrasilAPI devolve o endereço sempre, mas
+// coordenadas só para parte dos CEPs; quando faltam, a AwesomeAPI cobre
+// (tem lat/lng para praticamente todos) — sem ela o frete virava
+// "a combinar" para quase todo CEP.
+async function buscarCep(clean) {
   let endereco = null
   let coords = null
   try {
     const res = await fetch((window.__bfCepBase ?? 'https://brasilapi.com.br/api/cep/v2/') + clean)
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    const d = await res.json()
-    endereco = [d.street, d.neighborhood, d.city && `${d.city} - ${d.state}`].filter(Boolean).join(', ')
-    if (d.location?.coordinates?.latitude) {
-      coords = { lat: Number(d.location.coordinates.latitude), lng: Number(d.location.coordinates.longitude) }
+    if (res.ok) {
+      const d = await res.json()
+      endereco = [d.street, d.neighborhood, d.city && `${d.city} - ${d.state}`].filter(Boolean).join(', ')
+      if (d.location?.coordinates?.latitude) {
+        coords = { lat: Number(d.location.coordinates.latitude), lng: Number(d.location.coordinates.longitude) }
+      }
     }
-  } catch {
-    return { valor: null, label: 'Frete a combinar pelo WhatsApp', endereco: null, km: null }
+  } catch { /* tenta a próxima fonte */ }
+  if (!coords) {
+    try {
+      const res = await fetch((window.__bfCepGeoBase ?? 'https://cep.awesomeapi.com.br/json/') + clean)
+      if (res.ok) {
+        const d = await res.json()
+        if (d.lat && d.lng) coords = { lat: Number(d.lat), lng: Number(d.lng) }
+        if (!endereco) {
+          endereco = [d.address, d.district, d.city && `${d.city} - ${d.state}`].filter(Boolean).join(', ')
+        }
+      }
+    } catch { /* fica sem coordenadas */ }
   }
+  if (!coords) console.warn(`[frete] CEP ${clean} sem coordenadas nas duas fontes`)
+  return { endereco: endereco || null, coords }
+}
+
+// devolve { valor|null, label, endereco|null, km|null }
+export async function calcularFrete(cep, subtotal) {
+  const clean = cep.replace(/\D/g, '')
+  if (clean.length !== 8) return { valor: null, label: 'CEP inválido', endereco: null, km: null }
+  const { endereco, coords } = await buscarCep(clean)
   if (subtotal >= FRETE_GRATIS_ACIMA) {
     return { valor: 0, label: 'Grátis', endereco, km: null }
   }
   const faixas = await loadFaixas()
   if (!faixas || !coords) return { valor: null, label: 'Frete a combinar pelo WhatsApp', endereco, km: null }
   const km = haversineKm(LOJA_COORDS, coords)
+  console.info(`[frete] CEP ${clean}: ~${km.toFixed(1)} km da loja`)
   const faixa = faixas.find((f) => km <= f.km)
   if (!faixa) return { valor: null, label: `Frete a combinar pelo WhatsApp (~${Math.round(km)} km)`, endereco, km }
   return { valor: faixa.valor, label: formatPreco(faixa.valor), endereco, km }

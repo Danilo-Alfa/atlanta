@@ -46,7 +46,8 @@ Apps Script na própria planilha, que recalcula subtotal/frete/total com os
 preços oficiais e marca em vermelho qualquer divergência com o que o site
 alegou. O vendedor confia na aba "Pedidos", não na mensagem.
 
-- **Frete**: CEP → coordenadas (BrasilAPI, gratuita) → distância em linha reta
+- **Frete**: CEP → coordenadas (BrasilAPI; quando ela não tem as coordenadas
+  do CEP — caso comum — a AwesomeAPI cobre) → distância em linha reta
   até a loja → faixa da aba **"Frete"** da planilha (colunas `ate_km,valor`).
   Grátis quando o subtotal ≥ R$ 100 (`FRETE_GRATIS_ACIMA`). Sem tabela, CEP
   não encontrado ou fora das faixas → "a combinar pelo WhatsApp"
