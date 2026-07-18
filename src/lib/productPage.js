@@ -6,7 +6,7 @@
 // voltar do navegador funcionar como numa página real.
 import { addItem, closeCart, openCart } from './cart.js'
 import { initCheckout, renderCheckout } from './checkout.js'
-import { dynamicCategories, formatPreco } from './catalog.js'
+import { catalogProducts, dynamicCategories, formatPreco } from './catalog.js'
 import { msgBusca, msgCategoria, msgProduto, waLink } from './whatsapp.js'
 
 const products = new Map()
@@ -77,6 +77,22 @@ function collectProducts() {
       // vindos da planilha do catálogo (cards capturados não os têm)
       cat: p.dataset.bfCategory || '',
       price: p.dataset.bfPrice ? Number(p.dataset.bfPrice) : null,
+    })
+  })
+  // produtos da planilha sem vitrine na home não têm card no DOM, mas ainda
+  // devem aparecer no departamento, na busca e na página de produto
+  catalogProducts.forEach((p) => {
+    if (products.has(p.id)) return
+    products.set(p.id, {
+      id: p.id,
+      ref: p.referencia || '',
+      name: p.nome || 'Produto',
+      img: p.imagem || '',
+      tag: p.tag || '',
+      section: p.vitrine || p.categoriaNome || 'Produtos',
+      sectionEl: null,
+      cat: p.categoria || '',
+      price: p.preco != null ? p.preco : null,
     })
   })
 }

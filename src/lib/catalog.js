@@ -9,6 +9,12 @@ import { msgProduto, waLink } from './whatsapp.js'
 
 const FETCH_TIMEOUT_MS = 4000
 
+// Todos os produtos da planilha (não só os que entram numa vitrine da
+// home). A página de departamento, a busca e a página de produto usam
+// esta lista, então um produto aparece no site tendo apenas "categoria"
+// preenchida — a "vitrine" passa a ser opcional (só destaca na home).
+export const catalogProducts = []
+
 // Categorias vindas da planilha (coluna "categoria"): cada valor único
 // vira um departamento no site (navbar, menu mobile, mega-menu e footer).
 // Vazio enquanto a planilha não carrega — aí valem as categorias fixas.
@@ -261,6 +267,9 @@ export async function initCatalog() {
     const products = toProducts(parseCsv(await res.text()))
     if (!products.length) throw new Error('planilha sem produtos')
     rebuildShowcases(products)
+    // guarda todos os produtos (rebuildShowcases já resolveu as imagens)
+    catalogProducts.length = 0
+    catalogProducts.push(...products)
     // categorias na ordem em que aparecem na planilha
     const seen = new Set()
     products.forEach((p) => {

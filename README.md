@@ -26,9 +26,9 @@ aparecem em alguns minutos, cache do Google). Colunas:
 |---|---|
 | `ativo` | `sim` mostra; `não` esconde o produto |
 | `nome` | nome do produto (obrigatório) |
-| `categoria` | **livre**: cada valor único vira um departamento no site (navbar, menu mobile, mega-menu e footer), na ordem em que aparece nas linhas; acentos são aceitos (ex.: `Elétrica`); os 7 nomes clássicos mantêm seus ícones, os novos usam um ícone genérico |
-| `vitrine` | seção da home: `Destaques`, `Promoção`, `Telhas`, `Cimento`, `Novidades`, `Recomendados para você` |
-| `imagem` | link da foto (aceita link de compartilhamento do Google Drive) |
+| `categoria` | **livre**: cada valor único vira um departamento no site (navbar, menu mobile, mega-menu e footer), na ordem em que aparece nas linhas; acentos são aceitos (ex.: `Elétrica`); os 7 nomes clássicos mantêm seus ícones, os novos usam um ícone genérico. **Basta preencher a categoria para o produto aparecer** no departamento, na busca e na página de produto — mesmo sem vitrine |
+| `vitrine` | **opcional** — só destaca o produto numa seção da home: `Destaques`, `Promoção Da Semana`, `Telhas`, `Cimento`, `Novidades`, `Recomendados para você`. Vazio = produto não aparece na home, mas continua acessível pela categoria/busca |
+| `imagem` | link da foto (aceita link de compartilhamento do Google Drive, ou a URL direta de uma imagem hospedada) |
 | `referencia` | código interno (aparece na página e no pedido) |
 | `tag` | selo opcional: `Destaque`, `Novidade`, `Promoção` |
 | `preco` | opcional (`39,90`); vazio = "Preço sob consulta"; com preço, o carrinho soma o total |
