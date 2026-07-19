@@ -255,6 +255,31 @@ function rebuildCategoryNav(cats) {
   }
 }
 
+// produto é "oferta" quando a coluna tag traz Promoção/Oferta
+export const isOferta = (p) => /promo|oferta/.test(norm(p.tag || ''))
+
+// "Ofertas Especiais" (menu do topo): antes vinha com produtos fixos da
+// captura antiga; agora reflete a planilha — os produtos com tag
+// Promoção/Oferta. Sem nenhum, o item some do menu.
+function rebuildOffer(products) {
+  const li = document.querySelector('.nav .list li.categoria-offer')
+  if (!li) return
+  const promo = products.filter(isOferta)
+  if (!promo.length) {
+    li.style.display = 'none'
+    return
+  }
+  li.style.display = ''
+  // links da oferta apontam para a rota interna #/ofertas
+  const main = li.querySelector(':scope > a')
+  if (main) main.setAttribute('href', '#/ofertas')
+  const btn = li.querySelector('.categoria-offer__button')
+  if (btn) btn.setAttribute('href', '#/ofertas')
+  // troca os cards do dropdown pelos da planilha (até 12)
+  const wrap = li.querySelector('.categoria-offer__products .swiper-wrapper')
+  if (wrap) wrap.innerHTML = promo.slice(0, 12).map(cardHtml).join('')
+}
+
 export async function initCatalog() {
   const url = window.__bfCatalogUrl ?? CATALOG_URL
   if (!url) return false
@@ -279,6 +304,7 @@ export async function initCatalog() {
       }
     })
     rebuildCategoryNav(dynamicCategories)
+    rebuildOffer(products)
     return true
   } catch (e) {
     // plano B: mantém o catálogo embutido (markup capturado)

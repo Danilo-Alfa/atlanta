@@ -6,7 +6,7 @@
 // voltar do navegador funcionar como numa página real.
 import { addItem, closeCart, openCart } from './cart.js'
 import { initCheckout, renderCheckout } from './checkout.js'
-import { catalogProducts, dynamicCategories, formatPreco } from './catalog.js'
+import { catalogProducts, dynamicCategories, formatPreco, isOferta } from './catalog.js'
 import { msgBusca, msgCategoria, msgProduto, waLink } from './whatsapp.js'
 
 const products = new Map()
@@ -284,6 +284,49 @@ function renderCategory(slug) {
   window.scrollTo(0, 0)
 }
 
+// Página "Ofertas Especiais": lista os produtos marcados como oferta
+// (coluna tag = Promoção/Oferta na planilha).
+function renderOfertas() {
+  const host = getHost()
+  const seen = new Set()
+  const list = [...products.values()].filter((p) => {
+    if (!isOferta(p)) return false
+    const key = p.name.toLowerCase().replace(/\s+/g, ' ')
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+  const wa = waLink(msgCategoria('ofertas e promoções'))
+  host.innerHTML = `
+    <div class="container">
+      <nav class="bf-pdp__breadcrumb">
+        <a href="#" data-bf-close-pdp>Início</a><span> / </span><strong>Ofertas Especiais</strong>
+      </nav>
+      <div class="section-header"><h2 class="title-section">Ofertas Especiais</h2></div>
+      ${list.length ? `
+      <p class="bf-cat__count">${list.length} ${list.length === 1 ? 'produto em oferta' : 'produtos em oferta'}</p>
+      <div class="bf-pdp__related-grid">
+        ${list
+          .map(
+            (p) => `
+        <a class="bf-pdp__related-card" href="#/produto/${esc(p.id)}">
+          <img src="${esc(p.img)}" alt="${esc(p.name)}">
+          <span class="bf-pdp__related-name">${esc(p.name)}</span>
+          <span class="bf-pdp__related-price">${priceLabel(p)}</span>
+        </a>`
+          )
+          .join('')}
+      </div>` : `
+      <div class="bf-cat__empty">
+        <p>Nenhuma oferta no momento. Fale com a gente para conferir as condições da semana.</p>
+        <a class="bf-pdp__whats" href="${wa}" target="_blank" rel="noopener noreferrer"><i class="icon icon-whatsapp v-align-middle"></i> Falar pelo WhatsApp</a>
+      </div>`}
+    </div>`
+  document.body.classList.add('bf-pdp-open')
+  document.title = 'Ofertas Especiais - BateForte Materiais para Construção'
+  window.scrollTo(0, 0)
+}
+
 function close() {
   document.body.classList.remove('bf-pdp-open')
   document.title = originalTitle
@@ -303,6 +346,11 @@ function onHashChange() {
   if (mc && catInfo(mc[1])) {
     closeCart()
     renderCategory(mc[1])
+    return
+  }
+  if (location.hash === '#/ofertas') {
+    closeCart()
+    renderOfertas()
     return
   }
   if (location.hash === '#/finalizar') {
