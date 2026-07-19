@@ -30,7 +30,7 @@ aparecem em alguns minutos, cache do Google). Colunas:
 | `vitrine` | **opcional** — só destaca o produto numa seção da home: `Destaques`, `Promoção Da Semana`, `Telhas`, `Cimento`, `Novidades`, `Recomendados para você`. Vazio = produto não aparece na home, mas continua acessível pela categoria/busca |
 | `imagem` | link da foto (aceita link de compartilhamento do Google Drive, ou a URL direta de uma imagem hospedada) |
 | `referencia` | código interno (aparece na página e no pedido) |
-| `tag` | selo opcional: `Destaque`, `Novidade`, `Promoção` |
+| `tag` | selo opcional: `Destaque`, `Novidade`, `Promoção`. Produtos com tag **`Promoção`** (ou `Oferta`) entram automaticamente no menu **"Ofertas Especiais"** do topo e na página `#/ofertas`; sem nenhum, o item "Ofertas Especiais" some do menu |
 | `preco` | opcional (`39,90`); vazio = "Preço sob consulta"; com preço, o carrinho soma o total |
 
 Se a planilha estiver fora do ar (ou `CATALOG_URL` vazio), o site usa o

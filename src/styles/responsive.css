@@ -46,6 +46,29 @@ html, body { overflow-x: hidden; }
   .header .contact .contact-text { display: none; }
   .header .search-move { padding-left: 8px; }
 }
+
+/* ---- busca centralizada na página ----
+   O logo é bem mais largo que o bloco da direita, então a busca (que só
+   preenchia o espaço entre os dois) ficava deslocada para a direita. Um
+   grid de 3 colunas (1fr auto 1fr) recoloca a busca no centro da página,
+   com o logo à esquerda e o atendimento/carrinho à direita. Aplica-se
+   onde o logo é compacto (≤1023, já reduzido) e nas telas largas (≥1280);
+   entre 1024 e 1279 o logo em tamanho cheio não deixa espaço para centrar
+   sem sobrepor, então mantém o comportamento anterior. */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .header-desktop .line { display: grid; grid-template-columns: 1fr auto 1fr; }
+  .header-desktop .line .logo { justify-self: start; }
+  .header-desktop .line .search-move { width: min(56vw, 480px); padding-left: 0; }
+  .header-desktop .line .header-right { justify-self: end; margin-left: 0; }
+  .header-desktop .line .header-search-wrapper { margin: 0; }
+}
+@media (min-width: 1280px) {
+  .header-desktop .line { display: grid; grid-template-columns: 1fr auto 1fr; }
+  .header-desktop .line .logo { justify-self: start; }
+  .header-desktop .line .search-move { width: min(30vw, 560px); padding-left: 0; }
+  .header-desktop .line .header-right { justify-self: end; }
+  .header-desktop .line .header-search-wrapper { margin: 0; }
+}
 @media (min-width: 769px) and (max-width: 991px) {
   .nav .list > li > a .name,
   .nav .list > li > span .name,
