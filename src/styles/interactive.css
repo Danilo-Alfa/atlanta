@@ -34,6 +34,67 @@ body.bf-no-scroll .floating-whatsapp { z-index: 15 !important; pointer-events: n
   color: var(--color_header_text); border-bottom: 1px solid var(--color_header_details);
 }
 
+/* ---- menu mobile: visual mais caprichado ---- */
+.menu-mobile .block-title {
+  font-size: 1.25rem; letter-spacing: .2px; padding-bottom: 2px;
+}
+.menu-mobile .close-box {
+  width: 40px; height: 40px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  transition: background .15s;
+}
+.menu-mobile .close-box:hover,
+.menu-mobile .close-box:active { background: rgba(0, 0, 0, .06); }
+
+/* lista de departamentos com linhas espaçadas, ícone em badge e chevron */
+.menu-mobile .nav-mobile .list { display: flex; flex-direction: column; gap: 6px; }
+.menu-mobile .nav-mobile .list > li > a {
+  display: flex; align-items: center; gap: 14px;
+  padding: 13px 12px; border-radius: 12px;
+  font-size: 1.0625rem; font-weight: 600; line-height: 1.2;
+  color: var(--color_header_text); transition: background .15s;
+}
+/* respiro extra em telas maiores (tablets/iPad) */
+@media (min-width: 600px) {
+  .menu-mobile .nav-mobile .list { gap: 8px; }
+  .menu-mobile .nav-mobile .list > li > a { padding: 15px 14px; font-size: 1.125rem; }
+}
+.menu-mobile .nav-mobile .list > li > a:hover,
+.menu-mobile .nav-mobile .list > li > a:active { background: rgba(29, 78, 156, .08); }
+.menu-mobile .nav-mobile .list > li > a::after {
+  content: ""; margin-left: auto; width: 8px; height: 8px; flex: none;
+  border-right: 2px solid #c4cad4; border-bottom: 2px solid #c4cad4;
+  transform: rotate(-45deg); transition: border-color .15s;
+}
+.menu-mobile .nav-mobile .list > li > a:hover::after,
+.menu-mobile .nav-mobile .list > li > a:active::after { border-color: var(--color_header_highlight); }
+/* ícone dentro de um quadradinho azul claro */
+.menu-mobile .nav-mobile .list .category-image {
+  width: 40px; height: 40px; min-width: 40px; max-width: none; margin: 0;
+  border-radius: 11px; background: rgba(29, 78, 156, .08);
+  display: flex; align-items: center; justify-content: center;
+}
+.menu-mobile .nav-mobile .list .category-image img { width: 22px; height: 22px; }
+
+/* divisor limpo entre a busca e a lista */
+.menu-mobile .nav-mobile-wrapper { border-top: 1px solid var(--color_header_details); }
+
+/* rodapé do menu: sem o fundo azul herdado da captura */
+.menu-mobile .menu-mobile-actions {
+  background: transparent; color: inherit;
+  border-top: 1px solid var(--color_header_details); margin-top: auto;
+}
+
+/* botão de WhatsApp fixo no rodapé do menu */
+.bf-menu-wpp {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  margin: 12px 0 16px; padding: 13px 16px; border-radius: 12px;
+  background: #25d366; color: #fff; font-weight: 700; font-size: .95rem;
+  text-decoration: none; box-shadow: 0 2px 8px rgba(37, 211, 102, .35);
+}
+.bf-menu-wpp:hover, .bf-menu-wpp:active { background: #1fb457; }
+.bf-menu-wpp .icon { font-size: 18px; }
+
 /* busca dentro do menu mobile */
 .bf-menu-search {
   display: flex; align-items: center; gap: 6px; margin-top: 12px;

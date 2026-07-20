@@ -123,7 +123,10 @@ export default function MenuMobile() {
       {"\n "}
       <div className="menu-mobile-actions">
         {"\n "}
-        
+        <a className="bf-menu-wpp" href="https://wa.me/5511943259368" target="_blank" rel="noopener noreferrer">
+          <i className="icon icon-whatsapp" />
+          {" Comprar pelo WhatsApp"}
+        </a>
         {"\n "}
         <ul className="menu-actions-mobile__contact">
           {"\n "}
