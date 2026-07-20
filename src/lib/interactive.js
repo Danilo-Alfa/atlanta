@@ -9,9 +9,24 @@ import { closeCart, initCart } from './cart.js'
 import { initCatalog } from './catalog.js'
 import { initProductPage } from './productPage.js'
 
+// Skeleton das imagens: até cada <img> carregar, o container mostra um
+// brilho cinza (as imagens já reservam o espaço via aspecto/altura fixa,
+// então não há salto de layout). Marca bf-img-ready ao carregar.
+function initImageSkeleton() {
+  const ready = (img) => img.classList.add('bf-img-ready')
+  const onEvt = (e) => { if (e.target.tagName === 'IMG') ready(e.target) }
+  document.addEventListener('load', onEvt, true) // 'load' não borbulha -> captura
+  document.addEventListener('error', onEvt, true)
+  const scan = () => document.querySelectorAll('img:not(.bf-img-ready)').forEach((img) => { if (img.complete) ready(img) })
+  scan()
+  setTimeout(scan, 400)
+  setTimeout(scan, 1500)
+}
+
 export async function initInteractive() {
   if (window.__bfInteractive) return
   window.__bfInteractive = true
+  initImageSkeleton()
   // primeiro o catálogo: se a planilha estiver configurada, as vitrines
   // são reconstruídas ANTES de tudo que lê os produtos do DOM
   try {
