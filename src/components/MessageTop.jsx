@@ -5,7 +5,7 @@ export default function MessageTop() {
   // não liga o carrossel (.bf-ready), o CSS mostra só a 1ª mensagem
   // centralizada e ocupando a largura toda; depois o Swiper assume o loop.
   const mensagens = [
-    'Parcelamos suas compras em até 3x sem juros',
+    'Parcelamos suas compras em até 6x sem juros',
     'Compre pelo whatsapp',
     'Loja especializada, mais de 20 anos no mercado.',
   ]
