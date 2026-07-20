@@ -17,11 +17,7 @@ html, body { overflow-x: hidden; }
 .nav .list .second-level.products-show { max-width: calc(100vw - 30px); }
 
 /* ---- banner principal ----
-   No mobile a arte 1920x620 ficava ilegível; uma arte dedicada 1:1 entra
-   via <picture> e a proporção do contêiner acompanha. */
-@media (max-width: 768px) {
-  .banner-home .item-image:after { padding-bottom: 100% !important; }
-}
+   O hero (1689x931) mantém a mesma proporção no mobile, sem corte. */
 
 /* ---- header desktop em telas médias (769–1279px) ----
    Menos padding e fonte menor para caber sem esmagar a busca nem cortar

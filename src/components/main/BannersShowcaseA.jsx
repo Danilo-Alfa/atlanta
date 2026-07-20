@@ -1,31 +1,20 @@
-import { rawStyle } from '../../lib/rawStyle'
-
 export default function BannersShowcaseA() {
+  // Faixa de destaques promocionais (banners verticais da loja).
+  // Cada um leva ao departamento correspondente.
+  const promos = [
+    { img: '/assets/img-promo-impermeabilizantes.webp', href: '#/categoria/impermeabilizantes', alt: 'Impermeabilizantes' },
+    { img: '/assets/img-promo-tintas.webp', href: '#/categoria/tintas', alt: 'Tintas e Acessórios' },
+    { img: '/assets/img-promo-cimento.webp', href: '#/categoria/cimento', alt: 'Cimento com preços exclusivos' },
+  ]
   return (
-    <div className="banners-grid banners-showcase group-native-banners">
+    <div className="banners-grid banners-showcase group-native-banners bf-promo-row">
       {"\n "}
-      <div className="container flex f-wrap justify-between">
-        {"\n "}
-        <div className="item">
-          {"\n \n \n \n "}
-          <a href={"https://www.atlantanet.com.br/loja/clic.php?loja=1018104&banner=188"} className="item-image" aria-label="Banner" ref={rawStyle("--padding:47.244094488189%")}>
-            {"\n "}
-            <img loading="lazy" src="/assets/img-3c1edb97cf21.webp" alt="Banner" width="635" height="300" />
-            {"\n "}
+      <div className="container">
+        {promos.map((p) => (
+          <a key={p.href} className="bf-promo" href={p.href} aria-label={p.alt}>
+            <img loading="lazy" src={p.img} alt={p.alt} width="1170" height="1360" />
           </a>
-          {"\n "}
-        </div>
-        {"\n "}
-        <div className="item">
-          {"\n \n \n \n "}
-          <a href={"https://www.atlantanet.com.br/loja/clic.php?loja=1018104&banner=190"} className="item-image" aria-label="Banner" ref={rawStyle("--padding:47.244094488189%")}>
-            {"\n "}
-            <img loading="lazy" src="/assets/img-c5ecad89b44e.webp" alt="Banner" width="635" height="300" />
-            {"\n "}
-          </a>
-          {"\n "}
-        </div>
-        {"\n "}
+        ))}
       </div>
       {"\n "}
     </div>

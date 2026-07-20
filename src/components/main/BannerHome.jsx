@@ -6,12 +6,9 @@ export default function BannerHome() {
       {"\n \n "}
       <div className="item">
         {"\n \n \n \n "}
-        <span target="_blank" rel="noopener noreferrer" className="item-image" aria-label="Banner" ref={rawStyle("--padding:32.291666666667%")}>
+        <span className="item-image" aria-label="Banner" ref={rawStyle("--padding:55.121%")}>
           {"\n "}
-          <picture>
-            <source media="(max-width: 768px)" srcSet="/assets/img-banner-mobile-bf.webp" />
-            <img loading="lazy" src="/assets/img-12ea4fb8d6d1.webp" alt="Banner" width="1920" height="620" />
-          </picture>
+          <img src="/assets/img-hero-bf.webp" alt="BateForte — tudo que sua construção precisa está aqui" width="1689" height="931" />
           {"\n "}
         </span>
         {"\n "}
