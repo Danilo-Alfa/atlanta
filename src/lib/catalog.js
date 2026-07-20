@@ -280,6 +280,44 @@ function rebuildBuySizes(cats) {
   buy.classList.add('bf-cats-dynamic')
 }
 
+// Carrossel "Siga-nos no Instagram": a captura trazia fotos de produtos
+// de marcas que a loja não trabalha (Placo, Sika...). Agora mostra
+// produtos DA PLANILHA, variados por categoria, cada um levando à sua
+// página. O link do título continua indo para o Instagram real.
+function rebuildInstagram(products) {
+  const wrap = document.querySelector('.template-instagram #instafeed')
+  if (!wrap) return
+  const byCat = new Map()
+  products.forEach((p) => {
+    if (!p.imagem || p.imagem.endsWith('.svg')) return
+    const k = p.categoria || ''
+    if (!byCat.has(k)) byCat.set(k, [])
+    byCat.get(k).push(p)
+  })
+  const pick = []
+  let added = true
+  while (added && pick.length < 12) {
+    added = false
+    for (const list of byCat.values()) {
+      if (list.length && pick.length < 12) { pick.push(list.shift()); added = true }
+    }
+  }
+  if (!pick.length) return
+  wrap.innerHTML = pick
+    .map(
+      (p) => `
+    <div class="item swiper-slide">
+      <a href="#/produto/${p.id}" aria-label="${esc(p.nome)}">
+        <div>
+          <img loading="lazy" src="${esc(p.imagem)}" alt="${esc(p.nome)}">
+          <span class="bf-insta-cap">${esc(p.nome)}</span>
+        </div>
+      </a>
+    </div>`
+    )
+    .join('')
+}
+
 // produto é "oferta" quando a coluna tag traz Promoção/Oferta
 export const isOferta = (p) => /promo|oferta/.test(norm(p.tag || ''))
 
@@ -330,6 +368,7 @@ export async function initCatalog() {
     })
     rebuildCategoryNav(dynamicCategories)
     rebuildBuySizes(dynamicCategories)
+    rebuildInstagram(products)
     rebuildOffer(products)
     return true
   } catch (e) {

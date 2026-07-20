@@ -34,6 +34,14 @@ body.bf-no-scroll .floating-whatsapp { z-index: 15 !important; pointer-events: n
   color: var(--color_header_text); border-bottom: 1px solid var(--color_header_details);
 }
 
+/* ---- Instagram: produtos do catálogo com legenda ---- */
+.template-instagram #instafeed a img { background: #fff; }
+.template-instagram #instafeed .bf-insta-cap {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  padding: 22px 12px 10px; font-size: .85rem; font-weight: 700; line-height: 1.2;
+  color: #fff; background: linear-gradient(transparent, rgba(18, 53, 110, .92));
+}
+
 /* ---- "Navegue por Categorias" gerado da planilha ---- */
 .buy-sizes.bf-cats-dynamic .buy-sizes__image {
   background: rgba(29, 78, 156, .08); border-color: rgba(29, 78, 156, .18);
