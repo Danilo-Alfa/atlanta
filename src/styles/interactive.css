@@ -10,6 +10,14 @@
 /* ---- estados globais ---- */
 .overlay-shadow.bf-visible { visibility: visible; opacity: .5; }
 body.bf-no-scroll { overflow: hidden; }
+
+/* ---- barra de avisos do topo ----
+   Antes do Swiper iniciar (.bf-ready), mostra SÓ a 1ª mensagem,
+   centralizada e ocupando a largura toda. Evita o "pisca" torto no F5,
+   quando o markup ainda traria os slides lado a lado. */
+.message-top:not(.bf-ready) .swiper-wrapper { display: block !important; transform: none !important; }
+.message-top:not(.bf-ready) .swiper-slide { display: none !important; }
+.message-top:not(.bf-ready) .swiper-slide:first-child { display: block !important; width: 100% !important; }
 /* com menu/carrinho abertos, o botão flutuante do WhatsApp (z-index
    99999) ficava POR CIMA do drawer e roubava os cliques */
 body.bf-no-scroll .floating-whatsapp { z-index: 15 !important; pointer-events: none; }

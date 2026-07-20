@@ -73,6 +73,8 @@ function initMessageTop() {
     allowTouchMove: false,
     autoplay: msgs.length > 1 ? { delay: 4000, disableOnInteraction: false } : false,
   })
+  // libera o carrossel: o CSS deixa de segurar só a 1ª mensagem
+  container.closest('.message-top')?.classList.add('bf-ready')
 }
 
 function initCarousels() {
