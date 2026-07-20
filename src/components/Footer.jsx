@@ -180,7 +180,7 @@ export default function Footer() {
                   <div className="text">
                     {"\n "}
                     <span>
-                      {"Segunda a Sexta 08:00 as 18:00 e Sábado das 08:00 as 12:00"}
+                      {"Segunda a Sexta 08:00 as 18:00 e Sábado das 08:00 as 13:00"}
                     </span>
                     {"\n "}
                   </div>
