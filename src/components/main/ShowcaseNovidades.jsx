@@ -66,7 +66,7 @@ export default function ShowcaseNovidades() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cabo%20Flex%C3%83%C2%ADvel%20%202,5MM%20100M%20Vermelho%20-%20Sil%20Fios%20|%20Ref:%2029920"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511974659658&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cabo%20Flex%C3%83%C2%ADvel%20%202,5MM%20100M%20Vermelho%20-%20Sil%20Fios%20|%20Ref:%2029920"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -126,7 +126,7 @@ export default function ShowcaseNovidades() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cabo%20Flex%C3%83%C2%ADvel%20%201,5MM%20100M%20Preto%20-%20Sil%20Fios%20|%20Ref:%2029926"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511974659658&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cabo%20Flex%C3%83%C2%ADvel%20%201,5MM%20100M%20Preto%20-%20Sil%20Fios%20|%20Ref:%2029926"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -186,7 +186,7 @@ export default function ShowcaseNovidades() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cabo%20Flex%C3%83%C2%ADvel%20%201,5MM%20100M%20Azul%20-%20Sil%20Fios%20|%20Ref:%2029925"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511974659658&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cabo%20Flex%C3%83%C2%ADvel%20%201,5MM%20100M%20Azul%20-%20Sil%20Fios%20|%20Ref:%2029925"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -246,7 +246,7 @@ export default function ShowcaseNovidades() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cabo%20Flex%C3%83%C2%ADvel%20%201,5MM%20100M%20Branco%20-%20Sil%20Fios%20|%20Ref:%2029930"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511974659658&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cabo%20Flex%C3%83%C2%ADvel%20%201,5MM%20100M%20Branco%20-%20Sil%20Fios%20|%20Ref:%2029930"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}

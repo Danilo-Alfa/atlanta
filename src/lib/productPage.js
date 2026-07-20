@@ -24,7 +24,7 @@ const CATEGORIES = {
   telhas: { name: 'Telhas', test: /telha/i },
   tintas: { name: 'Tintas', test: /tinta|esmalte|self base|verniz|selador/i },
 }
-const WHATSAPP_STORE = 'https://wa.me/5511943259368'
+const WHATSAPP_STORE = 'https://wa.me/5511974659658'
 
 function getHost() {
   let host = document.querySelector('.bf-pdp')
@@ -150,7 +150,7 @@ function render(prod) {
           <h1 class="bf-pdp__name">${esc(prod.name)}</h1>
           ${prod.ref ? `<p class="bf-pdp__ref">Referência: ${esc(prod.ref)}</p>` : ''}
           <p class="bf-pdp__price">${priceLabel(prod)}</p>
-          <p class="bf-pdp__note">Consulte condições, estoque e formas de pagamento pelo WhatsApp <a href="${WHATSAPP_STORE}" target="_blank" rel="noopener noreferrer">(11) 94325-9368</a>.</p>
+          <p class="bf-pdp__note">Consulte condições, estoque e formas de pagamento pelo WhatsApp <a href="${WHATSAPP_STORE}" target="_blank" rel="noopener noreferrer">(11) 97465-9658</a>.</p>
           <div class="bf-pdp__qty">
             <span>Quantidade</span>
             <button type="button" data-bf-pdp-qty="-1" aria-label="Diminuir">−</button>

@@ -2,7 +2,7 @@
 // Tom cordial e objetivo, sem emojis: cada mensagem já identifica a loja
 // e diz o que o cliente quer, para o vendedor abrir a conversa com o
 // contexto pronto (produto, referência, quantidade, valor).
-export const WHATSAPP_PHONE = '5511943259368'
+export const WHATSAPP_PHONE = '5511974659658'
 const LOJA = 'BateForte Materiais para Construção'
 
 // formatação de preço local (evita import circular com catalog.js)
