@@ -255,6 +255,28 @@ function rebuildCategoryNav(cats) {
   }
 }
 
+// "Navegue por Categorias" (círculos da home): antes vinham fixos do
+// código (Cimentos, Pisos, Telhas...). Agora vêm da planilha, iguais aos
+// departamentos, cada círculo levando ao seu departamento.
+function rebuildBuySizes(cats) {
+  if (!cats.length) return
+  const buy = document.querySelector('.buy-sizes')
+  const wrap = buy?.querySelector('.buy-sizes__content')
+  if (!wrap) return
+  wrap.innerHTML = cats
+    .map(
+      (c) => `
+    <div class="item swiper-slide">
+      <a href="#/categoria/${c.slug}" title="${esc(c.name)}">
+        <div class="buy-sizes__image"><img loading="lazy" src="${catIcon(c.slug)}" alt="${esc(c.name)}"></div>
+        <div class="buy-sizes__name"> ${esc(c.name)} </div>
+      </a>
+    </div>`
+    )
+    .join('')
+  buy.classList.add('bf-cats-dynamic')
+}
+
 // produto é "oferta" quando a coluna tag traz Promoção/Oferta
 export const isOferta = (p) => /promo|oferta/.test(norm(p.tag || ''))
 
@@ -304,6 +326,7 @@ export async function initCatalog() {
       }
     })
     rebuildCategoryNav(dynamicCategories)
+    rebuildBuySizes(dynamicCategories)
     rebuildOffer(products)
     return true
   } catch (e) {
