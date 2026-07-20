@@ -294,6 +294,12 @@ function rebuildInstagram(products) {
     if (!byCat.has(k)) byCat.set(k, [])
     byCat.get(k).push(p)
   })
+  // dentro de cada categoria, primeiro os "carro-chefe": produtos com tag
+  // (Destaque/Promoção) e depois os de maior valor — evita cair nos itens
+  // pequenos/baratos que ficam no começo da lista
+  for (const list of byCat.values()) {
+    list.sort((a, b) => (b.tag ? 1 : 0) - (a.tag ? 1 : 0) || (b.preco || 0) - (a.preco || 0))
+  }
   const pick = []
   let added = true
   while (added && pick.length < 12) {

@@ -122,12 +122,14 @@ function initCarousels() {
     const nav = enableArrows(buySizes)
     new Swiper(buySizes, {
       modules: [Navigation],
-      slidesPerView: 2,
+      // valores fracionados: sempre "espia" um pedaço do próximo item,
+      // deixando claro que há mais categorias para o lado
+      slidesPerView: 2.3,
       spaceBetween: 12,
       breakpoints: {
-        480: { slidesPerView: 3, spaceBetween: 16 },
-        768: { slidesPerView: 4, spaceBetween: 20 },
-        1024: { slidesPerView: 6, spaceBetween: 24 },
+        480: { slidesPerView: 3.3, spaceBetween: 16 },
+        768: { slidesPerView: 4.3, spaceBetween: 20 },
+        1024: { slidesPerView: 5.3, spaceBetween: 24 },
       },
       navigation: { prevEl: nav.prev, nextEl: nav.next },
       watchOverflow: true,
