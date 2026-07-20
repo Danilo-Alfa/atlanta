@@ -20,7 +20,10 @@ export const catalogProducts = []
 // Vazio enquanto a planilha não carrega — aí valem as categorias fixas.
 export const dynamicCategories = []
 
-const ICONS = new Set(['cimento', 'areia', 'ferro', 'eletrica', 'hidraulica', 'telhas', 'tintas'])
+const ICONS = new Set([
+  'cimento', 'areia', 'ferro', 'eletrica', 'hidraulica', 'telhas', 'tintas',
+  'ferramentas', 'adesivos-e-selantes', 'argamassas-e-rejuntes', 'impermeabilizantes',
+])
 const PRETTY = { eletrica: 'Elétrica', hidraulica: 'Hidráulica' }
 const slugify = (s) =>
   s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '')
