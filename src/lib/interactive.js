@@ -15,6 +15,7 @@ export async function initInteractive() {
   // primeiro o catálogo: se a planilha estiver configurada, as vitrines
   // são reconstruídas ANTES de tudo que lê os produtos do DOM
   await initCatalog()
+  initMessageTop()
   initCarousels()
   // antes do menu mobile: os submenus clonam links do header, que já
   // devem estar reapontados para as rotas internas
@@ -41,6 +42,37 @@ function enableArrows(el) {
     }
   }
   return { prev, next }
+}
+
+// Barra de avisos do topo: a captura congelou o Swiper (slides com
+// width:1351px fixo e um transform travado), então a barra não
+// acompanhava a largura da tela nem girava. Reconstrói os slides limpos
+// (mensagens únicas) e inicia um Swiper real, responsivo e em loop.
+function initMessageTop() {
+  const container = document.querySelector('.message-top .swiper-container')
+  const wrapper = container?.querySelector('.swiper-wrapper')
+  if (!wrapper) return
+  const seen = new Set()
+  const msgs = []
+  wrapper.querySelectorAll('.swiper-slide a').forEach((a) => {
+    const t = a.textContent.trim()
+    if (t && !seen.has(t)) {
+      seen.add(t)
+      msgs.push(t)
+    }
+  })
+  if (!msgs.length) return
+  wrapper.style.cssText = '' // remove o transform congelado da captura
+  wrapper.innerHTML = msgs
+    .map((t) => `<div class="item swiper-slide"><a href="javascript:void(0)" aria-label="${t.replace(/"/g, '&quot;')}">${t}</a></div>`)
+    .join('')
+  new Swiper(container, {
+    modules: [Autoplay],
+    slidesPerView: 1,
+    loop: msgs.length > 1,
+    allowTouchMove: false,
+    autoplay: msgs.length > 1 ? { delay: 4000, disableOnInteraction: false } : false,
+  })
 }
 
 function initCarousels() {
