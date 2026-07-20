@@ -62,6 +62,28 @@ function resolveImg(imgEl) {
 }
 
 function collectProducts() {
+  // Planilha ativa = fonte ÚNICA da verdade. Os produtos capturados
+  // (hardcoded no markup original — ex.: os cimentos do ShowcaseCimento)
+  // são ignorados, para não "vazarem" em categoria/busca/página de produto.
+  if (catalogProducts.length) {
+    catalogProducts.forEach((p) => {
+      if (products.has(p.id)) return
+      products.set(p.id, {
+        id: p.id,
+        ref: p.referencia || '',
+        name: p.nome || 'Produto',
+        img: p.imagem || '',
+        tag: p.tag || '',
+        section: p.vitrine || p.categoriaNome || 'Produtos',
+        sectionEl: null,
+        cat: p.categoria || '',
+        price: p.preco != null ? p.preco : null,
+      })
+    })
+    return
+  }
+  // Plano B (planilha fora do ar): usa os produtos capturados do DOM,
+  // classificados pelo padrão do nome (CATEGORIES), para o site nunca ficar vazio.
   document.querySelectorAll('.product[id]').forEach((p) => {
     const id = p.id
     if (!id || products.has(id)) return
@@ -74,25 +96,8 @@ function collectProducts() {
       tag: p.querySelector('.product-tags .tag-text')?.textContent.trim() || '',
       section: section?.querySelector('.title-section')?.textContent.trim() || 'Produtos',
       sectionEl: section,
-      // vindos da planilha do catálogo (cards capturados não os têm)
       cat: p.dataset.bfCategory || '',
       price: p.dataset.bfPrice ? Number(p.dataset.bfPrice) : null,
-    })
-  })
-  // produtos da planilha sem vitrine na home não têm card no DOM, mas ainda
-  // devem aparecer no departamento, na busca e na página de produto
-  catalogProducts.forEach((p) => {
-    if (products.has(p.id)) return
-    products.set(p.id, {
-      id: p.id,
-      ref: p.referencia || '',
-      name: p.nome || 'Produto',
-      img: p.imagem || '',
-      tag: p.tag || '',
-      section: p.vitrine || p.categoriaNome || 'Produtos',
-      sectionEl: null,
-      cat: p.categoria || '',
-      price: p.preco != null ? p.preco : null,
     })
   })
 }
