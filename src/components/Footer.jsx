@@ -127,7 +127,7 @@ export default function Footer() {
                 {"\n "}
                 <li>
                   {"\n "}
-                  <a href="https://wa.me/5511943259368" target="_blank" rel="noopener noreferrer" title="Fale Conosco">
+                  <a href="https://wa.me/5511974659658" target="_blank" rel="noopener noreferrer" title="Fale Conosco">
                     {"Fale Conosco"}
                   </a>
                   {"\n "}
@@ -151,12 +151,12 @@ export default function Footer() {
               <ul className="list">
                 <li>
                   {"\n "}
-                  <a href="https://api.whatsapp.com/send/?phone=5511943259368" title="WhatsApp" target="_blank" rel="noopener noreferrer">
+                  <a href="https://api.whatsapp.com/send/?phone=5511974659658" title="WhatsApp" target="_blank" rel="noopener noreferrer">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n "}
                     <span>
-                      {"(11) 94325-9368"}
+                      {"(11) 97465-9658"}
                     </span>
                     {"\n "}
                   </a>

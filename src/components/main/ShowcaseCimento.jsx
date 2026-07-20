@@ -58,7 +58,7 @@ export default function ShowcaseCimento() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cimento%20Exato%20CP%20IV%2050KG%20-%20Cau%C3%83%C2%AA%20|%20Ref:%2027447"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511974659658&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cimento%20Exato%20CP%20IV%2050KG%20-%20Cau%C3%83%C2%AA%20|%20Ref:%2027447"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -110,7 +110,7 @@ export default function ShowcaseCimento() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cimento%20Estrutura%2040KG%20CP-V%20-%20Cau%C3%83%C2%AA%20|%20Ref:%2013998"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511974659658&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cimento%20Estrutura%2040KG%20CP-V%20-%20Cau%C3%83%C2%AA%20|%20Ref:%2013998"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -162,7 +162,7 @@ export default function ShowcaseCimento() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cimento%20Todas%20As%20Obras%2050KG%20CPII%20-%20Votoran%20|%20Ref:%2010009"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511974659658&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cimento%20Todas%20As%20Obras%2050KG%20CPII%20-%20Votoran%20|%20Ref:%2010009"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
@@ -214,7 +214,7 @@ export default function ShowcaseCimento() {
                 {"\n \n \n "}
                 <div className="buy-whatsapp buy-whatsapp--list-product">
                   {"\n "}
-                  <a href={"https://api.whatsapp.com/send?phone=5511943259368&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cimento%20Uso%20Geral%2050%20Kg%20CPII%20-%20Cau%C3%83%C2%AA%20|%20Ref:%2022114"} target="_blank">
+                  <a href={"https://api.whatsapp.com/send?phone=5511974659658&text=Ol%C3%83%C2%A1,%20gostei%20deste%20produto:%20Nome:%20Cimento%20Uso%20Geral%2050%20Kg%20CPII%20-%20Cau%C3%83%C2%AA%20|%20Ref:%2022114"} target="_blank">
                     {"\n "}
                     <i className="icon icon-whatsapp v-align-middle" />
                     {"\n Comprar pelo Whats\n "}
