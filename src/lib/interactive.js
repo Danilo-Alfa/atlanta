@@ -14,7 +14,13 @@ export async function initInteractive() {
   window.__bfInteractive = true
   // primeiro o catálogo: se a planilha estiver configurada, as vitrines
   // são reconstruídas ANTES de tudo que lê os produtos do DOM
-  await initCatalog()
+  try {
+    await initCatalog()
+  } finally {
+    // catálogo pronto (ou falhou p/ o plano B): tira o skeleton
+    document.documentElement.classList.remove('bf-loading')
+    document.documentElement.classList.add('bf-loaded')
+  }
   initMessageTop()
   initCarousels()
   // antes do menu mobile: os submenus clonam links do header, que já
