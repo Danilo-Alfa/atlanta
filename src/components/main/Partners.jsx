@@ -17,6 +17,14 @@ export default function Partners() {
           <img loading="lazy" src="/assets/img-parceiros-pc.webp" alt="Marcas parceiras da BateForte" width="1376" height="768" />
         </picture>
         {"\n "}
+        <div className="bf-choose-brand">
+          {"\n "}
+          <h3 className="bf-choose-brand__title">{"Escolha pela marca"}</h3>
+          {"\n "}
+          <ul className="bf-brand-links" />
+          {"\n "}
+        </div>
+        {"\n "}
       </div>
       {"\n"}
     </div>

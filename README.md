@@ -32,6 +32,7 @@ aparecem em alguns minutos, cache do Google). Colunas:
 | `referencia` | código interno (aparece na página e no pedido) |
 | `tag` | selo opcional: `Destaque`, `Novidade`, `Promoção`. Produtos com tag **`Promoção`** (ou `Oferta`) entram automaticamente no menu **"Ofertas Especiais"** do topo e na página `#/ofertas`; sem nenhum, o item "Ofertas Especiais" some do menu |
 | `preco` | opcional (`39,90`); vazio = "Preço sob consulta"; com preço, o carrinho soma o total |
+| `marca` | opcional; cada valor único vira um filtro em **"Escolha pela marca"** (seção Nossos Parceiros) e na rota `#/marca/<slug>`, listando só os produtos daquela marca |
 
 Se a planilha estiver fora do ar (ou `CATALOG_URL` vazio), o site usa o
 catálogo embutido (produtos capturados) — nunca quebra.
