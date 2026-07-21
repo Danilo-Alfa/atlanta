@@ -14,7 +14,7 @@ export default function Partners() {
         {"\n "}
         <picture className="bf-partners-img">
           <source media="(max-width: 768px)" srcSet="/assets/img-parceiros-mobile.webp" />
-          <img loading="lazy" src="/assets/img-parceiros-pc.webp" alt="Marcas parceiras da BateForte" width="1539" height="672" />
+          <img loading="lazy" src="/assets/img-parceiros-pc.webp" alt="Marcas parceiras da BateForte" width="1376" height="768" />
         </picture>
         {"\n "}
       </div>
