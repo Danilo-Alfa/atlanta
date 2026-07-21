@@ -20,6 +20,10 @@ export const catalogProducts = []
 // Vazio enquanto a planilha não carrega — aí valem as categorias fixas.
 export const dynamicCategories = []
 
+// Marcas vindas da planilha (coluna "marca"): cada valor único vira um
+// filtro em "Escolha pela Marca" e na rota #/marca/<slug>.
+export const dynamicBrands = []
+
 const ICONS = new Set([
   'cimento', 'areia', 'ferro', 'eletrica', 'hidraulica', 'telhas', 'tintas',
   'ferramentas', 'adesivos-e-selantes', 'argamassas-e-rejuntes', 'impermeabilizantes',
@@ -82,7 +86,7 @@ function toProducts(rows) {
   const idx = {
     ativo: col('ativo'), nome: col('nome'), categoria: col('categoria'),
     vitrine: col('vitrine'), imagem: col('imagem'), referencia: col('referencia'),
-    tag: col('tag'), preco: col('preco'),
+    tag: col('tag'), preco: col('preco'), marca: col('marca'),
   }
   if (idx.nome === -1) return []
   const get = (r, i) => (i >= 0 && r[i] != null ? String(r[i]).trim() : '')
@@ -99,6 +103,8 @@ function toProducts(rows) {
       referencia: get(r, idx.referencia),
       tag: get(r, idx.tag),
       preco: parsePreco(get(r, idx.preco)),
+      marca: get(r, idx.marca),
+      marcaSlug: slugify(get(r, idx.marca)),
     }))
     .filter((p) => p.nome && !/^(nao|não|n|0|false)$/i.test(p.ativo))
 }
@@ -324,6 +330,20 @@ function rebuildInstagram(products) {
     .join('')
 }
 
+// "Escolha pela Marca": chips clicáveis com as marcas da planilha,
+// cada um levando à rota #/marca/<slug>. Some se não houver coluna marca.
+function rebuildBrandLinks(brands) {
+  const host = document.querySelector('.bf-brand-links')
+  if (!host) return
+  if (!brands.length) {
+    host.closest('.bf-choose-brand')?.style.setProperty('display', 'none')
+    return
+  }
+  host.innerHTML = brands
+    .map((bnd) => `<li><a href="#/marca/${bnd.slug}" title="${esc(bnd.name)}">${esc(bnd.name)}</a></li>`)
+    .join('')
+}
+
 // produto é "oferta" quando a coluna tag traz Promoção/Oferta
 export const isOferta = (p) => /promo|oferta/.test(norm(p.tag || ''))
 
@@ -376,6 +396,15 @@ export async function initCatalog() {
     rebuildBuySizes(dynamicCategories)
     rebuildInstagram(products)
     rebuildOffer(products)
+    // marcas (coluna "marca"), na ordem em que aparecem
+    const seenB = new Set()
+    products.forEach((p) => {
+      if (p.marca && !seenB.has(p.marcaSlug)) {
+        seenB.add(p.marcaSlug)
+        dynamicBrands.push({ slug: p.marcaSlug, name: p.marca })
+      }
+    })
+    rebuildBrandLinks(dynamicBrands)
     return true
   } catch (e) {
     // plano B: mantém o catálogo embutido (markup capturado)

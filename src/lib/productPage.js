@@ -77,6 +77,8 @@ function collectProducts() {
         section: p.vitrine || p.categoriaNome || 'Produtos',
         sectionEl: null,
         cat: p.categoria || '',
+        marca: p.marca || '',
+        marcaSlug: p.marcaSlug || '',
         price: p.preco != null ? p.preco : null,
       })
     })
@@ -332,6 +334,51 @@ function renderOfertas() {
   window.scrollTo(0, 0)
 }
 
+// Página de marca (#/marca/<slug>): lista os produtos daquela marca.
+function renderMarca(slug) {
+  const host = getHost()
+  let brandName = ''
+  const seen = new Set()
+  const list = [...products.values()].filter((p) => {
+    if (p.marcaSlug !== slug) return false
+    if (!brandName) brandName = p.marca
+    const key = p.name.toLowerCase().replace(/\s+/g, ' ')
+    if (seen.has(key)) return false
+    seen.add(key)
+    return true
+  })
+  brandName = brandName || slug
+  const wa = waLink(msgCategoria(brandName))
+  host.innerHTML = `
+    <div class="container">
+      <nav class="bf-pdp__breadcrumb">
+        <a href="#" data-bf-close-pdp>Início</a><span> / </span><span>Marcas</span><span> / </span><strong>${esc(brandName)}</strong>
+      </nav>
+      <div class="section-header"><h2 class="title-section">${esc(brandName)}</h2></div>
+      ${list.length ? `
+      <p class="bf-cat__count">${list.length} ${list.length === 1 ? 'produto' : 'produtos'}</p>
+      <div class="bf-pdp__related-grid">
+        ${list
+          .map(
+            (p) => `
+        <a class="bf-pdp__related-card" href="#/produto/${esc(p.id)}">
+          <img src="${esc(p.img)}" alt="${esc(p.name)}">
+          <span class="bf-pdp__related-name">${esc(p.name)}</span>
+          <span class="bf-pdp__related-price">${priceLabel(p)}</span>
+        </a>`
+          )
+          .join('')}
+      </div>` : `
+      <div class="bf-cat__empty">
+        <p>Não encontramos produtos da marca <strong>${esc(brandName)}</strong> no catálogo online — mas temos muito mais na loja.</p>
+        <a class="bf-pdp__whats" href="${wa}" target="_blank" rel="noopener noreferrer"><i class="icon icon-whatsapp v-align-middle"></i> Consultar pelo WhatsApp</a>
+      </div>`}
+    </div>`
+  document.body.classList.add('bf-pdp-open')
+  document.title = `${brandName} - BateForte Materiais para Construção`
+  window.scrollTo(0, 0)
+}
+
 function close() {
   document.body.classList.remove('bf-pdp-open')
   document.title = originalTitle
@@ -351,6 +398,12 @@ function onHashChange() {
   if (mc && catInfo(mc[1])) {
     closeCart()
     renderCategory(mc[1])
+    return
+  }
+  const mm = location.hash.match(/^#\/marca\/([a-z0-9-]+)$/)
+  if (mm) {
+    closeCart()
+    renderMarca(mm[1])
     return
   }
   if (location.hash === '#/ofertas') {
