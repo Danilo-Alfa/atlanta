@@ -1,6 +1,17 @@
 # Configuração para hospedagem compartilhada Hostinger (Apache/LiteSpeed)
 # Este arquivo é copiado para dist/ no build e publicado na branch deploy.
 
+# Domínio canônico: redireciona www -> raiz e força HTTPS (301)
+# Para inverter (raiz -> www), troque a condição por %{HTTP_HOST} !^www\. e
+# o destino por https://www.jotabateforte.com.br/$1
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTP_HOST} ^www\.(.+)$ [NC]
+  RewriteRule ^(.*)$ https://%1/$1 [R=301,L]
+  RewriteCond %{HTTPS} !=on
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
+</IfModule>
+
 # Compressão gzip
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
