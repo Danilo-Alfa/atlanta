@@ -35,3 +35,11 @@ export const FRETE_GRATIS_ACIMA = 100
 // O código do script está em tools/pedidos.gs (passo a passo no README).
 export const PEDIDOS_URL =
   'https://script.google.com/macros/s/AKfycbwwuNgFh7gKDJR4a5qlI0tJk-9GzfBQwkDOPFworoR6vCscLRxr5hWYAGIGm0bGA7cE/exec'
+
+// ============================================================
+// GOOGLE TAG MANAGER
+// ============================================================
+// ID do contêiner (formato GTM-XXXXXXX), obtido em tagmanager.google.com.
+// Vazio ('') = desativado. O site injeta o GTM depois do carregamento da
+// página para não afetar a performance (ver src/lib/gtm.js).
+export const GTM_ID = 'GTM-WDCQBGWX'

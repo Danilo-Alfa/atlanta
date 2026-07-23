@@ -1,8 +1,11 @@
 import { createRoot } from 'react-dom/client'
 import App from './App.jsx'
+import { initGtm } from './lib/gtm.js'
 import './styles/site.css'
 import './styles/interactive.css'
 import './styles/responsive.css'
+
+initGtm()
 
 // Estado de carregamento: enquanto a planilha do catálogo não chega, as
 // seções montadas por ela (categorias, vitrines) mostram um skeleton em
