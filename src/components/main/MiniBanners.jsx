@@ -3,6 +3,8 @@ import { rawStyle } from '../../lib/rawStyle'
 export default function MiniBanners() {
   // Fileira de 3 destaques logo após "Navegue por Categorias".
   // Artes da loja; cada uma leva ao departamento correspondente.
+  // Todos lazy: o LCP é o banner-home (hero); carregar estes junto com ele
+  // só disputa banda no mobile — testado, atrasa o LCP em ~0.6s.
   const banners = [
     { img: '/assets/img-promo-cimento.webp', href: '#/categoria/cimento', alt: 'Cimento com preços exclusivos' },
     { img: '/assets/img-promo-impermeabilizantes.webp', href: '#/categoria/impermeabilizantes', alt: 'Impermeabilizantes' },
