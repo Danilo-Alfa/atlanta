@@ -7,7 +7,7 @@ var yt=Object.defineProperty;var St=(e,t,s)=>t in e?yt(e,t,{enumerable:!0,config
   <div class="item swiper-slide">
     <div class="product upon_request has-fast-shopping" id="${e.id}" product-ref="${G(e.referencia)||"ref-empty"}" data-bf-category="${G(e.categoria)}"${e.preco!=null?` data-bf-price="${e.preco}"`:""}>
       <div class="image">
-        <a href="#/produto/${e.id}" class="space-image"><img loading="lazy" class="lazyload loaded" src="${G(e.imagem)}" alt="${G(e.nome)}"></a>
+        <a href="#/produto/${e.id}" class="space-image"><img loading="lazy" class="lazyload loaded" src="${G(e.imagem)}" alt="${G(e.nome)}" width="290" height="290"></a>
         <div class="product-tags tags-custom" data-tags-count="${e.tag?1:0}">
           ${e.tag?`<div class="tag ${s}"><span class="tag-text">${G(e.tag)}</span></div>`:""}
         </div>
@@ -32,14 +32,14 @@ var yt=Object.defineProperty;var St=(e,t,s)=>t in e?yt(e,t,{enumerable:!0,config
         ${G(r.name)} </a></li>`).join(""));const a=document.querySelector(".footer .box-categories .list");a&&(a.innerHTML=e.map(r=>`<li><a href="#/categoria/${r.slug}" title="${G(r.name)}">${G(r.name)}</a></li>`).join(""))}function dn(e){if(!e.length)return;const t=document.querySelector(".buy-sizes"),s=t==null?void 0:t.querySelector(".buy-sizes__content");s&&(s.innerHTML=e.map(n=>`
     <div class="item swiper-slide">
       <a href="#/categoria/${n.slug}" title="${G(n.name)}">
-        <div class="buy-sizes__image"><img loading="lazy" src="${ge(n.slug)}" alt="${G(n.name)}"></div>
+        <div class="buy-sizes__image"><img loading="lazy" src="${ge(n.slug)}" alt="${G(n.name)}" width="136" height="136"></div>
         <div class="buy-sizes__name"> ${G(n.name)} </div>
       </a>
     </div>`).join(""),t.classList.add("bf-cats-dynamic"))}function cn(e){const t=document.querySelector(".template-instagram #instafeed");if(!t)return;const s=new Map;e.forEach(a=>{if(!a.imagem||a.imagem.endsWith(".svg"))return;const r=a.categoria||"";s.has(r)||s.set(r,[]),s.get(r).push(a)});for(const a of s.values())a.sort((r,o)=>(o.tag?1:0)-(r.tag?1:0)||(o.preco||0)-(r.preco||0));const n=[];let i=!0;for(;i&&n.length<12;){i=!1;for(const a of s.values())a.length&&n.length<12&&(n.push(a.shift()),i=!0)}n.length&&(t.innerHTML=n.map(a=>`
     <div class="item swiper-slide">
       <a href="#/produto/${a.id}" aria-label="${G(a.nome)}">
         <div>
-          <img loading="lazy" src="${G(a.imagem)}" alt="${G(a.nome)}">
+          <img loading="lazy" src="${G(a.imagem)}" alt="${G(a.nome)}" width="300" height="300">
           <span class="bf-insta-cap">${G(a.nome)}</span>
         </div>
       </a>
@@ -115,7 +115,7 @@ var yt=Object.defineProperty;var St=(e,t,s)=>t in e?yt(e,t,{enumerable:!0,config
       <div class="bf-pdp__grid">
         <div class="bf-pdp__image">
           ${e.tag?`<span class="bf-pdp__tag">${A(e.tag)}</span>`:""}
-          <img src="${A(e.img)}" alt="${A(e.name)}">
+          <img src="${A(e.img)}" alt="${A(e.name)}" width="600" height="600">
         </div>
         <div class="bf-pdp__info">
           <h1 class="bf-pdp__name">${A(e.name)}</h1>

@@ -13,11 +13,14 @@
     <link rel="preload" as="image" href="/assets/img-hero-bf-768.webp" media="(max-width: 768px)" fetchpriority="high" />
     <!-- fonte principal do texto: evita a troca tardia após o CSS -->
     <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/maven-pro-400.woff2" crossorigin />
-    <!-- catálogo vem da planilha publicada: abre a conexão antecipadamente -->
+    <!-- catálogo vem da planilha publicada: baixa o CSV em paralelo com o JS
+         (manter a URL igual à CATALOG_URL de src/config.js; se divergirem, o
+         site continua funcionando — só perde o adiantamento) -->
+    <link rel="preload" as="fetch" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTcM837zqsyDwbQ1j9ILkaTGZCtsyt796NcxKJ_0Ed9FcqTo2HaG0gr_jj2U4xcslxm-jt7KRlxSplw/pub?gid=665645625&single=true&output=csv" crossorigin />
     <link rel="preconnect" href="https://docs.google.com" crossorigin />
     <title>BateForte Materiais para Construção</title>
-    <script type="module" crossorigin src="/assets/index-QGuSpz0M.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index--cercgqg.css">
+    <script type="module" crossorigin src="/assets/index-CjcV_U_f.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-DjP1v25V.css">
   </head>
   <body class="user-not-is-logged">
     <div id="root"></div>
