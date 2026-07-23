@@ -37,11 +37,21 @@ function getHost() {
 }
 
 // Categoria válida: da planilha (dinâmica) ou do conjunto fixo embutido
+const MINUSCULAS = new Set(['e', 'de', 'da', 'do', 'das', 'dos', 'para'])
+
 function catInfo(slug) {
   const dyn = dynamicCategories.find((c) => sameSlug(c.slug, slug))
   if (dyn) return dyn
   if (CATEGORIES[slug]) return { slug, name: CATEGORIES[slug].name }
-  return null
+  // slug desconhecido (link fixo de categoria que a planilha não trouxe,
+  // ex.: banner de Impermeabilizantes com a planilha fora do ar): a página
+  // ainda abre — no pior caso mostra o aviso com o convite pro WhatsApp,
+  // em vez de o clique não fazer nada
+  const name = slug
+    .split('-')
+    .map((w) => (MINUSCULAS.has(w) ? w : w.charAt(0).toUpperCase() + w.slice(1)))
+    .join(' ')
+  return { slug, name }
 }
 
 function esc(s) {
