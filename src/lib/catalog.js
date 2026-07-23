@@ -146,7 +146,7 @@ function cardHtml(p) {
   <div class="item swiper-slide">
     <div class="product upon_request has-fast-shopping" id="${p.id}" product-ref="${esc(p.referencia) || 'ref-empty'}" data-bf-category="${esc(p.categoria)}"${p.preco != null ? ` data-bf-price="${p.preco}"` : ''}>
       <div class="image">
-        <a href="#/produto/${p.id}" class="space-image"><img loading="lazy" class="lazyload loaded" src="${esc(p.imagem)}" alt="${esc(p.nome)}"></a>
+        <a href="#/produto/${p.id}" class="space-image"><img loading="lazy" class="lazyload loaded" src="${esc(p.imagem)}" alt="${esc(p.nome)}" width="290" height="290"></a>
         <div class="product-tags tags-custom" data-tags-count="${p.tag ? 1 : 0}">
           ${p.tag ? `<div class="tag ${tagCls}"><span class="tag-text">${esc(p.tag)}</span></div>` : ''}
         </div>
@@ -279,7 +279,7 @@ function rebuildBuySizes(cats) {
       (c) => `
     <div class="item swiper-slide">
       <a href="#/categoria/${c.slug}" title="${esc(c.name)}">
-        <div class="buy-sizes__image"><img loading="lazy" src="${catIcon(c.slug)}" alt="${esc(c.name)}"></div>
+        <div class="buy-sizes__image"><img loading="lazy" src="${catIcon(c.slug)}" alt="${esc(c.name)}" width="136" height="136"></div>
         <div class="buy-sizes__name"> ${esc(c.name)} </div>
       </a>
     </div>`
@@ -323,7 +323,7 @@ function rebuildInstagram(products) {
     <div class="item swiper-slide">
       <a href="#/produto/${p.id}" aria-label="${esc(p.nome)}">
         <div>
-          <img loading="lazy" src="${esc(p.imagem)}" alt="${esc(p.nome)}">
+          <img loading="lazy" src="${esc(p.imagem)}" alt="${esc(p.nome)}" width="300" height="300">
           <span class="bf-insta-cap">${esc(p.nome)}</span>
         </div>
       </a>
