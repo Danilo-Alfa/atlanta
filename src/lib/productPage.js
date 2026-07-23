@@ -37,11 +37,21 @@ function getHost() {
 }
 
 // Categoria válida: da planilha (dinâmica) ou do conjunto fixo embutido
+const MINUSCULAS = new Set(['e', 'de', 'da', 'do', 'das', 'dos', 'para'])
+
 function catInfo(slug) {
-  const dyn = dynamicCategories.find((c) => c.slug === slug)
+  const dyn = dynamicCategories.find((c) => sameSlug(c.slug, slug))
   if (dyn) return dyn
   if (CATEGORIES[slug]) return { slug, name: CATEGORIES[slug].name }
-  return null
+  // slug desconhecido (link fixo de categoria que a planilha não trouxe,
+  // ex.: banner de Impermeabilizantes com a planilha fora do ar): a página
+  // ainda abre — no pior caso mostra o aviso com o convite pro WhatsApp,
+  // em vez de o clique não fazer nada
+  const name = slug
+    .split('-')
+    .map((w) => (MINUSCULAS.has(w) ? w : w.charAt(0).toUpperCase() + w.slice(1)))
+    .join(' ')
+  return { slug, name }
 }
 
 function esc(s) {
@@ -49,6 +59,11 @@ function esc(s) {
   d.textContent = s || ''
   return d.innerHTML
 }
+
+// "cimentos" e "cimento" (ou "argamassas-e-rejuntes" e "argamassa-e-rejunte")
+// contam como o mesmo slug de categoria
+const baseSlug = (s) => s.split('-').map((w) => w.replace(/s$/, '')).join('-')
+const sameSlug = (a, b) => a === b || baseSlug(a) === baseSlug(b)
 
 function resolveImg(imgEl) {
   if (!imgEl) return ''
@@ -249,15 +264,23 @@ function renderCategory(slug) {
     host.className = 'bf-pdp'
     document.querySelector('main.site-main')?.appendChild(host)
   }
-  const seen = new Set()
-  const list = [...products.values()].filter((p) => {
-    // produtos da planilha usam a coluna "categoria"; os capturados, o padrão do nome
-    if (p.cat ? p.cat !== slug : !(staticCat && staticCat.test.test(p.name))) return false
-    const key = p.name.toLowerCase().replace(/\s+/g, ' ')
-    if (seen.has(key)) return false
-    seen.add(key)
-    return true
-  })
+  const dedup = (arr) => {
+    const seen = new Set()
+    return arr.filter((p) => {
+      const key = p.name.toLowerCase().replace(/\s+/g, ' ')
+      if (seen.has(key)) return false
+      seen.add(key)
+      return true
+    })
+  }
+  const all = [...products.values()]
+  // produtos da planilha usam a coluna "categoria" — comparação tolerante a
+  // singular/plural, para links fixos (#/categoria/cimento) continuarem
+  // funcionando se a planilha disser "Cimentos"
+  let list = dedup(all.filter((p) => p.cat && sameSlug(p.cat, slug)))
+  // sem nenhum produto pela coluna, cai no padrão de nome da categoria fixa
+  // (também cobre o plano B, quando a planilha não carregou)
+  if (!list.length && staticCat) list = dedup(all.filter((p) => staticCat.test.test(p.name)))
   const categoriaLink = waLink(msgCategoria(cat.name))
   host.innerHTML = `
     <div class="container">
