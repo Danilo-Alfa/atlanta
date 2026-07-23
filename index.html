@@ -13,10 +13,9 @@
     <link rel="preload" as="image" href="/assets/img-hero-bf-768.webp" media="(max-width: 768px)" fetchpriority="high" />
     <!-- fonte principal do texto: evita a troca tardia após o CSS -->
     <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/maven-pro-400.woff2" crossorigin />
-    <!-- catálogo vem da planilha publicada: baixa o CSV em paralelo com o JS
-         (manter a URL igual à CATALOG_URL de src/config.js; se divergirem, o
-         site continua funcionando — só perde o adiantamento) -->
-    <link rel="preload" as="fetch" href="https://docs.google.com/spreadsheets/d/e/2PACX-1vTcM837zqsyDwbQ1j9ILkaTGZCtsyt796NcxKJ_0Ed9FcqTo2HaG0gr_jj2U4xcslxm-jt7KRlxSplw/pub?gid=665645625&single=true&output=csv" crossorigin />
+    <!-- catálogo vem da planilha publicada: abre a conexão antecipadamente.
+         (NÃO usar rel=preload no CSV: o download compete com o CSS e a
+         imagem do LCP na banda limitada do mobile — testado, piora o score) -->
     <link rel="preconnect" href="https://docs.google.com" crossorigin />
     <title>BateForte Materiais para Construção</title>
   </head>
