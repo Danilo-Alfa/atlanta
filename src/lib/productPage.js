@@ -166,7 +166,7 @@ function render(prod) {
       <div class="bf-pdp__grid">
         <div class="bf-pdp__image">
           ${prod.tag ? `<span class="bf-pdp__tag">${esc(prod.tag)}</span>` : ''}
-          <img src="${esc(prod.img)}" alt="${esc(prod.name)}">
+          <img src="${esc(prod.img)}" alt="${esc(prod.name)}" width="600" height="600">
         </div>
         <div class="bf-pdp__info">
           <h1 class="bf-pdp__name">${esc(prod.name)}</h1>

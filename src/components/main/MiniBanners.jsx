@@ -15,7 +15,15 @@ export default function MiniBanners() {
         {banners.map((b) => (
           <div className="item" key={b.href}>
             <a href={b.href} className="item-image" aria-label={b.alt} ref={rawStyle('--padding:115.38461538462%')}>
-              <img loading="lazy" src={b.img} alt={b.alt} width="416" height="480" />
+              <img
+                loading="lazy"
+                src={b.img}
+                srcSet={`${b.img.replace('.webp', '-416.webp')} 416w, ${b.img} 832w`}
+                sizes="(max-width: 768px) 100vw, 33vw"
+                alt={b.alt}
+                width="416"
+                height="480"
+              />
             </a>
           </div>
         ))}
