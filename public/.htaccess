@@ -1,7 +1,9 @@
 # Configuração para hospedagem compartilhada Hostinger (Apache/LiteSpeed)
 # Este arquivo é copiado para dist/ no build e publicado na branch deploy.
 
-# Domínio canônico: redireciona www -> raiz e força HTTPS (301)
+# Domínio canônico: www -> raiz e HTTP -> HTTPS, sempre em UM ÚNICO 301
+# (cadeias de redirect penalizam o Lighthouse em "Avoid multiple page
+# redirects"; cada regra abaixo já entrega o destino final direto).
 # Para inverter (raiz -> www), troque a condição por %{HTTP_HOST} !^www\. e
 # o destino por https://www.jotabateforte.com.br/$1
 <IfModule mod_rewrite.c>
@@ -12,20 +14,45 @@
   RewriteRule ^(.*)$ https://%{HTTP_HOST}/$1 [R=301,L]
 </IfModule>
 
-# Compressão gzip
+# Tipos corretos para fontes (evita download sem cache/compressão adequados)
+<IfModule mod_mime.c>
+  AddType font/woff2 .woff2
+  AddType font/woff .woff
+</IfModule>
+
+# Compressão gzip (woff2/webp já são comprimidos, não entram)
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
 </IfModule>
 
-# Cache do navegador — assets do Vite têm hash no nome, podem ser cacheados por muito tempo
+# Cache do navegador
 <IfModule mod_expires.c>
   ExpiresActive On
+  # HTML nunca cacheia: é ele que aponta para os assets com hash novos
   ExpiresByType text/html "access plus 0 seconds"
+  # CSS/JS do Vite têm hash no nome -> 1 ano
   ExpiresByType text/css "access plus 1 year"
   ExpiresByType application/javascript "access plus 1 year"
-  ExpiresByType image/webp "access plus 1 month"
-  ExpiresByType image/png "access plus 1 month"
-  ExpiresByType image/jpeg "access plus 1 month"
-  ExpiresByType image/svg+xml "access plus 1 month"
-  ExpiresByType image/x-icon "access plus 1 month"
+  # Fontes nunca mudam -> 1 ano
+  ExpiresByType font/woff2 "access plus 1 year"
+  ExpiresByType font/woff "access plus 1 year"
+  # Imagens de /assets têm nome estável; 6 meses equilibra cache e troca de arte
+  ExpiresByType image/webp "access plus 6 months"
+  ExpiresByType image/png "access plus 6 months"
+  ExpiresByType image/jpeg "access plus 6 months"
+  ExpiresByType image/svg+xml "access plus 6 months"
+  ExpiresByType image/x-icon "access plus 6 months"
+  ExpiresByType image/gif "access plus 6 months"
+</IfModule>
+
+# immutable: o navegador não revalida nem no F5. Só para arquivos
+# versionados (CSS/JS com hash do Vite) e fontes; imagens ficam de fora
+# porque a arte pode ser trocada mantendo o mesmo nome de arquivo.
+<IfModule mod_headers.c>
+  <FilesMatch "\.(css|js|woff2?)$">
+    Header append Cache-Control "immutable"
+  </FilesMatch>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
 </IfModule>
