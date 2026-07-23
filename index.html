@@ -8,9 +8,13 @@
     <meta name="author" content="Tray Tecnologia" />
     <meta name="description" content="BateForte Materiais para Construção — Jota Atacadista. Cimento, areia, ferro, elétrica, hidráulica, madeiras, telhas e tintas. O seu estoque é aqui! Peça pelo WhatsApp (11) 94325-9368." />
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
-    <!-- banner principal: pré-carrega a arte certa para acelerar o LCP -->
-    <link rel="preload" as="image" href="/assets/img-12ea4fb8d6d1.webp" media="(min-width: 769px)" />
-    <link rel="preload" as="image" href="/assets/img-banner-mobile-bf.webp" media="(max-width: 768px)" />
+    <!-- banner principal (LCP): pré-carrega a arte certa por tamanho de tela -->
+    <link rel="preload" as="image" href="/assets/img-hero-bf.webp" media="(min-width: 769px)" fetchpriority="high" />
+    <link rel="preload" as="image" href="/assets/img-hero-bf-768.webp" media="(max-width: 768px)" fetchpriority="high" />
+    <!-- fonte principal do texto: evita a troca tardia após o CSS -->
+    <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/maven-pro-400.woff2" crossorigin />
+    <!-- catálogo vem da planilha publicada: abre a conexão antecipadamente -->
+    <link rel="preconnect" href="https://docs.google.com" crossorigin />
     <title>BateForte Materiais para Construção</title>
   </head>
   <body class="user-not-is-logged">
