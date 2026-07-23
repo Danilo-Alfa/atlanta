@@ -7,7 +7,9 @@
 import { CATALOG_URL } from '../config.js'
 import { msgProduto, waLink } from './whatsapp.js'
 
-const FETCH_TIMEOUT_MS = 4000
+// Em conexões lentas (celular, navegador do WhatsApp) 4s não bastavam e o
+// site caía no catálogo embutido antigo — por isso a folga maior.
+const FETCH_TIMEOUT_MS = 15000
 
 // Todos os produtos da planilha (não só os que entram numa vitrine da
 // home). A página de departamento, a busca e a página de produto usam
