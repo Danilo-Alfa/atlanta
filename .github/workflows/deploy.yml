@@ -1,0 +1,45 @@
+name: Build e publicar no branch deploy
+
+# Dispara a cada push no branch principal
+on:
+  push:
+    branches:
+      - main
+
+# O GITHUB_TOKEN precisa de permissao de escrita para criar/atualizar o branch deploy
+permissions:
+  contents: write
+
+# Evita dois deploys simultaneos sobrescrevendo o branch deploy ao mesmo tempo
+concurrency:
+  group: deploy-branch
+  cancel-in-progress: true
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do codigo
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Instalar dependencias
+        run: npm ci
+
+      - name: Build de producao
+        run: npm run build
+
+      - name: Publicar conteudo de dist/ no branch deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: deploy
+          publish_dir: ./dist
+          user_name: 'github-actions[bot]'
+          user_email: 'github-actions[bot]@users.noreply.github.com'
+          commit_message: 'deploy: build automatico a partir de ${{ github.sha }}'
